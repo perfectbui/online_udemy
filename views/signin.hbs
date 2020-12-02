@@ -1,0 +1,26 @@
+<form class="form-signin" method="POST" action="/signin">
+      {{#if this.message}}
+        <div class="signin-fail">Sign In Failed !!!</div> 
+      {{/if}}
+        <h2>SIGN IN</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+        />
+        <button
+          class="btn-sign-in"
+          type="submit"
+        >
+          Sign-In
+        </button>
+       <button class="btn-sign-up">
+          Create A New Account
+        </button>
+</form>
+<script type="module" src="/js/signin.js"></script>

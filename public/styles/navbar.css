@@ -1,0 +1,11 @@
+.nav-item {
+    margin-left:20px;
+}
+
+.nav-item .active {
+    border-bottom: 2px solid white;
+}
+
+#search input {
+    width:300px;
+}
