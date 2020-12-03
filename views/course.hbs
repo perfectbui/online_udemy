@@ -18,17 +18,7 @@
                 <div class="col-12 mb-0">
                     <div class="sm-container">
                         <center><h3>Description</h3></center>
-                        <ul>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Giúp đỡ học viên tăng thêm kiến thức về NodeJS</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Nắm vững được căn bản</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Kiến thức gần gũi với thực tế</li>
-                        </ul>
-                        <ul>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Giúp đỡ học viên tăng thêm kiến thức về NodeJS</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Nắm vững được căn bản</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Kiến thức gần gũi với thực tế</li>
-                        </ul>
-                        
+                     {{this.course.detailContent}}
                     </div>
                     
                 </div>
@@ -40,8 +30,8 @@
         <h5>Online course to open ...</h5>
         <p class="mb-2 text-muted text-uppercase small">Categories</p>
         <p>
-            <span class="mr-1" style="text-decoration: line-through;"><strong>1$</strong></span>
-            <span class="mr-1"><strong>Sale 0.5$</strong></span>
+            <span class="mr-1" style="text-decoration: line-through;"><strong>{{this.course.price}}$</strong></span>
+            {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
         </p>
         <button type="button" class="btn btn-dark btn-md mr-1 mb-2"><i class="fa fa-heart"></i> Wishlist</button>
         <p class="pt-1">Vô học đi tụi ngu lz</p>
@@ -50,7 +40,7 @@
             <tbody>
                 <tr>
                 <th class="pl-0 w-25" scope="row"><strong>Created by</strong></th>
-                <td>{{this.teacher.userName}}</td>
+                <td>{{this.course.teacher.userName}}</td>
                 </tr>
                 <tr>
                 <th class="pl-0 w-25" scope="row"><strong>Rating</strong></th>
@@ -65,16 +55,16 @@
                 <td>1000000</td>
                 </tr>
                 <tr>
-                <th class="pl-0 w-25" scope="row"><strong>Details</strong></th>
-                <td>Hướng dẫn sử dụng NodeJS</td>
+                <th class="pl-0 w-25" scope="row"><strong>Main Content</strong></th>
+                <td>{{this.course.mainContent}}</td>
                 </tr>
                 <tr>
                 <th class="pl-0 w-25" scope="row"><strong>Registered</strong></th>
-                <td>100000</td>
+                <td>{{this.course.timeCreated}}</td>
                 </tr>
                 <tr>
                 <th class="pl-0 w-25" scope="row"><strong>Last Updated</strong></th>
-                <td>100000</td>
+                <td>{{this.course.lastUpdated}}</td>
                 </tr>
             </tbody>
             </table>
@@ -194,7 +184,7 @@
             <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
         </div>
         <div class="author" style="margin-left: 20px;">
-            <p>Name of author</p>
+            <p>Name of author : {{this.course.teacher.userName}}</p>
             <p>Name of degree</p>
             <p>Decription</p>
         </div>
