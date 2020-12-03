@@ -13,6 +13,8 @@ function issueJwt(user, res) {
     age: user.age,
     phone: user.phone,
     address: user.address,
+    isTeacher:user.isTeacher,
+    isStudent:user.isStudent,
     iat: Date.now(),
   };
 

@@ -6,10 +6,12 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const validate = require('../middlewares/validate');
 
-router.get("/",(req,res)=> res.render("signup"));
+router.get("/teacher",(req,res)=> res.render("signup/teacher"));
+
+router.get("/student",(req,res)=> res.render("signup/student"));
 
 router.post(
-	'/',
+	'/student',
 	validate.register,
 	validate.checkEmailExist,
 	async (req, res) => {
@@ -24,6 +26,36 @@ router.post(
 				password: hashPassword,
 				address,
 				phone,
+				isStudent:true,
+				age: parseInt(age, 10),
+			});
+
+			await newUser.save();
+			// User1.insert(userName, email, hashPassword, parseInt(age, 10), address, phone);
+            res.redirect("/signin");
+		} catch (err) {
+			res.render('signup',{message:"Sign Up Failed"});
+		}
+	}
+);
+
+router.post(
+	'/teacher',
+	validate.register,
+	validate.checkEmailExist,
+	async (req, res) => {
+		try {
+			let { userName, email, password, age, address, phone } = req.body;
+
+			const hashPassword = await bcrypt.hash(password, saltRounds);
+
+			const newUser = new User({
+				userName,
+				email,
+				password: hashPassword,
+				address,
+				phone,
+				isTeacher:true,
 				age: parseInt(age, 10),
 			});
 
