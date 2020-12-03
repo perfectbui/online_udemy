@@ -36,7 +36,7 @@ mongoose
   .then(() => {})
   .catch((err) => console.log(err));
 
-app.use(express.static(__dirname + "/public/"));
+app.use(express.static(__dirname + "/public"));
 
 app.engine(
   "hbs",
@@ -55,7 +55,7 @@ app.use("/signin", require("./routes/signin"));
 app.use("/logout", require("./routes/logout"));
 app.use("/upload", require("./routes/upload"));
 app.use("/profile",require("./routes/profile"));
-app.use("/courseDetail",require("./routes/courseDetail"));
+app.use("/course",require("./routes/course"));
 
 
 // app.use('/api/signin', require('./routes/login'));
