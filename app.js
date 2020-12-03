@@ -54,7 +54,9 @@ app.use("/signup", require("./routes/register"));
 app.use("/signin", require("./routes/signin"));
 app.use("/logout", require("./routes/logout"));
 app.use("/upload", require("./routes/upload"));
-app.use("/profile",require("./routes/profile"))
+app.use("/profile",require("./routes/profile"));
+app.use("/courseDetail",require("./routes/courseDetail"));
+
 
 // app.use('/api/signin', require('./routes/login'));
 // app.use('/api/user', require('./routes/user'));
