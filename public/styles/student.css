@@ -21,11 +21,9 @@ body {
 
 .profile-userpic img {
   float: none;
-  margin: 0 auto;
-  width: 50%;
-  height: 50%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
+  /* margin: 0 auto; */
+  width: 150px;
+  height: 150px;
   border-radius: 50% !important;
 }
 
@@ -116,6 +114,29 @@ body {
   background: #fff;
   min-height: 460px;
 }
+.profile-content btn-edit-cont{
+  align-items: flex-end;
+  
+}
+ .row-content{
+  border-top: 1px solid #b2dbf0;
+
+    width: 750px;
+    height: 50px;
+    display: flex;
+}
+.col-content{
+  width: 200px;
+  
+}
+.col-content p{
+    align-items: center;
+    margin-top: 12px;
+    color: gray;
+}
 .row #menu a{
   min-width: 247.5px;
+}
+.card-footer{ 
+  float: right;
 }
