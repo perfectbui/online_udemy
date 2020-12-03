@@ -11,5 +11,16 @@
 .review-icon img{
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    
+}
+.author-container {
+    width: 80%;
+    border-radius: 5px;
+    background-color:grey;
+    padding: 20px;
+    margin: auto;
+    height: 10%;
+    display: flex;
     
 }
