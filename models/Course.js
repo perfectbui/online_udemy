@@ -10,9 +10,17 @@ const CourseSchema = new schema({
     type: String,
     required: true,
   },
+  mainContent: {
+    type: String,
+    required: true,
+  },
+  detailContent: {
+    type: String,
+    required: true,
+  },
   teacher: {
     type: schema.Types.ObjectId,
-    ref:'User'
+    ref: "User",
   },
   rating: {
     type: String,
@@ -28,16 +36,17 @@ const CourseSchema = new schema({
   content: {
     type: String,
   },
-  student: {
-    type: String,
-  },
+  student: [{
+    type: schema.Types.ObjectId,
+    ref: "User",
+  }],
   lastUpdated: {
     type: Date,
   },
-  timeCreated : {
-    type:Date,
-    default:Date.now()
-  }
+  timeCreated: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 const Course = mongoose.model("Course", CourseSchema);

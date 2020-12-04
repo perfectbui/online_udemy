@@ -9,11 +9,13 @@ const UserSchema = new schema({
   },
   password: {
     type: String,
+    required: true,
   },
   userName: {
     type: String,
     required: true,
   },
+  degree: String,
   age: Number,
   address: String,
   phone: String,

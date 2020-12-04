@@ -1,16 +1,11 @@
 <form class="form-upload-course">
-    <h2>Upload Course</h2>
-    <input type="text" placeholder="Name" id="name-course" 
-    />
-    <input type="text" placeholder="Field" id="field-course" 
-    />
-    <input type="file" placeholder="Image" id="image-course" 
-    />
-    <input type="number" placeholder="Price" id="price-course" 
-    />
-    <button class="btn-upload-course">
-        Upload Course
-    </button>
+  <h2>Upload Course</h2>
+  <input type="text" placeholder="Name" id="name-course" />
+  <input type="text" placeholder="Field" id="field-course" />
+  <input type="text" placeholder="Main Content" id="main-content" />
+  <input type="file" placeholder="Image" id="image-course" />
+  <input type="number" placeholder="Price" id="price-course" />
+
 </form>
 <div class="container mt-4 mb-4">
   <div class="row justify-content-md-center">
@@ -18,9 +13,12 @@
       <h1 class="h2 mb-4">Detail Course</h1>
       <label>Describe the course in detail</label>
       <div class="form-group">
-         <textarea id="editor"></textarea>
+        <textarea id="editor"></textarea>
       </div>
-      <button  class="btn btn-primary post-detail">Submit</button>
+      {{!-- <button  class="btn btn-primary post-detail">Submit</button> --}}
+      <button class="btn-upload-course">
+        Upload Course
+      </button>
     </div>
   </div>
 </div>

@@ -1,12 +1,11 @@
-document.querySelector('.nav-link.active').classList.remove('active');
-document.querySelector('.nav-link.upload-course').classList.add('active');
+document.querySelector(".nav-link.active").classList.remove("active");
+document.querySelector(".nav-link.upload-course").classList.add("active");
 
-
-document.querySelector(".post-detail").addEventListener("click",(event)=>{
-  event.preventDefault();
-  let htmlToLoad = tinyMCE.get('editor').getContent();
-  console.log(htmlToLoad)
-})
+// document.querySelector(".post-detail").addEventListener("click", (event) => {
+//   event.preventDefault();
+//   let htmlToLoad = tinyMCE.get("editor").getContent();
+//   console.log(htmlToLoad);
+// });
 
 document
   .querySelector(".btn-upload-course")
@@ -14,8 +13,10 @@ document
     event.preventDefault();
     if (document.getElementById("image-course")) {
       const formData = new FormData();
-      formData.append("image", document.getElementById("image-course").files[0]);
-      console.log(formData);
+      formData.append(
+        "image",
+        document.getElementById("image-course").files[0]
+      );
       axios({
         method: "post",
         url: "/upload/image",
@@ -30,10 +31,12 @@ document
           const price = document.getElementById("price-course").value;
           const field = document.getElementById("field-course").value;
           const name = document.getElementById("name-course").value;
+          const mainContent = document.getElementById("main-content").value;
+          const detailContent = tinyMCE.get("editor").getContent();
           axios({
             method: "post",
             url: "/upload/course",
-            data: { name, price, image, field },
+            data: { name, price, image, field, mainContent, detailContent },
             headers: {
               "X-Requested-with": "XMLHttpRequest",
             },

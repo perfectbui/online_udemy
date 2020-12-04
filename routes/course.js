@@ -6,8 +6,7 @@ router.get("/:id",async (req,res)=>{
     const idCourse = req.params.id;
     const existedCourse = await  Course.findById(idCourse).populate('teacher').lean();
     if(existedCourse) {
-        console.log(existedCourse)
-        res.render("course", {course:existedCourse})
+        res.render("course", {course:existedCourse,rating:[1,2,3,4]})
     } else {
         res.send({message:"course not found"})
     }

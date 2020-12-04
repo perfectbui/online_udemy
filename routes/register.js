@@ -16,7 +16,7 @@ router.post(
 	validate.checkEmailExist,
 	async (req, res) => {
 		try {
-			let { userName, email, password, age, address, phone } = req.body;
+			let { userName, email, password, age, address, phone,degree } = req.body;
 
 			const hashPassword = await bcrypt.hash(password, saltRounds);
 
@@ -26,6 +26,7 @@ router.post(
 				password: hashPassword,
 				address,
 				phone,
+				degree,
 				isStudent:true,
 				age: parseInt(age, 10),
 			});
@@ -55,6 +56,7 @@ router.post(
 				password: hashPassword,
 				address,
 				phone,
+				degree,
 				isTeacher:true,
 				age: parseInt(age, 10),
 			});

@@ -37,12 +37,16 @@ router.post("/image",
   router.post('/course', authenticate, async (req, res) => {
     try {
       const idUserPost = req.decoded._id;
-      const { name, field,price, image } = req.body;
+      const {mainContent,detailContent, name, field,price, image } = req.body;
       const newCourse = new Course({
         name,
         field,
         price,
         image,
+        mainContent,
+        detailContent,
+        timeCreated: Date.now(),
+        lastUpdated:Date.now(),
         teacher: idUserPost,
       });
       await newCourse.save();

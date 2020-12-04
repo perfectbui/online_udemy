@@ -1,20 +1,15 @@
 <form class="form-signup" method="POST" action="/signup/student">
-   {{#if this.message}}
-       <div class="signup-fail">Sign Up Failed !!!</div>
-   {{/if}}
+    {{#if this.message}}
+    <div class="signup-fail">Sign Up Failed !!!</div>
+    {{/if}}
     <h2>SIGN UP FOR STUDENT</h2>
-    <input type="text" placeholder="UserName" name="userName"
-    />
-    <input type="email" placeholder="Email" name="email"
-    />
-    <input type="password" placeholder="Password" name="password" 
-    />
-    <input type="text" placeholder="Age" name="age"
-    />
-    <input type="text" placeholder="Address" name="address"
-    />
-    <input type="text" placeholder="Phone Number" name="phone"
-    />
+    <input type="text" placeholder="UserName" name="userName" />
+    <input type="email" placeholder="Email" name="email" />
+    <input type="password" placeholder="Password" name="password" />
+    <input type="text" placeholder="Age" name="age" />
+    <input type="text" placeholder="Degree" name="degree" />
+    <input type="text" placeholder="Address" name="address" />
+    <input type="text" placeholder="Phone Number" name="phone" />
     <button class="sign-up" type="submit">
         Sign Up
     </button>
