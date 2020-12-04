@@ -1,8 +1,9 @@
 <!--Section: Block Content-->
+<div hidden id="get-course-id">{{this.course._id}}</div>
+<div hidden id="get-course">{{this.course}}</div>
 <div class="card-body">
     <div class="container-course">
         <section class="mb-5">
-
             <div class="row">
                 <div class="col-md-6 mb-4 mb-md-0">
                     <div class="mdb-lightbox">
@@ -28,19 +29,23 @@
                 </div>
                 <div class="col-md-6">
 
-                    <h5>Online course to open ...</h5>
-                    <p class="mb-2 text-muted text-uppercase small">Categories</p>
+                    <h5>{{this.course.name}}</h5>
+                    {{!-- <p class="mb-2 text-muted text-uppercase small">Categories</p> --}}
                     <p>
                         <span class="mr-1"
                             style="text-decoration: line-through;"><strong>{{this.course.price}}$</strong></span>
                         {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
                     </p>
-                    <button type="button" class="btn btn-dark btn-md mr-1 mb-2"><i class="fa fa-heart"></i>
-                        Wishlist</button>
-                    <p class="pt-1">Khóa học NodeJS sẽ giúp bạn hiểu rõ các vấn đề cơ bản</p>
+                    <button type="button" id="btn-add-watch-list" class="btn btn-dark btn-md mr-1 mb-2"><i class="fa fa-heart"></i>
+                        WatchList</button>
+                    <p class="pt-1">{{this.course.mainContent}}</p>
                     <div class="table-responsive">
                         <table class="table table-sm table-borderless mb-0" style="width:95%">
                             <tbody>
+                                 <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Field</strong></th>
+                                    <td>{{this.course.field}}</td>
+                                </tr>
                                 <tr>
                                     <th class="pl-0 w-25" scope="row"><strong>Created by</strong></th>
                                     <td>{{this.course.teacher.userName}}</td>
@@ -61,10 +66,6 @@
                                 <tr>
                                     <th class="pl-0 w-25" scope="row"><strong>Views</strong></th>
                                     <td>{{this.course.student.length}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="pl-0 w-25" scope="row"><strong>Main Content</strong></th>
-                                    <td>{{this.course.mainContent}}</td>
                                 </tr>
                                 <tr>
                                     <th class="pl-0 w-25" scope="row"><strong>Registered</strong></th>
@@ -97,7 +98,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
+                    <button type="button" class="btn btn-primary btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
                     <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
                             class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
                 </div>
@@ -127,62 +128,9 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="images/user-1.png">
+                    <img src={{this.course.image}}>
                     <h3>Sean Parker</h3>
                 </div>
-                <div class="col-3">
-                    <i class="fa fa-quote-left"></i>
-                    <p>Text</p>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <img src="images/user-2.png">
-                    <h3>Alex Smith</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fa fa-quote-left"></i>
-                    <p>Text</p>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <img src="images/user-3.png">
-                    <h3>Ronaldo</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fa fa-quote-left"></i>
-                    <p>Text</p>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <img src="images/user-3.png">
-                    <h3>Ronaldo</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fa fa-quote-left"></i>
-                    <p>Text</p>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <img src="images/user-3.png">
-                    <h3>Ronaldo</h3>
-                </div>
-
             </div>
 
 
@@ -282,14 +230,13 @@
                 <img src="https://transang.me/content/images/2019/01/1200px-Python.svg.png" alt="">
             </div>
             <div class="author" style="margin-left: 20px;">
-                <p>Name of author : {{this.course.teacher.userName}}</p>
-                <p>Name of degree</p>
+                <p>Name of author: {{this.course.teacher.userName}}</p>
+                <p>Name of degree:  {{this.course.teacher.degree}}</p>
                 <p>Decription</p>
             </div>
 
         </div>
     </div>
-    <input value={{this.course.detailContent}} id="data-course" />
     <script type="module" src="/js/course.js">
     </script>
 

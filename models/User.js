@@ -19,6 +19,16 @@ const UserSchema = new schema({
   age: Number,
   address: String,
   phone: String,
+  myCourses:[{
+    type: schema.Types.ObjectId,
+    ref: "Course",
+  }],
+  watchList: [
+    {
+      type: schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
   isTeacher: {
     type: Boolean,
     default: false,
