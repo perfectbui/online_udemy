@@ -135,6 +135,11 @@ body {
     margin-top: 12px;
     color: gray;
 }
+.col-content input{
+  align-items: center;
+  margin-top: 12px;
+  color: gray;
+}
 .row #menu a{
   min-width: 247.5px;
   align-items: center;
