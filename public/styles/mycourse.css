@@ -1,0 +1,79 @@
+.profile-content-course {
+    padding: 20px;
+    background: #fff;
+    min-height: 600px;
+    
+  }
+.card-mycourse{
+    width: 250px;
+    height: 260px;
+    
+}
+.course-card{
+    width: 231px;
+    height: 250px;
+    box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 0.5px solid rgb(214, 212, 212);
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.course-card-detail{
+    margin-left: 5px;
+    margin-top: 5px;
+    color: gray;
+    
+}
+.course-card-detail p{
+    line-height: 10px;
+}
+
+.plyr__video-embed{
+    display: flex;
+   flex-wrap: wrap;
+}
+.plyr__video-embed #card{
+    text-decoration: none;
+    flex-basis: 25%;
+    
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+
+.course-card:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+.my-course-name{
+    font-size: 20px;
+}
+.my-course-price{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.sale-price span{
+    font-size: 25px;
+    color: black;
+    margin-left: 5px;
+}
+.origin-price span{
+    text-decoration: line-through;
+}
+.card-mycourse-wishlist{
+    width: 250px;
+    height: 300px;
+    
+}
+.course-card-wishlist{
+    width: 231px;
+    height: 290px;
+    box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 0.5px solid rgb(214, 212, 212);
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.course-card-wishlist:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}

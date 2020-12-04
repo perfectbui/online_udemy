@@ -79,7 +79,7 @@
    width: 80%;
    margin-left: 150px;
 }
-.row a{
+.row #tag-a-detail{
     flex-basis: 25%;
     padding: 10px;
     min-width: 300px;

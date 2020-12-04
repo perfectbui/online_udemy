@@ -89,6 +89,7 @@ body {
   height: 50px;
   text-decoration: none;
   display: block;
+  
 }
 
 #menu ul li a:hover {
@@ -136,6 +137,7 @@ body {
 }
 .row #menu a{
   min-width: 247.5px;
+  align-items: center;
 }
 .card-footer{ 
   float: right;
