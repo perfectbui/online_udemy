@@ -1,0 +1,268 @@
+<!--Section: Block Content-->
+<div class="card-body">
+    <div class="container-course">
+         <section class="mb-5">
+
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+        <div class="mdb-lightbox">
+            <div class="row product-gallery mx-1">
+                <div class="col-12 mb-0">
+                    <figure class="view overlay rounded z-depth-1 main-img">
+                    <a href="https://nordiccoder.com/app/uploads/2019/08/26-nodejs.png"
+                        data-size="710x823" id="#tag-a-detail">
+                        <img src="https://nordiccoder.com/app/uploads/2019/08/26-nodejs.png"
+                        class="img-fluid z-depth-1">
+                    </a>
+                    </figure>
+                </div>
+                <div class="col-12 mb-0">
+                    <div class="col-1-courseDetail">
+                        <center><h3>Description</h3></center>
+                     {{this.course.detailContent}}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>  
+        </div>
+        <div class="col-md-6">
+
+        <h5>Online course to open ...</h5>
+        <p class="mb-2 text-muted text-uppercase small">Categories</p>
+        <p>
+            <span class="mr-1" style="text-decoration: line-through;"><strong>{{this.course.price}}$</strong></span>
+            {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
+        </p>
+        <button type="button" class="btn btn-dark btn-md mr-1 mb-2"><i class="fa fa-heart"></i> Wishlist</button>
+        <p class="pt-1">Khóa học NodeJS sẽ giúp bạn hiểu rõ các vấn đề cơ bản</p>
+        <div class="table-responsive">
+            <table class="table table-sm table-borderless mb-0" style="width:95%">
+            <tbody>
+                <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Created by</strong></th>
+                <td>{{this.course.teacher.userName}}</td>
+                </tr>
+                <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Rating</strong></th>
+                <td>
+                        <div class=" text-warning">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Views</strong></th>
+                <td>1000000</td>
+                </tr>
+                <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Main Content</strong></th>
+                <td>{{this.course.mainContent}}</td>
+                </tr>
+                <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Registered</strong></th>
+                <td>{{this.course.timeCreated}}</td>
+                </tr>
+                <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Last Updated</strong></th>
+                <td>{{this.course.lastUpdated}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        
+        <div class="table-responsive mb-2">
+            <table class="table table-sm table-borderless">
+            <tbody>
+                <tr>
+                <td class="pl-0">
+                    <div class="def-number-input number-input safari_only mb-0">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                        class="minus"></button>
+                    <input class="quantity" min="0" name="quantity" value="1" type="number">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                        class="plus"></button>
+                    </div>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
+        <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
+            class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+        </div>
+    </div>
+
+    </section>
+    </div>
+   
+
+    <hr style="border-width:3px">        
+    
+        
+    <div class="testimonial">
+    <div class="small-container">
+        
+         <div class="h2-align"><H2>Best Seller</H2></div>
+        <div class="row-2">
+            <div class="col-3">
+                <i class="fa fa-quote-left" ></i>
+                <p>Text </p>
+                <div class="rating">
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-1.png">
+                <h3>Sean Parker</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left" ></i>
+                <p>Text</p>
+                <div class="rating">
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-2.png">
+                <h3>Alex Smith</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left" ></i>
+                <p>Text</p>
+                <div class="rating">
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-3.png">
+                <h3>Ronaldo</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left" ></i>
+                <p>Text</p>
+                <div class="rating">
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-3.png">
+                <h3>Ronaldo</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left" ></i>
+                <p>Text</p>
+                <div class="rating">
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star" ></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <img src="images/user-3.png">
+                <h3>Ronaldo</h3>
+            </div>
+        
+    </div>
+
+            
+        </div>
+        
+     <hr style="border-width:3px">
+   
+     <div class="card" style="width:50%;">
+        <h5 class="card-header">Content</h5>
+        <div class="card-body">
+            <h5 class="card-title">Phần 1</h5>
+            <ul>
+                <li class="">
+                    <a href="">
+                        <h5>Bài 1: Giới thiệu tổng quan</h5>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="">
+                        <h5>Bài 2: Giới thiệu NodeJS</h5>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+     <hr style="border-width:3px">
+   <div class="h2-align"><H2>Reviews</H2></div>
+    <div class="review-container">
+        <div class="review-icon">
+            <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
+        </div>
+        <div class="review" style="margin-left: 20px;">
+            <p>A Great course for someone who wants to get started with Python.</p>
+            <p>The exercises and challenges really helped and forced me to apply what was taught in each section.</p>
+            <P>The puzzlers in between also helped keep things interesting from time to time</P>
+            <div class=" text-warning">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                <Span style="color: black;font-size:large">Great</Span>
+            </div>
+        </div>
+    </div>
+   <center><hr style="border-width:2px;width:60%;"></center> 
+   <div class="review-container">
+        <div class="review-icon">
+            <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
+        </div>
+        <div class="review" style="margin-left: 20px;">
+            <p>A Great course for someone who wants to get started with Python.</p>
+            <p>The exercises and challenges really helped and forced me to apply what was taught in each section.</p>
+            <P>The puzzlers in between also helped keep things interesting from time to time</P>
+            <div class=" text-warning">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                <Span style="color: black;font-size:large">Great</Span>
+            </div>
+        </div>
+    </div>
+   <center><hr style="border-width:2px; width:60%; "></center>
+   <div class="review-container">
+        <div class="review-icon">
+            <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
+        </div>
+        <div class="review" style="margin-left: 20px;">
+            <p>A Great course for someone who wants to get started with Python.</p>
+            <p>The exercises and challenges really helped and forced me to apply what was taught in each section.</p>
+            <P>The puzzlers in between also helped keep things interesting from time to time</P>
+            <div class=" text-warning">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                <Span style="color: black;font-size:large">Great</Span>
+            </div>
+        </div>
+    </div>
+    <div class="review-container-2">
+             <div class="form-group" style="width:100%">
+                <label for="exampleFormControlTextarea1">Reviews</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:100%"></textarea>
+            </div>
+            <a name="" id="" class="btn btn-primary" href="#" role="button" style="width:100%;">Gửi</a>
+    </div>
+    <hr style="border-width:3px">
+   <div class="h2-align"><H2>Author</H2></div>
+   <div class="author-container">
+        <div class="author-icon">
+            <img src="https://transang.me/content/images/2019/01/1200px-Python.svg.png" alt="">
+        </div>
+        <div class="author" style="margin-left: 20px;">
+            <p>Bùi Hoàn Hảo</p>
+            <p>Tốt nghiệp trường đời</p>
+            <p>Mô tả: Web designer,web coder, back-end, font-end, database, thuật toán, hệ điều hành, cấu trúc dữ liệu và giải thuật đều nắm rõ trong lòng bàn tay. Luôn luôn đem kiến thức đến với mọi người</p>
+        </div>
+        
+    </div>
+</div>
+
+<!--Section: Block Content-->
