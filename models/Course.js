@@ -33,13 +33,15 @@ const CourseSchema = new schema({
     type: Number,
     required: true,
   },
-  content: {
-    type: String,
-  },
-  student: [{
-    type: schema.Types.ObjectId,
-    ref: "User",
-  }],
+  comments: [
+    { user: { type: schema.Types.ObjectId, ref: "User" }, content: String },
+  ],
+  student: [
+    {
+      type: schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   lastUpdated: {
     type: Date,
   },

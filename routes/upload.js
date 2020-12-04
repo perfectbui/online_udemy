@@ -68,7 +68,9 @@ router.post("/watchlist", authenticate, async (req, res) => {
     const idUser = req.decoded._id;
     const { idCourse } = req.body;
     const existedUser = await User.findById(idUser);
-    existedUser.watchList = existedUser.watchList.filter(course => course != idCourse)
+    existedUser.watchList = existedUser.watchList.filter(
+      (course) => course != idCourse
+    );
     existedUser.watchList.push(idCourse);
     await existedUser.save();
     res.status(200).json({
@@ -86,11 +88,30 @@ router.post("/buyCourse", authenticate, async (req, res) => {
     const idUser = req.decoded._id;
     const { idCourse } = req.body;
     const existedUser = await User.findById(idUser);
-    existedUser.myCourses = existedUser.myCourses.filter(course => course != idCourse)
+    existedUser.myCourses = existedUser.myCourses.filter(
+      (course) => course != idCourse
+    );
     existedUser.myCourses.push(idCourse);
     await existedUser.save();
     res.status(200).json({
       user: existedUser,
+    });
+  } catch (err) {
+    res.status(400).json({
+      message: err,
+    });
+  }
+});
+
+router.post("/comment", authenticate, async (req, res) => {
+  try {
+    const idUser = req.decoded._id;
+    const { idCourse, contentComment } = req.body;
+    const existedCourse = await Course.findById(idCourse);
+    existedCourse.comments.push({ user: idUser, content: contentComment });
+    await existedCourse.save();
+    res.status(200).json({
+      course: existedCourse,
     });
   } catch (err) {
     res.status(400).json({

@@ -36,13 +36,14 @@
                             style="text-decoration: line-through;"><strong>{{this.course.price}}$</strong></span>
                         {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
                     </p>
-                    <button type="button" id="btn-add-watch-list" class="btn btn-dark btn-md mr-1 mb-2"><i class="fa fa-heart"></i>
+                    <button type="button" id="btn-add-watch-list" class="btn btn-dark btn-md mr-1 mb-2"><i
+                            class="fa fa-heart"></i>
                         WatchList</button>
                     <p class="pt-1">{{this.course.mainContent}}</p>
                     <div class="table-responsive">
                         <table class="table table-sm table-borderless mb-0" style="width:95%">
                             <tbody>
-                                 <tr>
+                                <tr>
                                     <th class="pl-0 w-25" scope="row"><strong>Field</strong></th>
                                     <td>{{this.course.field}}</td>
                                 </tr>
@@ -160,66 +161,31 @@
         <div class="h2-align">
             <H2>Reviews</H2>
         </div>
+        {{#each this.course.comments}}
         <div class="review-container">
             <div class="review-icon">
                 <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
             </div>
             <div class="review" style="margin-left: 20px;">
-                <p>A Great course for someone who wants to get started with Python.</p>
-                <p>The exercises and challenges really helped and forced me to apply what was taught in each section.
-                </p>
-                <P>The puzzlers in between also helped keep things interesting from time to time</P>
+                <p>{{this.content}}</p>
                 <div class=" text-warning">
                     <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                         class="fa fa-star"></i><i class="fa fa-star"></i>
                     <Span style="color: black;font-size:large">Great</Span>
                 </div>
             </div>
+            
         </div>
-        <center>
+         <center>
             <hr style="border-width:2px;width:60%;">
         </center>
-        <div class="review-container">
-            <div class="review-icon">
-                <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
-            </div>
-            <div class="review" style="margin-left: 20px;">
-                <p>A Great course for someone who wants to get started with Python.</p>
-                <p>The exercises and challenges really helped and forced me to apply what was taught in each section.
-                </p>
-                <P>The puzzlers in between also helped keep things interesting from time to time</P>
-                <div class=" text-warning">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                        class="fa fa-star"></i><i class="fa fa-star"></i>
-                    <Span style="color: black;font-size:large">Great</Span>
-                </div>
-            </div>
-        </div>
-        <center>
-            <hr style="border-width:2px; width:60%; ">
-        </center>
-        <div class="review-container">
-            <div class="review-icon">
-                <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
-            </div>
-            <div class="review" style="margin-left: 20px;">
-                <p>A Great course for someone who wants to get started with Python.</p>
-                <p>The exercises and challenges really helped and forced me to apply what was taught in each section.
-                </p>
-                <P>The puzzlers in between also helped keep things interesting from time to time</P>
-                <div class=" text-warning">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                        class="fa fa-star"></i><i class="fa fa-star"></i>
-                    <Span style="color: black;font-size:large">Great</Span>
-                </div>
-            </div>
-        </div>
+        {{/each}}
         <div class="review-container-2">
             <div class="form-group" style="width:100%">
                 <label for="exampleFormControlTextarea1">Reviews</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="width:100%"></textarea>
+                <textarea class="form-control" id="comment-content" rows="3" style="width:100%"></textarea>
             </div>
-            <a name="" id="" class="btn btn-primary" href="#" role="button" style="width:100%;">Gửi</a>
+            <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button" style="width:100%;">Gửi</a>
         </div>
         <hr style="border-width:3px">
         <div class="h2-align">
@@ -231,7 +197,7 @@
             </div>
             <div class="author" style="margin-left: 20px;">
                 <p>Name of author: {{this.course.teacher.userName}}</p>
-                <p>Name of degree:  {{this.course.teacher.degree}}</p>
+                <p>Name of degree: {{this.course.teacher.degree}}</p>
                 <p>Decription</p>
             </div>
 
