@@ -18,3 +18,7 @@ if (getCookie("headerAndPayload").length > 0) {
       .classList.remove("hide");
   }
 }
+
+// document.querySelector(".backdrop").addEventListener("click",(event)=>{
+//   document.querySelector(".backdrop").classList.add("hide");
+// })

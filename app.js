@@ -8,7 +8,7 @@ const Axios = require("axios");
 const mysql = require("mysql");
 const User1 = require("./models/User1");
 const { response } = require("express");
-const Course = require('./models/Course')
+const Course = require("./models/Course");
 
 require("dotenv").config();
 
@@ -45,6 +45,13 @@ app.engine(
     extname: ".hbs",
     layoutsDir: __dirname + "/views/layouts/",
     partialsDir: __dirname + "/views/partials/",
+    helpers: {
+      times: function (n, block) {
+        var accum = "";
+        for (var i = 0; i < n; ++i) accum += block.fn(i);
+        return accum;
+      },
+    },
   })
 );
 
@@ -54,9 +61,8 @@ app.use("/signup", require("./routes/register"));
 app.use("/signin", require("./routes/signin"));
 app.use("/logout", require("./routes/logout"));
 app.use("/upload", require("./routes/upload"));
-app.use("/profile",require("./routes/profile"));
-app.use("/course",require("./routes/course"));
-
+app.use("/profile", require("./routes/profile"));
+app.use("/course", require("./routes/course"));
 
 // app.use('/api/signin', require('./routes/login'));
 // app.use('/api/user', require('./routes/user'));
@@ -66,9 +72,9 @@ app.use("/course",require("./routes/course"));
 // app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`));
 
 app.get("/", async (req, res) => {
-  const courses = await Course.find({}).populate('teacher').lean();
+  const courses = await Course.find({}).populate("teacher").lean();
   res.render("home", {
-    courses:courses,
+    courses: courses,
     array: [
       {
         name: "hao",

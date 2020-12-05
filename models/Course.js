@@ -23,7 +23,8 @@ const CourseSchema = new schema({
     ref: "User",
   },
   rating: {
-    type: String,
+    type: Number,
+    default:1
   },
   image: {
     type: String,
@@ -34,7 +35,7 @@ const CourseSchema = new schema({
     required: true,
   },
   comments: [
-    { user: { type: schema.Types.ObjectId, ref: "User" }, content: String },
+    { user: { type: schema.Types.ObjectId, ref: "User" }, content: String , rating:String },
   ],
   student: [
     {

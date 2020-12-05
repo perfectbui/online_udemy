@@ -3,7 +3,7 @@ const { authenticate } = require("../middlewares/auth");
 const User = require("../models/User");
 const router = express.Router();
 
-router.get("/teacher", (req, res) => res.render("profile/teacher"));
+router.get("/teacher", (req, res) => res.render("profile/teacher/editProfile"));
 
 router.get("/student", authenticate, async (req, res) => {
   try {
