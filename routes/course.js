@@ -11,7 +11,7 @@ router.get("/:id", async (req, res) => {
     .lean();
     console.log(existedCourse);
   if (existedCourse) {
-    res.render("course", { course: existedCourse, rating: [1, 2, 3, 4] });
+    res.render("course", { course: existedCourse });
   } else {
     res.send({ message: "course not found" });
   }

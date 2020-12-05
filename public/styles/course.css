@@ -146,3 +146,32 @@
   text-decoration: underline;
   text-align: center;
 }
+
+.table-rating {
+  z-index: 100;
+  padding:30px;
+  margin: 25vh 35vw;
+  height:30vh;
+  width:30vw ;
+  position: fixed;
+  top:0;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(173, 173, 173);
+}
+
+.form-check {
+  display:flex;
+  align-items: center;
+}
+
+.form-check > label {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.form-check > input {
+  width: 18px;
+  height: 18px;
+}
+

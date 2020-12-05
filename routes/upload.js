@@ -106,9 +106,19 @@ router.post("/buyCourse", authenticate, async (req, res) => {
 router.post("/comment", authenticate, async (req, res) => {
   try {
     const idUser = req.decoded._id;
-    const { idCourse, contentComment } = req.body;
+    const { idCourse, contentComment, rating } = req.body;
     const existedCourse = await Course.findById(idCourse);
-    existedCourse.comments.push({ user: idUser, content: contentComment });
+    existedCourse.comments.push({
+      user: idUser,
+      content: contentComment,
+      rating: rating,
+    });
+    const totalRating=0;
+    for(let i=0; i<existedCourse.comments.length;i++) {
+      totalRating=totalRating+parseInt(existedCourse.comments[0].rating, 10);
+    }
+    totalRating=Math.floor(totalRating/existedCourse.length);
+    existedCourse.rating = totalRating;
     await existedCourse.save();
     res.status(200).json({
       course: existedCourse,

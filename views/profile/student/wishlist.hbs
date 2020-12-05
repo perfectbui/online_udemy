@@ -14,8 +14,9 @@
                                     <div class="my-course-name">{{this.name}}</div>
                                     <span>{{this.teacher.userName}}</span>
                                     <div class=" text-warning">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                            class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        {{#times this.rating}}
+                                        <i class="fa fa-star"></i>
+                                        {{/times}}
                                     </div>
                                     <div class="my-course-price">
                                         <div class="origin-price"><span>{{this.price}}</span></div>

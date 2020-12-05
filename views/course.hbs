@@ -1,6 +1,43 @@
 <!--Section: Block Content-->
 <div hidden id="get-course-id">{{this.course._id}}</div>
 <div hidden id="get-course">{{this.course}}</div>
+<div class="backdrop hide" id="table-rating">
+    <form class="table-rating">
+    <p style="font-size:25px; font-weight:500">Rating</p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+        <label class="form-check-label" for="exampleRadios1">
+            Very Bad
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
+        <label class="form-check-label" for="exampleRadios2">
+            Bad 
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3">
+        <label class="form-check-label" for="exampleRadios3">
+            Normal
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="4">
+        <label class="form-check-label" for="exampleRadios4">
+            Good
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="5">
+        <label class="form-check-label" for="exampleRadios5">
+            Very Good
+        </label>
+    </div>
+    <button id="btn-give-feedback" style="margin-top:10px;font-weight:500;padding:10px;background-color:rgb(230, 230, 18);cursor:pointer;box-shadow:2px 2px 5px rgb(153, 153, 153)">Give feedback</button>
+</form>
+</div>
+
 <div class="card-body">
     <div class="container-course">
         <section class="mb-5">
@@ -55,12 +92,9 @@
                                     <th class="pl-0 w-25" scope="row"><strong>Rating</strong></th>
                                     <td>
                                         <div class=" text-warning">
-                                            {{#each this.rating }}
+                                            {{#times this.course.rating }}
                                             <i class="fa fa-star"></i>
-                                            {{/each}}
-                                            {{!-- <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i> --}}
+                                            {{/times}}
                                         </div>
                                     </td>
                                 </tr>
@@ -174,9 +208,9 @@
                     <Span style="color: black;font-size:large">Great</Span>
                 </div>
             </div>
-            
+
         </div>
-         <center>
+        <center>
             <hr style="border-width:2px;width:60%;">
         </center>
         {{/each}}
@@ -185,7 +219,7 @@
                 <label for="exampleFormControlTextarea1">Reviews</label>
                 <textarea class="form-control" id="comment-content" rows="3" style="width:100%"></textarea>
             </div>
-            <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button" style="width:100%;">Gửi</a>
+            <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button" style="width:100%;">Send</a>
         </div>
         <hr style="border-width:3px">
         <div class="h2-align">
