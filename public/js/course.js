@@ -14,7 +14,7 @@ document
       .then((response) => {
         document.getElementById("btn-add-watch-list").style.color = "red";
       })
-      .catch((error) => console.log("add watch list failed"));
+      .catch((error) =>   alert("You must login to add wishlist"));
   });
 
 document.getElementById("btn-buy-now").addEventListener("click", (event) => {
@@ -31,7 +31,7 @@ document.getElementById("btn-buy-now").addEventListener("click", (event) => {
     .then((response) => {
       alert("You buy this course successful!");
     })
-    .catch((error) => console.log("add watch list failed"));
+    .catch((error) =>   alert("You must login to buy this course"));
 });
 
 document
