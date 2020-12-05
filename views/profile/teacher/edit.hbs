@@ -1,15 +1,15 @@
 <div class="container">
 	<div class="row profile">
-		{{> navbarStudent}}
+		{{> navbarTeacher}}
 		<div class="col-md-9">
 			<div class="profile-content">
-				<h3>Student Information</h3>
+				<h3>Teacher Information</h3>
 				<div class="row-content">
 					<div class="col-content">
 						<p>Name:</p>
 					</div>
 					<div class="col-content">
-						<p>{{this.user.userName}}</p>
+						<input type="text" id="user-name-teacher" value="{{this.user.userName}}">
 					</div>
 				</div>
 				<div class="row-content">
@@ -22,34 +22,26 @@
 				</div>
 				<div class="row-content">
 					<div class="col-content">
-						<p>Password:</p>
-					</div>
-					<div class="col-content">
-						<p>**********</p>
-					</div>
-				</div>
-				<div class="row-content">
-					<div class="col-content">
-						<p>Phone number:</p>
-					</div>
-					<div class="col-content">
-						<p>{{this.user.phone}}</p>
-					</div>
-				</div>
-				<div class="row-content">
-					<div class="col-content">
 						<p>Age:</p>
 					</div>
 					<div class="col-content">
-						<p>{{this.user.age}}</p>
+						<input type="text" id="age-teacher" value="{{this.user.age}}">
 					</div>
 				</div>
-				<div class="row-content">
+					<div class="row-content">
 					<div class="col-content">
 						<p>Degree:</p>
 					</div>
 					<div class="col-content">
-						<p>{{this.user.degree}}</p>
+						<input type="text" id="degree-teacher" value="{{this.user.degree}}">
+					</div>
+				</div>
+				<div class="row-content">
+					<div class="col-content">
+						<p>Phone Number:</p>
+					</div>
+					<div class="col-content">
+						<input type="text" id="phone-teacher" value="{{this.user.phone}}">
 					</div>
 				</div>
 				<div class="row-content">
@@ -57,17 +49,22 @@
 						<p>Address:</p>
 					</div>
 					<div class="col-content">
-						<p>{{this.user.address}}</p>
+						<input type="text" id="address-teacher" value="{{this.user.address}}">
 					</div>
 				</div>
+			</div>
+			<div class="card-footer bg-transparent">
+				<a name="" id="btn-edit-profile-teacher" class="btn btn-primary" href="#" role="button"
+					style="min-width: 150px;background-color:#5b9bd1;">Edit Profile</a>
 			</div>
 		</div>
 	</div>
 </div>
+
+<br>
+<br>
 <script>
-    document.querySelector(".navbar-profile.active").classList.remove("active")
-    document.querySelector(".details-student.navbar-profile").classList.add("active")
+	document.querySelector(".navbar-profile.active").classList.remove("active")
+    document.querySelector(".edit-profile.navbar-profile").classList.add("active")
 </script>
-<br>
-<br>
-<script src="/js/profileStudent.js"></script>
+<script src="/js/editProfileTeacher.js"></script>
