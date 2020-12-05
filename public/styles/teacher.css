@@ -8,6 +8,14 @@ body{
     border-radius: 0.5rem;
     background: #fff;
 }
+.profile-center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+.profile-itemgroup{
+    margin-top: -15%;
+}
 .profile-img{
     text-align: center;
 }
@@ -44,6 +52,16 @@ body{
     padding: 2%;
     font-weight: 600;
     color: #6c757d;
+    cursor: pointer;
+}
+.profile-submit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    background-color: #00dd4a;
+    color: #fff;
     cursor: pointer;
 }
 .proile-rating{
