@@ -1,18 +1,18 @@
 document
-  .getElementById("btn-add-watch-list")
+  .getElementById("btn-add-wishlist")
   .addEventListener("click", (event) => {
     event.preventDefault();
     const idCourse = document.getElementById("get-course-id").innerHTML;
     axios({
       method: "post",
-      url: "/upload/watchlist",
+      url: "/upload/wishlist",
       data: { idCourse },
       headers: {
         "X-Requested-with": "XMLHttpRequest",
       },
     })
       .then((response) => {
-        document.getElementById("btn-add-watch-list").style.color = "red";
+        document.getElementById("btn-add-wishlist").style.color = "red";
       })
       .catch((error) =>   alert("You must login to add wishlist"));
   });

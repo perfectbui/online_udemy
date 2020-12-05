@@ -63,15 +63,15 @@ router.post("/course", authenticate, async (req, res) => {
   }
 });
 
-router.post("/watchlist", authenticate, async (req, res) => {
+router.post("/wishlist", authenticate, async (req, res) => {
   try {
     const idUser = req.decoded._id;
     const { idCourse } = req.body;
     const existedUser = await User.findById(idUser);
-    existedUser.watchList = existedUser.watchList.filter(
+    existedUser.wishlist = existedUser.wishlist.filter(
       (course) => course != idCourse
     );
-    existedUser.watchList.push(idCourse);
+    existedUser.wishlist.push(idCourse);
     await existedUser.save();
     res.status(200).json({
       user: existedUser,

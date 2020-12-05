@@ -1,101 +1,34 @@
 <div class="container">
     <div class="row profile">
-		{{> hello}}
-		<div class="col-md-9">
+        {{> hello}}
+        <div class="col-md-9">
             <div class="profile-content-course">
-				<h3>Khóa học ưa thích</h3>
-                    <div class="plyr__video-embed" id="player">
-                        <div class="wishlist-card">
-                                <a href="#" id="#card" style="text-decoration: none;">
-                                    <div class="card-mycourse-wishlist">
-                                            <div class="course-card-wishlist">
-                                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                <div class="course-card-detail">
-                                                    <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="my-course-price">
-                                                        <div class="origin-price"><span>$30</span></div>
-                                                        <div class="sale-price"><span>$15</span></div>
-                                                        <i class="fa fa-heart fa-2x" aria-hidden="true" style="float: right;margin-left:110px;color:pink"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                <h3>My Wishlist</h3>
+                {{#each this.user.wishlist }}
+                <div class="wishlist-card">
+                    <a href="#" id="#card" style="text-decoration: none;">
+                        <div class="card-mycourse-wishlist">
+                            <div class="course-card-wishlist">
+                                <img width="230" height="150" src={{this.image}}>
+                                <div class="course-card-detail">
+                                    <div class="my-course-name">{{this.name}}</div>
+                                    <span>{{this.teacher.userName}}</span>
+                                    <div class=" text-warning">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
-                                </a>
-                        </div>
-                        <div class="wishlist-card">
-                                <a href="#" id="#card" style="text-decoration: none;">
-                                    <div class="card-mycourse-wishlist">
-                                            <div class="course-card-wishlist">
-                                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                <div class="course-card-detail">
-                                                    <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="my-course-price">
-                                                        <div class="origin-price"><span>$30</span></div>
-                                                        <div class="sale-price"><span>$15</span></div>
-                                                        <i class="fa fa-heart fa-2x" aria-hidden="true" style="float: right;margin-left:110px;color:pink"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="my-course-price">
+                                        <div class="origin-price"><span>{{this.price}}</span></div>
+                                        {{!-- <div class="sale-price"><span>$15</span></div> --}}
+                                        <i class="fa fa-heart fa-2x" aria-hidden="true"
+                                            style="float: right;margin-left:110px;color:red"></i>
                                     </div>
-                                </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="wishlist-card">
-                                <a href="#" id="#card" style="text-decoration: none;">
-                                    <div class="card-mycourse-wishlist">
-                                            <div class="course-card-wishlist">
-                                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                <div class="course-card-detail">
-                                                    <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="my-course-price">
-                                                        <div class="origin-price"><span>$30</span></div>
-                                                        <div class="sale-price"><span>$15</span></div>
-                                                        <i class="fa fa-heart fa-2x" aria-hidden="true" style="float: right;margin-left:110px;color:pink"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </a>
-                        </div>
-                        <div class="wishlist-card">
-                                <a href="#" id="#card" style="text-decoration: none;">
-                                    <div class="card-mycourse-wishlist">
-                                            <div class="course-card-wishlist">
-                                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                <div class="course-card-detail">
-                                                    <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="my-course-price">
-                                                        <div class="origin-price"><span>$30</span></div>
-                                                        <div class="sale-price"><span>$15</span></div>
-                                                        <i class="fa fa-heart fa-2x" aria-hidden="true" style="float: right;margin-left:110px;color:pink"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </a>
-                        </div>
-                        
-                        
-                        
-                    </div>
-				
+                    </a>
+                </div>
+                {{/each}}
             </div>
-			
-		</div>
-	</div>
-</div>
+        </div>
+    </div>

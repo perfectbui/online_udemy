@@ -35,7 +35,7 @@ router.post(
 			// User1.insert(userName, email, hashPassword, parseInt(age, 10), address, phone);
             res.redirect("/signin");
 		} catch (err) {
-			res.render('signup',{message:"Sign Up Failed"});
+			res.render('signup/student',{message:"Sign Up Failed"});
 		}
 	}
 );
@@ -46,7 +46,7 @@ router.post(
 	validate.checkEmailExist,
 	async (req, res) => {
 		try {
-			let { userName, email, password, age, address, phone } = req.body;
+			let { userName, email, password, age, degree, address, phone } = req.body;
 
 			const hashPassword = await bcrypt.hash(password, saltRounds);
 
@@ -65,7 +65,7 @@ router.post(
 			// User1.insert(userName, email, hashPassword, parseInt(age, 10), address, phone);
             res.redirect("/signin");
 		} catch (err) {
-			res.render('signup',{message:"Sign Up Failed"});
+			res.render('signup/teacher',{message:"Sign Up Failed"});
 		}
 	}
 );

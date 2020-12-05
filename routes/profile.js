@@ -68,8 +68,23 @@ router.get("/student/mycourse", authenticate, async (req, res) => {
   }
 });
 
-router.get("/student/wishlist", (req, res) =>
-  res.render("profile/student/wishlist")
-);
+router.get("/student/wishlist", authenticate, async (req, res) => {
+  try {
+    const idUser = req.decoded._id;
+    const existedUser = await User.findById(idUser)
+      .populate({
+        path: "wishlist",
+        populate: {
+          path: "teacher",
+        },
+      })
+      .lean();
+    res.render("profile/student/wishlist", { user: existedUser });
+  } catch (err) {
+    res.status(400).json({
+      message: err,
+    });
+  }
+});
 
 module.exports = router;
