@@ -9,7 +9,6 @@ router.get("/student", authenticate, async (req, res) => {
   try {
     const idUser = req.decoded._id;
     const existedUser = await User.findById(idUser).lean();
-
     res.render("profile/student", { user: existedUser });
   } catch (err) {
     res.status(400).json({

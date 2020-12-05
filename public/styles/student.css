@@ -91,7 +91,10 @@ body {
   display: block;
   
 }
-
+#menu ul li a div{
+  height: 30px;
+  padding-top: 10px;
+}
 #menu ul li a:hover {
   background-color: #b2dbf0;
   color: #5b9bd1;
@@ -140,10 +143,7 @@ body {
   margin-top: 12px;
   color: gray;
 }
-.row #menu a{
-  min-width: 247.5px;
-  align-items: center;
-}
+
 .card-footer{ 
   float: right;
 }
