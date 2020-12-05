@@ -1,9 +1,11 @@
 const express = require("express");
 const { authenticate } = require("../middlewares/auth");
+const bcrypt = require('bcrypt');
+const {isValidPassword} = require("../libs/utils")
 const User = require("../models/User");
 const router = express.Router();
 
-router.get("/teacher", (req, res) => res.render("profile/teacher/editProfile"));
+// router.get("/teacher", (req, res) => res.render("profile/teacher/editProfile"));
 
 router.get("/student", authenticate, async (req, res) => {
   try {
@@ -39,14 +41,50 @@ router.post("/student/edit", authenticate, async (req, res) => {
     existedUser.age = age;
     existedUser.phone = phone;
     existedUser.address = address;
+    console.log(existedUser)
     existedUser.save();
-    res.render("profile/student/edit", { user: existedUser });
+    res.status(200).send({message:"Edit success"})
   } catch (err) {
     res.status(400).json({
       message: err,
     });
   }
 });
+
+router.get("/student/change-password",authenticate , async (req,res) => {
+  try {
+    res.render("profile/student/change-password");
+  } catch (err) {
+    res.status(400).json({
+      message: err,
+    });
+  }
+})
+
+router.post("/student/change-password", authenticate, async (req, res) => {
+  try {
+    const idUser = req.decoded._id;
+    const { oldPassword,newPassword } = req.body;
+    const existedUser = await User.findById(idUser);
+    let isValid = await isValidPassword(oldPassword,existedUser.password);
+    if(isValid) {
+      const newHashPassword = await bcrypt.hash(newPassword, 10);
+      existedUser.password=newHashPassword;
+      existedUser.save();
+      res.status(200).send({message:"Change password success"})
+    } else {
+      res.status(400).json({
+        message: "Password incorrect",
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      message: err,
+    });
+  }
+});
+
+
 
 router.get("/student/mycourse", authenticate, async (req, res) => {
   try {

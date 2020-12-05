@@ -87,6 +87,9 @@ router.post("/buyCourse", authenticate, async (req, res) => {
   try {
     const idUser = req.decoded._id;
     const { idCourse } = req.body;
+    const existedCourse = await Course.findById(idCourse);
+    existedCourse.student.push(idUser);
+    existedCourse.save();
     const existedUser = await User.findById(idUser);
     existedUser.myCourses = existedUser.myCourses.filter(
       (course) => course != idCourse
@@ -113,11 +116,11 @@ router.post("/comment", authenticate, async (req, res) => {
       content: contentComment,
       rating: rating,
     });
-    const totalRating=0;
+    let totalRating=0;
     for(let i=0; i<existedCourse.comments.length;i++) {
-      totalRating=totalRating+parseInt(existedCourse.comments[0].rating, 10);
+      totalRating=totalRating+parseInt(existedCourse.comments[i].rating, 10);
     }
-    totalRating=Math.floor(totalRating/existedCourse.length);
+    totalRating=Math.floor(totalRating/existedCourse.comments.length);
     existedCourse.rating = totalRating;
     await existedCourse.save();
     res.status(200).json({

@@ -1,31 +1,45 @@
 <div class="col-md-3">
-			<div class="profile-sidebar">
-				<!-- SIDEBAR USERPIC -->
-				<div class="profile-userpic">
-					<center><img src="http://res.cloudinary.com/dsshsndpp/image/upload/c_fill,w_550/v1606968650/injzvbgpcxrkqlkzlu7u.jpg" alt=""></center>
-				</div>
-				<!-- END SIDEBAR USERPIC -->
-				<!-- SIDEBAR USER TITLE -->
-				<div class="profile-usertitle">
-					<div class="profile-usertitle-name">
-						Bùi Hoàn Hảo
-					</div>
-					<div class="profile-usertitle-job">
-						Student
-					</div>
-				</div>
-				<!-- END SIDEBAR USER TITLE -->
-				
-				<!-- END SIDEBAR BUTTONS -->
-				<!-- SIDEBAR MENU -->
-				<div id="menu" class="menu">
-					<ul>
-						<li class="details-student"><a href="/profile/student"><div>Tổng quan</div></a></li>
-						<li class="mycourse"><a href="/profile/student/mycourse"><div>Quản lý khóa học</div></a></li>
-						<li class="wishlist"><a href="/profile/student/wishlist"><div>Danh sách yêu thích</div></a></li>
-					</ul>
-				</div>
-				
-				<!-- END MENU -->
+	<div class="profile-sidebar">
+		<!-- SIDEBAR USERPIC -->
+		<div class="profile-userpic">
+			<center><img
+					src="http://res.cloudinary.com/dsshsndpp/image/upload/c_fill,w_550/v1606968650/injzvbgpcxrkqlkzlu7u.jpg"
+					alt=""></center>
+		</div>
+		<!-- END SIDEBAR USERPIC -->
+		<!-- SIDEBAR USER TITLE -->
+		<div class="profile-usertitle">
+			<div class="profile-usertitle-name">
+				{{this.user.userName}}
+			</div>
+			<div class="profile-usertitle-job">
+				{{this.user.degree}}
 			</div>
 		</div>
+		<!-- END SIDEBAR USER TITLE -->
+
+		<!-- END SIDEBAR BUTTONS -->
+		<!-- SIDEBAR MENU -->
+		<div id="menu" class="menu">
+			<ul>
+				<li class="details-student navbar-profile active"><a href="/profile/student">
+						<div>My Profile</div>
+					</a></li>
+				<li class="mycourse navbar-profile"><a href="/profile/student/mycourse">
+						<div>My Courses</div>
+					</a></li>
+				<li class="wishlist navbar-profile"><a href="/profile/student/wishlist">
+						<div>My Wishlist</div>
+					</a></li>
+				<li class="edit-profile navbar-profile"><a href="/profile/student/edit">
+						<div>Edit profile</div>
+					</a></li>
+				<li class="change-password navbar-profile"><a href="/profile/student/change-password">
+						<div>Change password</div>
+					</a></li>
+			</ul>
+		</div>
+
+		<!-- END MENU -->
+	</div>
+</div>

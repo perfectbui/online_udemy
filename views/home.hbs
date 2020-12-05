@@ -15,8 +15,12 @@
                 <div>Lĩnh vực:{{this.field}}</div>
                 <img src="{{this.image}}" />
                 <div>Tác giả:{{this.teacher.userName}}</div>
-                <div> Rating:5 sao (<span>Số lượng ng mua:1</span>)</div>
-                {{!-- <div> Rating:{{this.rating}} (<span>Số lượng ng mua:{{this.numCustomer}}</span>)</div> --}}
+                <div>
+                    {{#times this.rating }}
+                    <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
+                    {{/times}}
+                </div>
+                <div>Số lượng người mua:{{this.student.length}}</div>
                 <div>Giá:{{this.price}}</div>
             </div>
         </a>
