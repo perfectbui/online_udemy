@@ -1,71 +1,28 @@
 <div class="container">
     <div class="row profile">
-		{{> hello}}
-		<div class="col-md-9">
+        {{> hello}}
+        <class class="col-md-9">
             <div class="profile-content-course">
-				<h3>Khóa học của tôi</h3>
-                    <div class="plyr__video-embed" id="player">     
-                        <div class="my-course-card">
-                            <a href="#" id="#card" style="text-decoration: none;">
-                                <div class="course-card">
-                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <div class="course-card-detail">
-                                            <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                    </div>
+                <h3>My courses</h3>
+                {{#each this.user.myCourses}}
+                <div class="my-course-card">
+                    <a href="#" id="#card" style="text-decoration: none;">
+                        <div class="course-card">
+                            <img width="230" height="150" src={{this.image}}>
+                            <div class="course-card-detail">
+                                <div class="my-course-name">Name Course: {{this.name}}</div>
+                                <span>Author: {{this.teacher.userName}}</span>
+                                <div class=" text-warning">
+                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                        class="fa fa-star"></i><i class="fa fa-star"></i>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                        <div class="my-course-card">
-                            <a href="#" id="#card" style="text-decoration: none;">
-                                <div class="course-card">
-                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <div class="course-card-detail">
-                                            <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="my-course-card">
-                            <a href="#" id="#card" style="text-decoration: none;">
-                                <div class="course-card">
-                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <div class="course-card-detail">
-                                            <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="my-course-card">
-                            <a href="#" id="#card" style="text-decoration: none;">
-                                <div class="course-card">
-                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/w-7RQ46RgxU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <div class="course-card-detail">
-                                            <div class="my-course-name">Tên khóa học</div>
-                                                    <span>Tên tác giả</span>
-                                                    <div class=" text-warning">
-                                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                    </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        
-                    </div>
-				
-            </div>
-			
-		</div>
-	</div>
+                    </a>
+                </div>
+                {{/each}}
+        </class>
+
+    </div>
+</div>
 </div>

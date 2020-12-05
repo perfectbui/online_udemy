@@ -1,23 +1,15 @@
 <div class="container">
-    <div class="row profile">
+	<div class="row profile">
 		{{> hello}}
 		<div class="col-md-9">
-            <div class="profile-content">
-				<h3>Thông tin học viên</h3>
+			<div class="profile-content">
+				<h3>Student Information</h3>
 				<div class="row-content">
 					<div class="col-content">
-						<p>Tên tài khoản:</p>
+						<p>Name:</p>
 					</div>
 					<div class="col-content">
-						<input type="text" placeholder="Nhập tài khoản">
-					</div>
-				</div>
-				<div class="row-content">
-					<div class="col-content">
-						<p>Tên học viên:</p>
-					</div>
-					<div class="col-content">
-						<input type="text" placeholder="Nhập tên">
+						<input type="text" id="user-name-student" value={{this.user.userName}}>
 					</div>
 				</div>
 				<div class="row-content">
@@ -25,18 +17,42 @@
 						<p>Email:</p>
 					</div>
 					<div class="col-content">
-						<input type="text" placeholder="Nhập email">
+						<p>{{this.user.email}}</p>
 					</div>
 				</div>
 				<div class="row-content">
 					<div class="col-content">
-						<p>Số điện thoại:</p>
+						<p>Age:</p>
 					</div>
 					<div class="col-content">
-						<input type="text" placeholder="Nhập số điện thoại">
+						<input type="text" id="age-student" value={{this.user.age}}>
+					</div>
+				</div>
+					<div class="row-content">
+					<div class="col-content">
+						<p>Degree:</p>
+					</div>
+					<div class="col-content">
+						<input type="text" id="degree-student" value={{this.user.degree}}>
 					</div>
 				</div>
 				<div class="row-content">
+					<div class="col-content">
+						<p>Phone Number:</p>
+					</div>
+					<div class="col-content">
+						<input type="text" id="phone-student" value={{this.user.phone}}>
+					</div>
+				</div>
+				<div class="row-content">
+					<div class="col-content">
+						<p>Address:</p>
+					</div>
+					<div class="col-content">
+						<input type="text" id="address-student" value={{this.user.address}}>
+					</div>
+				</div>
+				{{!-- <div class="row-content">
 					<div class="col-content">
 						<p>Mật khẩu:</p>
 					</div>
@@ -44,18 +60,19 @@
 						<input type="text" placeholder="Nhập mật khẩu">
 					</div>
 				</div>
-                <div class="row-content">
+				<div class="row-content">
 					<div class="col-content">
 						<p>Nhập lại khẩu:</p>
 					</div>
 					<div class="col-content">
 						<input type="text" placeholder="Nhập lại mật khẩu">
 					</div>
-				</div>
-				
-            </div>
+				</div> --}}
+
+			</div>
 			<div class="card-footer bg-transparent">
-					<a name="" id="" class="btn btn-primary" href="#" role="button" style="min-width: 150px;background-color:#5b9bd1;">Edit Profile</a>
+				<a name="" id="btn-edit-profile-student" class="btn btn-primary" href="#" role="button"
+					style="min-width: 150px;background-color:#5b9bd1;">Edit Profile</a>
 			</div>
 		</div>
 	</div>
