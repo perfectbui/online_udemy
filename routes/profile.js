@@ -1,7 +1,7 @@
 const express = require("express");
 const { authenticate } = require("../middlewares/auth");
-const bcrypt = require('bcrypt');
-const {isValidPassword} = require("../libs/utils")
+const bcrypt = require("bcrypt");
+const { isValidPassword } = require("../libs/utils");
 const User = require("../models/User");
 const router = express.Router();
 
@@ -65,9 +65,9 @@ router.post("/student/edit", authenticate, async (req, res) => {
     existedUser.age = age;
     existedUser.phone = phone;
     existedUser.address = address;
-    console.log(existedUser)
+    console.log(existedUser);
     existedUser.save();
-    res.status(200).send({message:"Edit success"})
+    res.status(200).send({ message: "Edit success" });
   } catch (err) {
     res.status(400).json({
       message: err,
@@ -85,9 +85,9 @@ router.post("/teacher/edit", authenticate, async (req, res) => {
     existedUser.age = age;
     existedUser.phone = phone;
     existedUser.address = address;
-    console.log(existedUser)
+    console.log(existedUser);
     existedUser.save();
-    res.status(200).send({message:"Edit success"})
+    res.status(200).send({ message: "Edit success" });
   } catch (err) {
     res.status(400).json({
       message: err,
@@ -95,7 +95,7 @@ router.post("/teacher/edit", authenticate, async (req, res) => {
   }
 });
 
-router.get("/student/change-password",authenticate , async (req,res) => {
+router.get("/student/change-password", authenticate, async (req, res) => {
   try {
     res.render("profile/student/change-password");
   } catch (err) {
@@ -103,9 +103,9 @@ router.get("/student/change-password",authenticate , async (req,res) => {
       message: err,
     });
   }
-})
+});
 
-router.get("/teacher/change-password",authenticate , async (req,res) => {
+router.get("/teacher/change-password", authenticate, async (req, res) => {
   try {
     res.render("profile/teacher/change-password");
   } catch (err) {
@@ -113,19 +113,19 @@ router.get("/teacher/change-password",authenticate , async (req,res) => {
       message: err,
     });
   }
-})
+});
 
 router.post("/student/change-password", authenticate, async (req, res) => {
   try {
     const idUser = req.decoded._id;
-    const { oldPassword,newPassword } = req.body;
+    const { oldPassword, newPassword } = req.body;
     const existedUser = await User.findById(idUser);
-    let isValid = await isValidPassword(oldPassword,existedUser.password);
-    if(isValid) {
+    let isValid = await isValidPassword(oldPassword, existedUser.password);
+    if (isValid) {
       const newHashPassword = await bcrypt.hash(newPassword, 10);
-      existedUser.password=newHashPassword;
+      existedUser.password = newHashPassword;
       existedUser.save();
-      res.status(200).send({message:"Change password success"})
+      res.status(200).send({ message: "Change password success" });
     } else {
       res.status(400).json({
         message: "Password incorrect",
@@ -141,14 +141,14 @@ router.post("/student/change-password", authenticate, async (req, res) => {
 router.post("/teacher/change-password", authenticate, async (req, res) => {
   try {
     const idUser = req.decoded._id;
-    const { oldPassword,newPassword } = req.body;
+    const { oldPassword, newPassword } = req.body;
     const existedUser = await User.findById(idUser);
-    let isValid = await isValidPassword(oldPassword,existedUser.password);
-    if(isValid) {
+    let isValid = await isValidPassword(oldPassword, existedUser.password);
+    if (isValid) {
       const newHashPassword = await bcrypt.hash(newPassword, 10);
-      existedUser.password=newHashPassword;
+      existedUser.password = newHashPassword;
       existedUser.save();
-      res.status(200).send({message:"Change password success"})
+      res.status(200).send({ message: "Change password success" });
     } else {
       res.status(400).json({
         message: "Password incorrect",
@@ -160,8 +160,6 @@ router.post("/teacher/change-password", authenticate, async (req, res) => {
     });
   }
 });
-
-
 
 router.get("/student/mycourse", authenticate, async (req, res) => {
   try {
@@ -213,6 +211,25 @@ router.get("/student/wishlist", authenticate, async (req, res) => {
       })
       .lean();
     res.render("profile/student/wishlist", { user: existedUser });
+  } catch (err) {
+    res.status(400).json({
+      message: err,
+    });
+  }
+});
+
+router.delete("/student/wishlist/delete", authenticate, async (req, res) => {
+  try {
+    const idUser = req.decoded._id;
+    const idCourse = req.body.idCourse;
+    const existedUser = await User.findById(idUser);
+    existedUser.wishlist = existedUser.wishlist.filter(
+      (course) => course._id != idCourse
+    );
+    existedUser.save();
+    res
+      .status(200)
+      .send({ message: "Delete this course out of wishlist success" });
   } catch (err) {
     res.status(400).json({
       message: err,

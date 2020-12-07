@@ -1,14 +1,15 @@
-<div class="container">
+<class="container">
     <div class="row profile">
         {{> navbarStudent}}
         <div class="col-md-9">
             <div class="profile-content-course">
                 <h3>My Wishlist</h3>
                 {{#each this.user.wishlist }}
-                <div class="wishlist-card">
-                    <a href="#" id="#card" style="text-decoration: none;">
+                <div class="wishlist-card" id="{{this._id}}">
+                    <a href="/course/{{this._id}}" id="#card" style="text-decoration: none;">
                         <div class="card-mycourse-wishlist">
                             <div class="course-card-wishlist">
+                                <button id="btn-delete-wishlist-item" style="position: absolute; top:-15px;right:-15px; color:red; padding:10px;border-radius:50%; cursor:pointer;outline:none;"><i class="fas fa-times"></i></button>
                                 <img width="230" height="150" src={{this.image}}>
                                 <div class="course-card-detail">
                                     <div class="my-course-name">{{this.name}}</div>
@@ -34,6 +35,7 @@
         </div>
     </div>
     <script>
-    document.querySelector(".navbar-profile.active").classList.remove("active")
-    document.querySelector(".wishlist.navbar-profile").classList.add("active")
-</script>
+        document.querySelector(".navbar-profile.active").classList.remove("active")
+        document.querySelector(".wishlist.navbar-profile").classList.add("active")
+    </script>
+    <script type="module" src="/js/wishlist.js"></script>
