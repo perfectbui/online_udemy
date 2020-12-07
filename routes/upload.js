@@ -52,7 +52,11 @@ router.post("/course", authenticate, async (req, res) => {
       teacher: idUserPost,
     });
     await newCourse.save();
-
+    const existedUser = await User.findById(idUserPost);
+    existedUser.myOwnCourses.push(newCourse._id);
+    await existedUser.save();
+    console.log("toi dai dot")
+    console.log(existedUser);
     res.status(200).json({
       course: newCourse,
     });
