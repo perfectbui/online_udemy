@@ -19,10 +19,18 @@ const UserSchema = new schema({
   age: Number,
   address: String,
   phone: String,
-  myCourses:[{
-    type: schema.Types.ObjectId,
-    ref: "Course",
-  }],
+  myOwnCourses: [
+    {
+      type: schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
+  myCourses: [
+    {
+      type: schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
   wishlist: [
     {
       type: schema.Types.ObjectId,

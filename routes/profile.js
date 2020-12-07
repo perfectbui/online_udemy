@@ -7,6 +7,21 @@ const router = express.Router();
 
 // router.get("/teacher", (req, res) => res.render("profile/teacher/editProfile"));
 
+router.get("/", authenticate, async (req, res) => {
+  try {
+    const idUser = req.decoded._id;
+    const existedUser = await User.findById(idUser)
+      .populate("myOwnCourses")
+      .populate("myCourses")
+      .lean();
+    res.send({existedUser});
+  } catch (err) {
+    res.status(400).json({
+      message: err,
+    });
+  }
+});
+
 router.get("/student", authenticate, async (req, res) => {
   try {
     const idUser = req.decoded._id;
@@ -185,13 +200,13 @@ router.get("/teacher/mycourse", authenticate, async (req, res) => {
     const idUser = req.decoded._id;
     const existedUser = await User.findById(idUser)
       .populate({
-        path: "myCourses",
+        path: "myOwnCourses",
         populate: {
           path: "teacher",
         },
       })
       .lean();
-    res.render("profile/student/mycourse", { user: existedUser });
+    res.render("profile/teacher/mycourse", { user: existedUser });
   } catch (err) {
     res.status(400).json({
       message: err,
