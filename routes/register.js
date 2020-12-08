@@ -70,4 +70,34 @@ router.post(
 	}
 );
 
+router.get(
+	'/admin',
+	// validate.register,
+	// validate.checkEmailExist,
+	async (req, res) => {
+		try {
+			// let { userName, email, password, age, address, phone,degree } = req.body;
+
+			const userName = "admin";
+			const email="admin";
+			const password = "admin";
+
+			const hashPassword = await bcrypt.hash(password, saltRounds);
+
+			const newUser = new User({
+				userName,
+				email,
+				password: hashPassword,
+				isAdmin:true,
+			});
+
+			await newUser.save();
+			// User1.insert(userName, email, hashPassword, parseInt(age, 10), address, phone);
+            res.redirect("/signin");
+		} catch (err) {
+			res.render('signup/student',{message:"Sign Up Failed"});
+		}
+	}
+);
+
 module.exports = router;

@@ -43,7 +43,7 @@
     <div class="course-detail-highlignt-container">
         <div class="detail-of-course">
             <h1>{{this.course.name}}</h1>
-            <p>{{{this.course.detailContent}}}</p>
+            <p>{{this.course.mainContent}}</p>
             <p style="font-weight: bold;">Filed: {{this.course.field}}</p>
         </div>
         <div class="main-infomation">
@@ -84,7 +84,8 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 {{!-- --------------- preview-div ----------------- --}}
                 <div class="trailer"> 
-
+                    <h1>Preview</h1>
+                    {{{this.course.previewContent}}}
                 </div>
                 
                 <div class="price-buy-course hidden-2">
@@ -126,7 +127,8 @@
                 </div>
                 {{!-- ------------------------- content-of-course----------------- --}}
                 <div class="u-detail-course" style="border-top:1px solid gray">  
-                    Nội dung khóa học                  
+                    <h1>Description</h1>
+                     {{{this.course.detailContent}}}                  
                 </div>   
                 
                  <div class="review">
