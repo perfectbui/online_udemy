@@ -87,6 +87,7 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
+                
                 <div class="price-buy-course hidden-2">
                     <h4>{{this.course.price}}$</h4>
                     <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now"
@@ -99,7 +100,6 @@
                             <li><i class="fab fa-youtube"></i></li>
                             <li><i class="fas fa-history"></i></li>
                         </ul>
-<<<<<<< Updated upstream
                         <div class="detail-includes-col-2">
                             <ul>
                                 <li>
@@ -122,10 +122,6 @@
 
 
                     </div>
-=======
-                    </div>
-                </div>
->>>>>>> Stashed changes
                 </div>
                 <div class="u-detail-course">
                     <div class="content-card">
@@ -227,10 +223,8 @@
                                     <p>1:30</p>
                                 </div>
                             </div>
-                        </a>                       
-                    </div>   
-                </div>
-                <a href="" id="course-content-tag-a" style="text-decoration: none;">
+                        </a>  
+                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
                     <div class="course-content">
                         <div class="course-content-col-1">
                             <p>1</p>
@@ -277,28 +271,26 @@
                             <p>1:30</p>
                         </div>
                     </div>
-                </a>
-            </div>
-        </div>
-        <div class="review">
-            {{#each this.course.comments}}
-            <div class="review-container">
-                <div class="review-icon">
-                    <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
+                </a>                     
+            </div>   
                 </div>
-                <div class="review" style="margin-left: 20px;">
-                    <h3>{{this.user.userName}}</h3>
-                    <div class=" text-warning">
-                        {{#times this.rating }}
-                        <i class="fa fa-star"></i>
-                        {{/times}}
+                 <div class="review">
+                    {{#each this.course.comments}}
+                    <div class="review-container">
+                        <div class="review-icon">
+                            <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
+                        </div>
+                        <div class="review" style="margin-left: 20px;">
+                            <h3>{{this.user.userName}}</h3>
+                            <div class=" text-warning">
+                                {{#times this.rating }}
+                                <i class="fa fa-star"></i>
+                                {{/times}}
+                            </div>
+                            <p>{{this.content}}</p>
                     </div>
-<<<<<<< Updated upstream
-                    <p>{{this.content}}</p>
                 </div>
-
-            </div>
-            {{/each}}
+                    {{/each}}
             <div class="review-container-2">
                 <div class="form-group" style="width:100%">
                     <label for="exampleFormControlTextarea1">Reviews</label>
@@ -307,8 +299,9 @@
                 <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button"
                     style="width:100%;">Send</a>
             </div>
-        </div>
-        <div class="col-single-course hidden" style="position:fixed">
+                 </div>
+            </div>
+            <div class="col-single-course" style="position:fixed">
             <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"
                 style="position: absolute; top:145px;left:290px;"><i class="fa fa-heart"></i>
             </button>
@@ -321,74 +314,50 @@
                 <strong>{{this.course.price}}$</strong>
                 {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
             </div>
-            <div class="row-single-course">
-                <div class="author-container">
-                    <div class="author-icon">
-                        <img src="https://transang.me/content/images/2019/01/1200px-Python.svg.png" alt="">
-                    </div>
-                    <div class="author" style="margin-left: 20px;">
-                        <h4>{{this.course.teacher.userName}}</h4>
-                        <p>{{this.course.teacher.degree}}</p>
-                        <p>Decription</p>
-                    </div>
-=======
->>>>>>> Stashed changes
-                </div>
+            <h4 class="pt-1" style="margin-left:10px">{{this.course.mainContent}}</h4>
+            <div class="include-course">
+                <p>This course includes:
+                <p>
             </div>
-
-        </div>
-    </div>
-    <div class="col-single-course" style="position:fixed">
-        <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"
-            style="position: absolute; top:145px;left:290px;"><i class="fa fa-heart"></i>
-        </button>
-        <a href={{this.course.image}} data-size="710x823">
-            <img src={{this.course.image}}
-                style="width: 345px;height:195px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
-        </a>
-        {{!-- <p class="mb-2 text-muted text-uppercase small">Categories</p> --}}
-        <div class="price-of-course">
-            <strong>{{this.course.price}}$</strong>
-            {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
-        </div>
-        <h4 class="pt-1" style="margin-left:10px">{{this.course.mainContent}}</h4>
-        <div class="include-course">
-            <p>This course includes:
-            <p>
-        </div>
-        <div class="detail-includes">
-            <ul>
-                <li><i class="fas fa-mobile"></i></li>
-                <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
-                <li><i class="far fa-file-alt"></i></li>
-                <li><i class="fab fa-youtube"></i></li>
-                <li><i class="fas fa-history"></i></li>
-            </ul>
-            <div class="detail-includes-col-2">
+            <div class="detail-includes">
                 <ul>
-                    <li>
-                        <p>Access on mobile</p>
-                    </li>
-                    <li>
-                        <p>Certificate of completion</p>
-                    </li>
-                    <li>
-                        <p>Excersices</p>
-                    </li>
-                    <li>
-                        <p>Videos</p>
-                    </li>
-                    <li>
-                        <p>Full lifetime access</p>
-                    </li>
+                    <li><i class="fas fa-mobile"></i></li>
+                    <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
+                    <li><i class="far fa-file-alt"></i></li>
+                    <li><i class="fab fa-youtube"></i></li>
+                    <li><i class="fas fa-history"></i></li>
                 </ul>
-            </div>
-            <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
+                <div class="detail-includes-col-2">
+                    <ul>
+                        <li>
+                            <p>Access on mobile</p>
+                        </li>
+                        <li>
+                            <p>Certificate of completion</p>
+                        </li>
+                        <li>
+                            <p>Excersices</p>
+                        </li>
+                        <li>
+                            <p>Videos</p>
+                        </li>
+                        <li>
+                            <p>Full lifetime access</p>
+                        </li>
+                    </ul>
+                </div>
 
-            
+                
 
         </div>
+                <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
+
     </div>
+        </div>
+       
+        
+    </div>
+    
 </div>
 
 </div>
