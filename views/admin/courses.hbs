@@ -1,0 +1,45 @@
+<div style="display: flex;flex-direction:column;align-items:center">
+    <h1 style="text-align: center;margin:10px;">List Course</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Field</th>
+            <th>Main Content</th>
+            <th>Price</th>
+            <th>Author</th>
+            <th>Delete</th>
+        </tr>
+        {{#each this.listCourse}}
+        <tr>
+            <th>{{this._id}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.field}}</td>
+            <td>{{this.mainContent}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.teacher.userName}}</td>
+            <td><button value="{{this._id}}" class="btn-delete-course"
+                    style="margin:10px; cursor:pointer; outline:none"><i class="fas fa-trash fa-lg"
+                        style="color:rgba(231, 13, 13, 0.932)"></i></button></td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+
+<script>
+    document.querySelector('.nav-link.active').classList.remove('active');
+    document.querySelector('.nav-link.list-course').classList.add('active');
+    document.querySelectorAll(".btn-delete-course").forEach(item => item.addEventListener("click", async (event) => {
+        event.preventDefault();
+        axios({
+            method: "delete",
+            url: "/admin/course/delete",
+            data: { idCourse: item.value },
+            headers: {
+                "X-Requested-with": "XMLHttpRequest",
+            },
+        }).then(response => window.location.reload())
+            .catch(error =>
+                console.log("Delete course failed"))
+    }))
+</script>

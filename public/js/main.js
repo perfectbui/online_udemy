@@ -17,6 +17,20 @@ if (getCookie("headerAndPayload").length > 0) {
       .querySelector(".nav-item.profile-student")
       .classList.remove("hide");
   }
+  if (parseJwt(getCookie("headerAndPayload")).isAdmin) {
+    document
+      .querySelector(".nav-item.profile-admin")
+      .classList.remove("hide");
+      document
+      .querySelector(".nav-item.list-student")
+      .classList.remove("hide");
+      document
+      .querySelector(".nav-item.list-teacher")
+      .classList.remove("hide");
+      document
+      .querySelector(".nav-item.list-course")
+      .classList.remove("hide");
+  }
 }
 
 // document.querySelector(".backdrop").addEventListener("click",(event)=>{

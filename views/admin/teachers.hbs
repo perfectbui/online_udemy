@@ -1,0 +1,46 @@
+<div style="display: flex;flex-direction:column;align-items:center">
+    <h1 style="text-align: center;margin:10px;">List Teacher</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Age</th>
+            <th>Degree</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Delete</th>
+        </tr>
+        {{#each this.listTeacher}}
+        <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.userName}}</td>
+            <td>{{this.age}}</td>
+            <td>{{this.degree}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.phone}}</td>
+            <td><button class="btn-delete-teacher" value="{{this._id}}"
+                    style="margin:10px; cursor:pointer; outline:none"><i class="fas fa-trash fa-lg"
+                        style="color:rgba(231, 13, 13, 0.932)"></i></button></td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+<script>
+    document.querySelector('.nav-link.active').classList.remove('active');
+    document.querySelector('.nav-link.list-teacher').classList.add('active');
+    document.querySelectorAll(".btn-delete-teacher").forEach(item => item.addEventListener("click", async (event) => {
+        event.preventDefault();
+        axios({
+            method: "delete",
+            url: "/admin/teacher/delete",
+            data: { idTeacher: item.value },
+            headers: {
+                "X-Requested-with": "XMLHttpRequest",
+            },
+        }).then(response => window.location.reload())
+            .catch(error =>
+                console.log("Delete teacher failed"))
+    }))
+</script>

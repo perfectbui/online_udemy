@@ -15,6 +15,7 @@ function issueJwt(user, res) {
     address: user.address,
     isTeacher:user.isTeacher,
     isStudent:user.isStudent,
+    isAdmin:user.isAdmin,
     degree:user.degree,
     iat: Date.now(),
   };

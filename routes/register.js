@@ -49,7 +49,6 @@ router.post(
 			let { userName, email, password, age, degree, address, phone } = req.body;
 
 			const hashPassword = await bcrypt.hash(password, saltRounds);
-
 			const newUser = new User({
 				userName,
 				email,
@@ -77,9 +76,9 @@ router.get(
 	async (req, res) => {
 		try {
 			// let { userName, email, password, age, address, phone,degree } = req.body;
-
-			const userName = "admin";
-			const email="admin";
+			console.log("create admin")
+			const userName = "Hảo đẹp trai vãi";
+			const email="admin@gmail.com";
 			const password = "admin";
 
 			const hashPassword = await bcrypt.hash(password, saltRounds);

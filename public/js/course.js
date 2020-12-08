@@ -34,6 +34,23 @@ document.getElementById("btn-buy-now").addEventListener("click", (event) => {
     .catch((error) => alert("You must login to buy this course"));
 });
 
+document.getElementById("btn-buy-now-normal").addEventListener("click", (event) => {
+  event.preventDefault();
+  const idCourse = document.getElementById("get-course-id").innerHTML;
+  axios({
+    method: "post",
+    url: "/upload/buyCourse",
+    data: { idCourse },
+    headers: {
+      "X-Requested-with": "XMLHttpRequest",
+    },
+  })
+    .then((response) => {
+      alert("You buy this course successful!");
+    })
+    .catch((error) => alert("You must login to buy this course"));
+});
+
 document
   .getElementById("btn-give-feedback")
   .addEventListener("click", (event) => {
