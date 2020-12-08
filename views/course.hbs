@@ -47,7 +47,7 @@
             <p style="font-weight: bold;">Filed: {{this.course.field}}</p>
         </div>
         <div class="main-infomation">
-            <div class="author-of-course">
+            <div class="author-of-course" style="margin-left:0">
                 <div class="name-of-author">
                     Created by: {{this.course.teacher.userName}}
                 </div>
@@ -82,13 +82,16 @@
     <div class="row-single-course">
         <div class="course-detail-container" style="display: flex;">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <div class="trailer">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/8tpIii2_PLo" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                {{!-- --------------- preview-div ----------------- --}}
+                <div class="trailer"> 
+
                 </div>
                 
                 <div class="price-buy-course hidden-2">
+                     <a href={{this.course.image}} data-size="710x823">
+                        <img src={{this.course.image}}
+                            style="width: 100%;height:300px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
+                    </a>
                     <h4>{{this.course.price}}$</h4>
                     <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now"
                         style="width:100%;margin-left:0">Buy now</button>
@@ -119,161 +122,13 @@
                                 </li>
                             </ul>
                         </div>
-
-
                     </div>
                 </div>
-                <div class="u-detail-course">
-                    <div class="content-card">
-                        <div class="content-card-head">
-                            <p id="content">Content of course</p>
-                        </div>
-                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                            <div class="course-content">
-                                <div class="course-content-col-1">
-                                    <p>1</p>
-                                </div>
-                                <div class="coures-content-col-2">
-                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                </div>
-                                <div class="course-content-col-3">
-                                    <p>Name of course</p>
-                                </div>
-                                <div class="course-content-col-4">
-                                    <p>1:30</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                            <div class="course-content">
-                                <div class="course-content-col-1">
-                                    <p>2</p>
-                                </div>
-                                <div class="coures-content-col-2">
-                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                </div>
-                                <div class="course-content-col-3">
-                                    <p>Name of course</p>
-                                </div>
-                                <div class="course-content-col-4">
-                                    <p>1:30</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                            <div class="course-content">
-                                <div class="course-content-col-1">
-                                    <p>3</p>
-                                </div>
-                                <div class="coures-content-col-2">
-                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                </div>
-                                <div class="course-content-col-3">
-                                    <p>Name of course</p>
-                                </div>
-                                <div class="course-content-col-4">
-                                    <p>1:30</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                            <div class="course-content">
-                                <div class="course-content-col-1">
-                                    <p>1</p>
-                                </div>
-                                <div class="coures-content-col-2">
-                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                </div>
-                                <div class="course-content-col-3">
-                                    <p>Name of course</p>
-                                </div>
-                                <div class="course-content-col-4">
-                                    <p>1:30</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                            <div class="course-content">
-                                <div class="course-content-col-1">
-                                    <p>2</p>
-                                </div>
-                                <div class="coures-content-col-2">
-                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                </div>
-                                <div class="course-content-col-3">
-                                    <p>Name of course</p>
-                                </div>
-                                <div class="course-content-col-4">
-                                    <p>1:30</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                            <div class="course-content">
-                                <div class="course-content-col-1">
-                                    <p>3</p>
-                                </div>
-                                <div class="coures-content-col-2">
-                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                </div>
-                                <div class="course-content-col-3">
-                                    <p>Name of course</p>
-                                </div>
-                                <div class="course-content-col-4">
-                                    <p>1:30</p>
-                                </div>
-                            </div>
-                        </a>  
-                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                    <div class="course-content">
-                        <div class="course-content-col-1">
-                            <p>1</p>
-                        </div>
-                        <div class="coures-content-col-2">
-                            <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                        </div>
-                        <div class="course-content-col-3">
-                            <p>Name of course</p>
-                        </div>
-                        <div class="course-content-col-4">
-                            <p>1:30</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                    <div class="course-content">
-                        <div class="course-content-col-1">
-                            <p>2</p>
-                        </div>
-                        <div class="coures-content-col-2">
-                            <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                        </div>
-                        <div class="course-content-col-3">
-                            <p>Name of course</p>
-                        </div>
-                        <div class="course-content-col-4">
-                            <p>1:30</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                    <div class="course-content">
-                        <div class="course-content-col-1">
-                            <p>3</p>
-                        </div>
-                        <div class="coures-content-col-2">
-                            <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                        </div>
-                        <div class="course-content-col-3">
-                            <p>Name of course</p>
-                        </div>
-                        <div class="course-content-col-4">
-                            <p>1:30</p>
-                        </div>
-                    </div>
-                </a>                     
-            </div>   
-                </div>
+                {{!-- ------------------------- content-of-course----------------- --}}
+                <div class="u-detail-course" style="border-top:1px solid gray">  
+                    Nội dung khóa học                  
+                </div>   
+                
                  <div class="review">
                     {{#each this.course.comments}}
                     <div class="review-container">
@@ -346,11 +201,9 @@
                         </li>
                     </ul>
                 </div>
+            </div>
 
-                
-
-        </div>
-                <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
+        <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
 
     </div>
         </div>
