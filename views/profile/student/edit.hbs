@@ -28,7 +28,7 @@
 						<input type="text" id="age-student" value="{{this.user.age}}">
 					</div>
 				</div>
-					<div class="row-content">
+				<div class="row-content">
 					<div class="col-content">
 						<p>Degree:</p>
 					</div>
@@ -64,7 +64,9 @@
 <br>
 <br>
 <script>
+	document.querySelector(".nav-link.active").classList.remove("active");
+	document.querySelector(".nav-link.profile-student").classList.add("active");
 	document.querySelector(".navbar-profile.active").classList.remove("active")
-    document.querySelector(".edit-profile.navbar-profile").classList.add("active")
+	document.querySelector(".edit-profile.navbar-profile").classList.add("active")
 </script>
 <script src="/js/editProfileStudent.js"></script>

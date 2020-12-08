@@ -34,10 +34,11 @@ document
           const mainContent = document.getElementById("main-content").value;
           const detailContent = tinyMCE.get("editor").getContent();
           const previewContent = tinyMCE.get("editor1").getContent();
+          const isCourseDone =  document.getElementById("input-done-course").checked ? true : false;
           axios({
             method: "post",
             url: "/upload/course",
-            data: { name, price, image, field, mainContent, detailContent ,previewContent },
+            data: { name, price, image, field, mainContent, detailContent ,previewContent, isDone:isCourseDone },
             headers: {
               "X-Requested-with": "XMLHttpRequest",
             },

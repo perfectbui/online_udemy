@@ -39,7 +39,7 @@ router.post(
 router.post("/course", authenticate, async (req, res) => {
   try {
     const idUserPost = req.decoded._id;
-    const { mainContent, previewContent,detailContent, name, field, price, image } = req.body;
+    const { mainContent, previewContent,detailContent, name, field, price, image,isDone } = req.body;
     const newCourse = new Course({
       name,
       field,
@@ -48,6 +48,7 @@ router.post("/course", authenticate, async (req, res) => {
       mainContent,
       detailContent,
       previewContent,
+      isDone,
       timeCreated: Date.now(),
       lastUpdated: Date.now(),
       teacher: idUserPost,

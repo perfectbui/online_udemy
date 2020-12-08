@@ -25,6 +25,7 @@ router.post("/course", authenticate, async (req, res) => {
       field,
       price,
       image,
+      isDone
     } = req.body;
     const existedCourse = await Course.findById(idCourse);
     existedCourse.name = name;
@@ -35,6 +36,7 @@ router.post("/course", authenticate, async (req, res) => {
     existedCourse.detailContent = detailContent;
     existedCourse.previewContent = previewContent;
     existedCourse.lastUpdated = Date.now();
+    existedCourse.isDone = isDone;
     await existedCourse.save();
     res.status(200).json({
       course: existedCourse,
