@@ -83,11 +83,11 @@
         <div class="course-detail-container" style="display: flex;">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 {{!-- --------------- preview-div ----------------- --}}
-                <div class="trailer"> 
-                    <h1>Preview</h1>
-                    {{{this.course.previewContent}}}
-                </div>
                 
+                <div class="u-detail-course" >  
+                    <h1>Description</h1>
+                     {{{this.course.detailContent}}}                  
+                </div>   
                 <div class="price-buy-course hidden-2">
                      <a href={{this.course.image}} data-size="710x823">
                         <img src={{this.course.image}}
@@ -126,10 +126,10 @@
                     </div>
                 </div>
                 {{!-- ------------------------- content-of-course----------------- --}}
-                <div class="u-detail-course" style="border-top:1px solid gray">  
-                    <h1>Description</h1>
-                     {{{this.course.detailContent}}}                  
-                </div>   
+                <div class="trailer" style="border-top:1px solid rgb(204, 204, 204)"> 
+                    <h1>Preview</h1>
+                    {{{this.course.previewContent}}}
+                </div>
                 
                  <div class="review">
                     {{#each this.course.comments}}
