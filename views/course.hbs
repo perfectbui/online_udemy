@@ -73,10 +73,34 @@
 </div>
     <div class=" single-course"> 
         <div class="row-single-course">
-            <div class="course-detail-highlignt-container" style="display: flex;">
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-left: 0px; padding-right:0px">
+            <div class="course-detail-container" style="display: flex;">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="trailer">
                         <iframe width="100%" height="450" src="https://www.youtube.com/embed/8tpIii2_PLo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="price-buy-course hidden-2">
+                        <h4>{{this.course.price}}$</h4>
+                        <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now" style="width:100%;margin-left:0">Buy now</button>
+                        <div class="detail-includes">
+                       <ul>
+                           <li><i class="fas fa-mobile"></i></li>
+                           <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
+                           <li><i class="far fa-file-alt"></i></li>
+                           <li><i class="fab fa-youtube"></i></li>
+                           <li><i class="fas fa-history"></i></li>
+                       </ul>
+                       <div class="detail-includes-col-2">
+                        <ul>
+                            <li><p>Access on mobile</p></li>
+                            <li><p>Certificate of completion</p></li>
+                            <li><p>Excersices</p></li>
+                            <li><p>Videos</p></li>
+                            <li><p>Full lifetime access</p></li>
+                        </ul>
+                       </div>
+                       
+                        
+                    </div>
                     </div>
                     <div class="u-detail-course">
                         <div class="content-card">
@@ -178,7 +202,7 @@
     
                         </div>
                 </div>
-                <div class="col-single-course" style="position:fixed">
+                <div class="col-single-course hidden" style="position:fixed">
                     <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"style="position: absolute; top:145px;left:290px;"><i
                         class="fa fa-heart"></i>
                      </button>                      
@@ -215,8 +239,7 @@
                         
                     </div>
                     <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
-                    <button type="button" class="btn btn-danger btn-md mr-1 mb-2" id="btn-add-to-cart"><i
-                            class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+                    
                     {{!-- <div class="table-responsive mb-2">
                         <table class="table table-sm table-borderless">
                             <tbody>
@@ -288,5 +311,11 @@
             else
                 jQuery('.col-single-course').removeClass('fixed');
             });
+    </script>
+    <script>
+            
+        
+                                                                         
+           
     </script>
     <!--Section: Block Content-->
