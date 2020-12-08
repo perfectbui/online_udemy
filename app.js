@@ -63,6 +63,7 @@ app.use("/logout", require("./routes/logout"));
 app.use("/upload", require("./routes/upload"));
 app.use("/profile", require("./routes/profile"));
 app.use("/course", require("./routes/course"));
+app.use("/update",require("./routes/update"))
 
 // app.use('/api/signin', require('./routes/login'));
 // app.use('/api/user', require('./routes/user'));

@@ -3,221 +3,238 @@
 <div hidden id="get-course">{{this.course}}</div>
 <div class="backdrop hide" id="table-rating">
     <form class="table-rating">
-    <p style="font-size:25px; font-weight:500">Rating</p>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-            Very Bad
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
-        <label class="form-check-label" for="exampleRadios2">
-            Bad 
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3">
-        <label class="form-check-label" for="exampleRadios3">
-            Normal
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="4">
-        <label class="form-check-label" for="exampleRadios4">
-            Good
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="5">
-        <label class="form-check-label" for="exampleRadios5">
-            Very Good
-        </label>
-    </div>
-    <button id="btn-give-feedback" style="margin-top:10px;font-weight:500;padding:10px;background-color:rgb(230, 230, 18);cursor:pointer;box-shadow:2px 2px 5px rgb(153, 153, 153)">Give feedback</button>
-</form>
+        <p style="font-size:25px; font-weight:500">Rating</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                Very Bad
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2">
+            <label class="form-check-label" for="exampleRadios2">
+                Bad
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3">
+            <label class="form-check-label" for="exampleRadios3">
+                Normal
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="4">
+            <label class="form-check-label" for="exampleRadios4">
+                Good
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="5">
+            <label class="form-check-label" for="exampleRadios5">
+                Very Good
+            </label>
+        </div>
+        <button id="btn-give-feedback"
+            style="margin-top:10px;font-weight:500;padding:10px;background-color:rgb(230, 230, 18);cursor:pointer;box-shadow:2px 2px 5px rgb(153, 153, 153)">Give
+            feedback</button>
+    </form>
 </div>
 <div class="course-detail-highlignt">
     <div class="course-detail-highlignt-container">
-            <div class="detail-of-course">
-                <h1>{{this.course.name}}</h1>
-                <p>{{{this.course.detailContent}}}</p>
-                <p style="font-weight: bold;">Filed: {{this.course.field}}</p>
-            </div>
-            <div class="main-infomation">
-                <div class="author-of-course">
-                    <div class="name-of-author">
-                        Created by: {{this.course.teacher.userName}}
-                    </div>
-                    <div class="time-create-course" style="margin-left:15px">
-                        Date create: {{this.course.timeCreated}}
-                    </div>
+        <div class="detail-of-course">
+            <h1>{{this.course.name}}</h1>
+            <p>{{{this.course.detailContent}}}</p>
+            <p style="font-weight: bold;">Filed: {{this.course.field}}</p>
+        </div>
+        <div class="main-infomation">
+            <div class="author-of-course">
+                <div class="name-of-author">
+                    Created by: {{this.course.teacher.userName}}
                 </div>
-                <div class="rate-of-course">
-                    <div class="star-of-course">
-                        <div class=" text-warning">
-                            {{#times this.course.rating }}
-                                <i class="fa fa-star"></i>
-                            {{/times}}
-                        </div>
-                    </div>
-                    <div class="views-ofcourse" style="margin-left:15px">
-                        Views: {{this.course.student.length}} <i class="fa fa-eye" aria-hidden="true"></i>
-                    </div>
-                    <div class="last-update-course" style="margin-left:15px">
-                        Last update: {{this.course.lastUpdated}}
-                    </div>
+                <div class="time-create-course" style="margin-left:15px">
+                    Date create: {{this.course.timeCreated}}
                 </div>
             </div>
+            <div class="rate-of-course">
+                <div class="star-of-course">
+                    <div class=" text-warning">
+                        {{#times this.course.rating }}
+                        <i class="fa fa-star"></i>
+                        {{/times}}
+                    </div>
+                </div>
+                <div class="views-ofcourse" style="margin-left:15px">
+                    Views: {{this.course.student.length}} <i class="fa fa-eye" aria-hidden="true"></i>
+                </div>
+                <div class="last-update-course" style="margin-left:15px">
+                    Last update: {{this.course.lastUpdated}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-    <div class=" single-course"> 
-        <div class="row-single-course">
-            <div class="course-detail-highlignt-container" style="display: flex;">
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-left: 0px; padding-right:0px">
-                    <div class="trailer">
-                        <iframe width="100%" height="450" src="https://www.youtube.com/embed/8tpIii2_PLo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="u-detail-course">
-                        <div class="content-card">
-                            <div class="content-card-head">
-                                <p id="content">Content of course</p>
-                            </div>
-                                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                                    <div class="course-content">
-                                            <div class="course-content-col-1">
-                                                <p>1</p>
-                                            </div>
-                                            <div class="coures-content-col-2">
-                                                <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                            </div>
-                                            <div class="course-content-col-3">
-                                                <p>Name of course</p>
-                                            </div>
-                                            <div class="course-content-col-4">
-                                                <p>1:30</p>
-                                            </div>
-                                    </div>
-                                </a>
-                                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                                    <div class="course-content">
-                                            <div class="course-content-col-1">
-                                                <p>2</p>
-                                            </div>
-                                            <div class="coures-content-col-2">
-                                                <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                            </div>
-                                            <div class="course-content-col-3">
-                                                <p>Name of course</p>
-                                            </div>
-                                            <div class="course-content-col-4">
-                                                <p>1:30</p>
-                                            </div>
-                                    </div>
-                                </a>
-                                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                                    <div class="course-content">
-                                            <div class="course-content-col-1">
-                                                <p>3</p>
-                                            </div>
-                                            <div class="coures-content-col-2">
-                                                <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                            </div>
-                                            <div class="course-content-col-3">
-                                                <p>Name of course</p>
-                                            </div>
-                                            <div class="course-content-col-4">
-                                                <p>1:30</p>
-                                            </div>
-                                    </div>
-                                </a>                       
-                            </div>   
-                        </div>
-                        <div class="review">
-                            {{#each this.course.comments}}
-                                <div class="review-container">
-                                    <div class="review-icon">
-                                        <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
-                                    </div>
-                                    <div class="review" style="margin-left: 20px;">
-                                        <h3>Name</h3>
-                                        <div class=" text-warning">
-                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                class="fa fa-star"></i><i class="fa fa-star"></i>
-                                            <Span style="color: black;font-size:large">Great</Span>
-                                        </div>
-                                        <p>{{this.content}}</p>
-                                    </div>
-
-                                </div>
-                                {{/each}}
-                                <div class="review-container-2">
-                                    <div class="form-group" style="width:100%">
-                                        <label for="exampleFormControlTextarea1">Reviews</label>
-                                        <textarea class="form-control" id="comment-content" rows="3" style="width:100%"></textarea>
-                                    </div>
-                                    <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button" style="width:100%;">Send</a>
-                                </div>
-                        </div>
-                        <div class="author">
-                             <div class="h2-align">
-                                <H2>Author</H2>
-                            </div>
-                            <div class="row-single-course">
-                                <div class="author-container">
-                                    <div class="author-icon">
-                                        <img src="https://transang.me/content/images/2019/01/1200px-Python.svg.png" alt="">
-                                    </div>
-                                    <div class="author" style="margin-left: 20px;">
-                                        <h4>{{this.course.teacher.userName}}</h4>
-                                        <p>{{this.course.teacher.degree}}</p>
-                                        <p>Decription</p>
-                                    </div>
-                                </div>
-                            </div>
-    
-                        </div>
+<div class=" single-course">
+    <div class="row-single-course">
+        <div class="course-detail-highlignt-container" style="display: flex;">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-left: 0px; padding-right:0px">
+                <div class="trailer">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/8tpIii2_PLo" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <div class="col-single-course" style="position:fixed">
-                    <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"style="position: absolute; top:145px;left:290px;"><i
-                        class="fa fa-heart"></i>
-                     </button>                      
-                     <a href={{this.course.image}} data-size="710x823">
-                            <img src={{this.course.image}} style="width: 345px;height:195px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
-                    </a>
-                    {{!-- <p class="mb-2 text-muted text-uppercase small">Categories</p> --}}
-                    <div class="price-of-course">
-                        <strong>{{this.course.price}}$</strong>
-                        {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
+                <div class="u-detail-course">
+                    <div class="content-card">
+                        <div class="content-card-head">
+                            <p id="content">Content of course</p>
+                        </div>
+                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
+                            <div class="course-content">
+                                <div class="course-content-col-1">
+                                    <p>1</p>
+                                </div>
+                                <div class="coures-content-col-2">
+                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
+                                </div>
+                                <div class="course-content-col-3">
+                                    <p>Name of course</p>
+                                </div>
+                                <div class="course-content-col-4">
+                                    <p>1:30</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
+                            <div class="course-content">
+                                <div class="course-content-col-1">
+                                    <p>2</p>
+                                </div>
+                                <div class="coures-content-col-2">
+                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
+                                </div>
+                                <div class="course-content-col-3">
+                                    <p>Name of course</p>
+                                </div>
+                                <div class="course-content-col-4">
+                                    <p>1:30</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
+                            <div class="course-content">
+                                <div class="course-content-col-1">
+                                    <p>3</p>
+                                </div>
+                                <div class="coures-content-col-2">
+                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
+                                </div>
+                                <div class="course-content-col-3">
+                                    <p>Name of course</p>
+                                </div>
+                                <div class="course-content-col-4">
+                                    <p>1:30</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <h4 class="pt-1" style="margin-left:10px">{{this.course.mainContent}}</h4>
-                    <div class="include-course">
-                        <p>This course includes:<p>
+                </div>
+                <div class="review">
+                    {{#each this.course.comments}}
+                    <div class="review-container">
+                        <div class="review-icon">
+                            <img src="https://i.pinimg.com/236x/09/3d/05/093d059a988878a4ba30f3d6c79926d6.jpg" alt="">
+                        </div>
+                        <div class="review" style="margin-left: 20px;">
+                            <h3>{{this.user.userName}}</h3>
+                            <div class=" text-warning">
+                                {{#times this.rating }}
+                                <i class="fa fa-star"></i>
+                                {{/times}}
+                            </div>
+                            <p>{{this.content}}</p>
+                        </div>
+
                     </div>
-                    <div class="detail-includes">
-                       <ul>
-                           <li><i class="fas fa-mobile"></i></li>
-                           <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
-                           <li><i class="far fa-file-alt"></i></li>
-                           <li><i class="fab fa-youtube"></i></li>
-                           <li><i class="fas fa-history"></i></li>
-                       </ul>
-                       <div class="detail-includes-col-2">
+                    {{/each}}
+                    <div class="review-container-2">
+                        <div class="form-group" style="width:100%">
+                            <label for="exampleFormControlTextarea1">Reviews</label>
+                            <textarea class="form-control" id="comment-content" rows="3" style="width:100%"></textarea>
+                        </div>
+                        <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button"
+                            style="width:100%;">Send</a>
+                    </div>
+                </div>
+                <div class="author">
+                    <div class="h2-align">
+                        <H2>Author</H2>
+                    </div>
+                    <div class="row-single-course">
+                        <div class="author-container">
+                            <div class="author-icon">
+                                <img src="https://transang.me/content/images/2019/01/1200px-Python.svg.png" alt="">
+                            </div>
+                            <div class="author" style="margin-left: 20px;">
+                                <h4>{{this.course.teacher.userName}}</h4>
+                                <p>{{this.course.teacher.degree}}</p>
+                                <p>Decription</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-single-course" style="position:fixed">
+                <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"
+                    style="position: absolute; top:145px;left:290px;"><i class="fa fa-heart"></i>
+                </button>
+                <a href={{this.course.image}} data-size="710x823">
+                    <img src={{this.course.image}}
+                        style="width: 345px;height:195px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
+                </a>
+                {{!-- <p class="mb-2 text-muted text-uppercase small">Categories</p> --}}
+                <div class="price-of-course">
+                    <strong>{{this.course.price}}$</strong>
+                    {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
+                </div>
+                <h4 class="pt-1" style="margin-left:10px">{{this.course.mainContent}}</h4>
+                <div class="include-course">
+                    <p>This course includes:
+                    <p>
+                </div>
+                <div class="detail-includes">
+                    <ul>
+                        <li><i class="fas fa-mobile"></i></li>
+                        <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
+                        <li><i class="far fa-file-alt"></i></li>
+                        <li><i class="fab fa-youtube"></i></li>
+                        <li><i class="fas fa-history"></i></li>
+                    </ul>
+                    <div class="detail-includes-col-2">
                         <ul>
-                            <li><p>Access on mobile</p></li>
-                            <li><p>Certificate of completion</p></li>
-                            <li><p>Excersices</p></li>
-                            <li><p>Videos</p></li>
-                            <li><p>Full lifetime access</p></li>
+                            <li>
+                                <p>Access on mobile</p>
+                            </li>
+                            <li>
+                                <p>Certificate of completion</p>
+                            </li>
+                            <li>
+                                <p>Excersices</p>
+                            </li>
+                            <li>
+                                <p>Videos</p>
+                            </li>
+                            <li>
+                                <p>Full lifetime access</p>
+                            </li>
                         </ul>
-                       </div>
-                       
-                        
                     </div>
-                    <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
-                    <button type="button" class="btn btn-danger btn-md mr-1 mb-2" id="btn-add-to-cart"><i
-                            class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
-                    {{!-- <div class="table-responsive mb-2">
+
+
+                </div>
+                <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
+                <button type="button" class="btn btn-danger btn-md mr-1 mb-2" id="btn-add-to-cart"><i
+                        class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+                {{!-- <div class="table-responsive mb-2">
                         <table class="table table-sm table-borderless">
                             <tbody>
                                 <tr>
@@ -236,57 +253,57 @@
                             </tbody>
                         </table>
                     </div> --}}
-                    
-                </div>
-            </div>
-                
-            </div>
 
-        
+            </div>
+        </div>
+
     </div>
-    <div class="small-container">
 
-            <div class="hr-div">
-                <H2>Best Seller</H2>
-            </div>
-            <div class="row-single-course-2">
-                <a href="">
-                    <div class="col-single-course-4">
-                        <img src={{this.course.image}}>
-                        
-                        <div class="rating text-warning">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>Mini description</p>
-                        <h3>Name of author</h3>
-                    </div>
-                    
-                </a>
-                
-            </div>
-        
-                
 
-        
-        
-        
-        
-        
-       
+</div>
+<div class="small-container">
+
+    <div class="hr-div">
+        <H2>Best Seller</H2>
+    </div>
+    <div class="row-single-course-2">
+        <a href="">
+            <div class="col-single-course-4">
+                <img src={{this.course.image}}>
+
+                <div class="rating text-warning">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>Mini description</p>
+                <h3>Name of author</h3>
+            </div>
+
+        </a>
+
+    </div>
+
+
+
+
+
+
+
+
+
     <script type="module" src="/js/course.js">
     </script>
     <script>
-            jQuery(window).scroll(function () {
-                var threshold = 20;
-                
-            if (jQuery(window).scrollTop() >= jQuery('.small-container').offset().top-500)
+        jQuery(window).scroll(function () {
+            var threshold = 20;
+
+            if (jQuery(window).scrollTop() >= jQuery('.small-container').offset().top - 500)
                 jQuery('.col-single-course').addClass('fixed');
             else
                 jQuery('.col-single-course').removeClass('fixed');
-            });
+        });
     </script>
     <!--Section: Block Content-->

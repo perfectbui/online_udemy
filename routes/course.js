@@ -9,7 +9,6 @@ router.get("/:id", async (req, res) => {
     .populate("comments.user")
     .populate("student")
     .lean();
-    console.log(existedCourse);
   if (existedCourse) {
     res.render("course", { course: existedCourse });
   } else {

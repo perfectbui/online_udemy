@@ -86,6 +86,5 @@ document
   .getElementById("btn-write-comment")
   .addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("hehe");
     document.querySelector(".backdrop").classList.remove("hide");
   });

@@ -81,7 +81,7 @@ router.post("/student/edit", authenticate, async (req, res) => {
     existedUser.phone = phone;
     existedUser.address = address;
     console.log(existedUser);
-    existedUser.save();
+    await existedUser.save();
     res.status(200).send({ message: "Edit success" });
   } catch (err) {
     res.status(400).json({
@@ -101,7 +101,7 @@ router.post("/teacher/edit", authenticate, async (req, res) => {
     existedUser.phone = phone;
     existedUser.address = address;
     console.log(existedUser);
-    existedUser.save();
+    await existedUser.save();
     res.status(200).send({ message: "Edit success" });
   } catch (err) {
     res.status(400).json({
@@ -139,7 +139,7 @@ router.post("/student/change-password", authenticate, async (req, res) => {
     if (isValid) {
       const newHashPassword = await bcrypt.hash(newPassword, 10);
       existedUser.password = newHashPassword;
-      existedUser.save();
+      await existedUser.save();
       res.status(200).send({ message: "Change password success" });
     } else {
       res.status(400).json({
@@ -162,7 +162,7 @@ router.post("/teacher/change-password", authenticate, async (req, res) => {
     if (isValid) {
       const newHashPassword = await bcrypt.hash(newPassword, 10);
       existedUser.password = newHashPassword;
-      existedUser.save();
+      await existedUser.save();
       res.status(200).send({ message: "Change password success" });
     } else {
       res.status(400).json({
@@ -241,7 +241,7 @@ router.delete("/student/wishlist/delete", authenticate, async (req, res) => {
     existedUser.wishlist = existedUser.wishlist.filter(
       (course) => course._id != idCourse
     );
-    existedUser.save();
+    await existedUser.save();
     res
       .status(200)
       .send({ message: "Delete this course out of wishlist success" });

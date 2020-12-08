@@ -8,7 +8,6 @@ module.exports = {
     const validateEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let responseToClient;
     let isError = false;
-    console.log(req.body);
     if (!email || !userName || !password || !age || !phone || !address) {
       responseToClient = {
         message: "Hãy điền đầy đủ thông tin",

@@ -39,7 +39,7 @@ router.post(
 router.post("/course", authenticate, async (req, res) => {
   try {
     const idUserPost = req.decoded._id;
-    const { mainContent, detailContent, name, field, price, image } = req.body;
+    const { mainContent, previewContent,detailContent, name, field, price, image } = req.body;
     const newCourse = new Course({
       name,
       field,
@@ -47,6 +47,7 @@ router.post("/course", authenticate, async (req, res) => {
       image,
       mainContent,
       detailContent,
+      previewContent,
       timeCreated: Date.now(),
       lastUpdated: Date.now(),
       teacher: idUserPost,
@@ -55,8 +56,6 @@ router.post("/course", authenticate, async (req, res) => {
     const existedUser = await User.findById(idUserPost);
     existedUser.myOwnCourses.push(newCourse._id);
     await existedUser.save();
-    console.log("toi dai dot")
-    console.log(existedUser);
     res.status(200).json({
       course: newCourse,
     });
@@ -118,7 +117,7 @@ router.post("/comment", authenticate, async (req, res) => {
     existedCourse.comments.push({
       user: idUser,
       content: contentComment,
-      rating: rating,
+      rating: parseInt(rating,10),
     });
     let totalRating=0;
     for(let i=0; i<existedCourse.comments.length;i++) {

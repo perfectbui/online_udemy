@@ -33,7 +33,6 @@ router.post('/', validate.login, async (req, res) => {
 					password,
 					existUser.password
 				);
-				console.log("hehe");
 				if (isValid) {
 					issueJwt(existUser, res);
 					res.redirect("/");

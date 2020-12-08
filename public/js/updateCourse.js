@@ -1,14 +1,8 @@
-document.querySelector(".nav-link.active").classList.remove("active");
-document.querySelector(".nav-link.upload-course").classList.add("active");
-
-// document.querySelector(".post-detail").addEventListener("click", (event) => {
-//   event.preventDefault();
-//   let htmlToLoad = tinyMCE.get("editor").getContent();
-//   console.log(htmlToLoad);
-// });
+// document.querySelector(".nav-link.active").classList.remove("active");
+// document.querySelector(".nav-link.update-course").classList.add("active");
 
 document
-  .querySelector(".btn-upload-course")
+  .querySelector(".btn-update-course")
   .addEventListener("click", (event) => {
     event.preventDefault();
     if (document.getElementById("image-course")) {
@@ -27,6 +21,7 @@ document
         },
       })
         .then((response) => {
+          const idCourse = document.getElementById("get-course-id").innerHTML;
           const image = response.data.imageUrl;
           const price = document.getElementById("price-course").value;
           const field = document.getElementById("field-course").value;
@@ -36,8 +31,17 @@ document
           const previewContent = tinyMCE.get("editor1").getContent();
           axios({
             method: "post",
-            url: "/upload/course",
-            data: { name, price, image, field, mainContent, detailContent ,previewContent },
+            url: "/update/course",
+            data: {
+              idCourse,
+              name,
+              price,
+              image,
+              field,
+              mainContent,
+              detailContent,
+              previewContent,
+            },
             headers: {
               "X-Requested-with": "XMLHttpRequest",
             },

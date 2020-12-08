@@ -18,6 +18,10 @@ const CourseSchema = new schema({
     type: String,
     required: true,
   },
+  previewContent: {
+    type: String,
+    required: true,
+  },
   teacher: {
     type: schema.Types.ObjectId,
     ref: "User",
