@@ -73,91 +73,75 @@
         </div>
     </div>
 </div>
-    <div class=" single-course"> 
-        <div class="row-single-course">
-            <div class="course-detail-container" style="display: flex;">
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                    <div class="trailer">
-                        <iframe width="100%" height="450" src="https://www.youtube.com/embed/8tpIii2_PLo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="price-buy-course hidden-2">
-                        <h4>{{this.course.price}}$</h4>
-                        <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now" style="width:100%;margin-left:0">Buy now</button>
-                        <div class="detail-includes">
-                       <ul>
-                           <li><i class="fas fa-mobile"></i></li>
-                           <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
-                           <li><i class="far fa-file-alt"></i></li>
-                           <li><i class="fab fa-youtube"></i></li>
-                           <li><i class="fas fa-history"></i></li>
-                       </ul>
-                       <div class="detail-includes-col-2">
+<div class=" single-course"> 
+    <div class="row-single-course">
+        <div class="course-detail-container" style="display: flex;">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="padding-left: 0px; padding-right:0px">
+                <div class="trailer">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/8tpIii2_PLo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="course-detail-mini hidden-2">
+                    <p>{{this.course.price}}$</p>
+                    <div class="include-course">
+                    <p>This course includes:
+                    <p>
+                </div>
+                <div class="detail-includes">
+                    <ul>
+                        <li><i class="fas fa-mobile"></i></li>
+                        <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
+                        <li><i class="far fa-file-alt"></i></li>
+                        <li><i class="fab fa-youtube"></i></li>
+                        <li><i class="fas fa-history"></i></li>
+                    </ul>
+                    <div class="detail-includes-col-2">
                         <ul>
-                            <li><p>Access on mobile</p></li>
-                            <li><p>Certificate of completion</p></li>
-                            <li><p>Excersices</p></li>
-                            <li><p>Videos</p></li>
-                            <li><p>Full lifetime access</p></li>
+                            <li>
+                                <p>Access on mobile</p>
+                            </li>
+                            <li>
+                                <p>Certificate of completion</p>
+                            </li>
+                            <li>
+                                <p>Excersices</p>
+                            </li>
+                            <li>
+                                <p>Videos</p>
+                            </li>
+                            <li>
+                                <p>Full lifetime access</p>
+                            </li>
                         </ul>
-                       </div>
-                       
-                        
                     </div>
-                    </div>
-                    <div class="u-detail-course">
-                        <div class="content-card">
-                            <div class="content-card-head">
+                    
+                    {{!-- <button type="button" class="btn btn-danger btn-md mr-1 mb-2" id="btn-add-to-cart"><i
+                            class="fas fa-shopping-cart pr-2"></i>Add to cart</button> --}}
+                    {{!-- <div class="table-responsive mb-2">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="pl-0">
+                                        <div class="def-number-input number-input safari_only mb-0">
+                                            <button
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                                                class="minus"></button>
+                                            <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                            <button
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                class="plus"></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> --}}
+
+                </div>
+                </div>
+                <div class="u-detail-course">
+                    <div class="content-card">
+                        <div class="content-card-head">
                                 <p id="content">Content of course</p>
-                            </div>
-                                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                                    <div class="course-content">
-                                            <div class="course-content-col-1">
-                                                <p>1</p>
-                                            </div>
-                                            <div class="coures-content-col-2">
-                                                <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                            </div>
-                                            <div class="course-content-col-3">
-                                                <p>Name of course</p>
-                                            </div>
-                                            <div class="course-content-col-4">
-                                                <p>1:30</p>
-                                            </div>
-                                    </div>
-                                </a>
-                                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                                    <div class="course-content">
-                                            <div class="course-content-col-1">
-                                                <p>2</p>
-                                            </div>
-                                            <div class="coures-content-col-2">
-                                                <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                            </div>
-                                            <div class="course-content-col-3">
-                                                <p>Name of course</p>
-                                            </div>
-                                            <div class="course-content-col-4">
-                                                <p>1:30</p>
-                                            </div>
-                                    </div>
-                                </a>
-                                <a href="" id="course-content-tag-a" style="text-decoration: none;">
-                                    <div class="course-content">
-                                            <div class="course-content-col-1">
-                                                <p>3</p>
-                                            </div>
-                                            <div class="coures-content-col-2">
-                                                <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
-                                            </div>
-                                            <div class="course-content-col-3">
-                                                <p>Name of course</p>
-                                            </div>
-                                            <div class="course-content-col-4">
-                                                <p>1:30</p>
-                                            </div>
-                                    </div>
-                                </a>                       
-                            </div>   
                         </div>
                         <a href="" id="course-content-tag-a" style="text-decoration: none;">
                             <div class="course-content">
@@ -207,7 +191,55 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
+                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
+                            <div class="course-content">
+                                <div class="course-content-col-1">
+                                    <p>1</p>
+                                </div>
+                                <div class="coures-content-col-2">
+                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
+                                </div>
+                                <div class="course-content-col-3">
+                                    <p>Name of course</p>
+                                </div>
+                                <div class="course-content-col-4">
+                                    <p>1:30</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
+                            <div class="course-content">
+                                <div class="course-content-col-1">
+                                    <p>2</p>
+                                </div>
+                                <div class="coures-content-col-2">
+                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
+                                </div>
+                                <div class="course-content-col-3">
+                                    <p>Name of course</p>
+                                </div>
+                                <div class="course-content-col-4">
+                                    <p>1:30</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" id="course-content-tag-a" style="text-decoration: none;">
+                            <div class="course-content">
+                                <div class="course-content-col-1">
+                                    <p>3</p>
+                                </div>
+                                <div class="coures-content-col-2">
+                                    <img src="https://canhme.com/wp-content/uploads/2018/09/Nodejs.png" alt="">
+                                </div>
+                                <div class="course-content-col-3">
+                                    <p>Name of course</p>
+                                </div>
+                                <div class="course-content-col-4">
+                                    <p>1:30</p>
+                                </div>
+                            </div>
+                        </a>                       
+                    </div>   
                 </div>
                 <div class="review">
                     {{#each this.course.comments}}
@@ -235,33 +267,7 @@
                         <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button"
                             style="width:100%;">Send</a>
                     </div>
-                </div>
-                <div class="col-single-course hidden" style="position:fixed">
-                    <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"style="position: absolute; top:145px;left:290px;"><i
-                        class="fa fa-heart"></i>
-                     </button>                      
-                     <a href={{this.course.image}} data-size="710x823">
-                            <img src={{this.course.image}} style="width: 345px;height:195px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
-                    </a>
-                    {{!-- <p class="mb-2 text-muted text-uppercase small">Categories</p> --}}
-                    <div class="price-of-course">
-                        <strong>{{this.course.price}}$</strong>
-                        {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
-                    </div>
-                    <div class="row-single-course">
-                        <div class="author-container">
-                            <div class="author-icon">
-                                <img src="https://transang.me/content/images/2019/01/1200px-Python.svg.png" alt="">
-                            </div>
-                            <div class="author" style="margin-left: 20px;">
-                                <h4>{{this.course.teacher.userName}}</h4>
-                                <p>{{this.course.teacher.degree}}</p>
-                                <p>Decription</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                </div>        
             </div>
             <div class="col-single-course" style="position:fixed">
                 <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"
@@ -308,8 +314,9 @@
                             </li>
                         </ul>
                     </div>
-                    <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
                     
+                    {{!-- <button type="button" class="btn btn-danger btn-md mr-1 mb-2" id="btn-add-to-cart"><i
+                            class="fas fa-shopping-cart pr-2"></i>Add to cart</button> --}}
                     {{!-- <div class="table-responsive mb-2">
                         <table class="table table-sm table-borderless">
                             <tbody>
@@ -330,15 +337,16 @@
                         </table>
                     </div> --}}
 
-            </div>
-        </div>
-
+                </div>
+                <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now">Buy now</button>
+            </div>  
+        </div>        
     </div>
-
-
 </div>
-<div class="small-container">
 
+
+
+<div class="small-container">
     <div class="hr-div">
         <H2>Best Seller</H2>
     </div>
@@ -357,12 +365,10 @@
                 <p>Mini description</p>
                 <h3>Name of author</h3>
             </div>
-
         </a>
-
     </div>
 
-
+</div>
 
 
 
@@ -381,11 +387,5 @@
             else
                 jQuery('.col-single-course').removeClass('fixed');
         });
-    </script>
-    <script>
-            
-        
-                                                                         
-           
     </script>
     <!--Section: Block Content-->
