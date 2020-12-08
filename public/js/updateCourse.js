@@ -29,6 +29,8 @@ document
           const mainContent = document.getElementById("main-content").value;
           const detailContent = tinyMCE.get("editor").getContent();
           const previewContent = tinyMCE.get("editor1").getContent();
+          const isCourseDone =  document.getElementById("input-done-course").checked ? true : false;
+          console.log(isCourseDone);
           axios({
             method: "post",
             url: "/update/course",
@@ -41,6 +43,7 @@ document
               mainContent,
               detailContent,
               previewContent,
+              isDone:isCourseDone
             },
             headers: {
               "X-Requested-with": "XMLHttpRequest",

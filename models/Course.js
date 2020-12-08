@@ -54,6 +54,10 @@ const CourseSchema = new schema({
     type: Date,
     default: Date.now(),
   },
+  isDone : {
+    type:Boolean,
+    default:false
+  }
 });
 
 const Course = mongoose.model("Course", CourseSchema);
