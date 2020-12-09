@@ -1,0 +1,69 @@
+<div style="display: flex;flex-direction:column;align-items:center">
+    <h1 style="text-align: center;margin:10px;">Category</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Delete</th>
+        </tr>
+        {{#each this.category}}
+        <tr>
+            <th>{{this._id}}</th>
+            <td>{{this.name}}</td>
+            <td><button value="{{this._id}}" class="btn-delete-category"
+                    style="margin:10px; cursor:pointer; outline:none"><i class="fas fa-trash fa-lg"
+                        style="color:rgba(231, 13, 13, 0.932)"></i></button></td>
+        </tr>
+        {{/each}}
+    </table>
+    <button style="margin:20px; color:rgb(33, 216, 33); background-color:none; cursor:pointer; outline:none;"
+        id="btn-toggle-add-category"><i class="fas fa-plus fa-2x"></i></button>
+    <div class="input-category" style="display: none; align-items:center">
+        <label style="font-size:20px;font-weight:500;margin-right:10px;" for="new-category">Category: </label>
+        <input id="new-category" style="padding:10px;border-radius:10px;color:#00000096; margin-right:10px;" type="text"
+            placeholder="Type New Category" />
+        <button id="btn-add-category" style="cursor: pointer; outline:none;"><i class="fas fa-arrow-alt-circle-up fa-2x"
+                style="color:rgb(212, 14, 14);"></i></button>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.nav-link.active').classList.remove('active');
+    document.querySelector('.nav-link.category').classList.add('active');
+
+    document.getElementById("btn-toggle-add-category").addEventListener("click", (event) => {
+        event.preventDefault();
+        if (document.querySelector(".input-category").style.display === 'none') {
+            document.querySelector(".input-category").style.display = "flex";
+        } else {
+            document.querySelector(".input-category").style.display = "none";
+        }
+    })
+
+    document.getElementById("btn-add-category").addEventListener("click", (event) => {
+        event.preventDefault();
+        axios({
+            method: "post",
+            url: "/admin/category/add",
+            data: { categoryName: document.getElementById("new-category").value },
+            headers: {
+                "X-Requested-with": "XMLHttpRequest",
+            },
+        }).then(response => window.location.reload())
+            .catch(error => alert("Add new category failed"))
+    })
+
+    document.querySelectorAll(".btn-delete-category").forEach(item => item.addEventListener("click", async (event) => {
+        event.preventDefault();
+        axios({
+            method: "delete",
+            url: "/admin/category/delete",
+            data: { idCategory: item.value },
+            headers: {
+                "X-Requested-with": "XMLHttpRequest",
+            },
+        }).then(response => window.location.reload())
+            .catch(error =>
+                alert("Delete category failed"))
+    }))
+</script>

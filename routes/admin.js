@@ -2,6 +2,35 @@ const router = require("express").Router();
 const { authenticate } = require("../middlewares/auth");
 const User = require("../models/User");
 const Course = require("../models/Course");
+const Category = require("../models/Category");
+
+router.get("/category", authenticate, async (req, res) => {
+  const category = await Category.find({}).lean();
+  res.render("admin/category", {
+    category,
+  });
+});
+
+router.post("/category/add", authenticate, async (req, res) => {
+  const { categoryName } = req.body;
+  const newCategory = new Category({
+    name: categoryName,
+  });
+  await newCategory.save();
+  res.render("admin/category", {
+    category: newCategory,
+  });
+});
+
+router.delete("/category/delete", authenticate, async (req, res) => {
+  try {
+    const { idCategory } = req.body;
+    await Category.remove({ _id: idCategory });
+    res.send({ message: "Delete category success" });
+  } catch (error) {
+    res.status(400).send({ message: "Delete category failed" });
+  }
+});
 
 router.get("/profile", authenticate, async (req, res) => {
   const idAdmin = req.decoded._id;
@@ -43,7 +72,7 @@ router.delete("/course/delete", authenticate, async (req, res) => {
 router.delete("/student/delete", authenticate, async (req, res) => {
   try {
     const { idStudent } = req.body;
-    await User.remove({ _id:idStudent });
+    await User.remove({ _id: idStudent });
     res.send({ message: "Delete student success" });
   } catch (error) {
     res.status(400).send({ message: "Delete student failed" });

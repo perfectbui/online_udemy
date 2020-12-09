@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const Axios = require("axios");
-const dateFormat = require("dateformat"); 
+const dateFormat = require("dateformat");
 const mysql = require("mysql");
 const User1 = require("./models/User1");
 const { response } = require("express");
@@ -64,8 +64,8 @@ app.use("/logout", require("./routes/logout"));
 app.use("/upload", require("./routes/upload"));
 app.use("/profile", require("./routes/profile"));
 app.use("/course", require("./routes/course"));
-app.use("/update",require("./routes/update"))
-app.use("/admin",require("./routes/admin"))
+app.use("/update", require("./routes/update"));
+app.use("/admin", require("./routes/admin"));
 
 // app.use('/api/signin', require('./routes/login'));
 // app.use('/api/user', require('./routes/user'));
@@ -78,29 +78,6 @@ app.get("/", async (req, res) => {
   const courses = await Course.find({}).populate("teacher").lean();
   res.render("home", {
     courses: courses,
-    array: [
-      {
-        name: "hao",
-        price: "123",
-        img:
-          "https://scontent.fsgn5-4.fna.fbcdn.net/v/t1.0-9/107901860_917360032103051_7440986603546420460_n.jpg?_nc_cat=102&ccb=2&_nc_sid=8bfeb9&_nc_ohc=fp1dpAi5HQoAX93E5B_&_nc_ht=scontent.fsgn5-4.fna&oh=cab035faf2b136babfd69cfc9f9d5650&oe=5FD50834",
-        author: "hao",
-        field: "toan hoc",
-        rating: "rating",
-        numCustomer: "10",
-      },
-      {
-        name: "hao",
-        price: "123",
-        field: "toan hoc",
-        img:
-          "https://scontent.fsgn5-4.fna.fbcdn.net/v/t1.0-9/107901860_917360032103051_7440986603546420460_n.jpg?_nc_cat=102&ccb=2&_nc_sid=8bfeb9&_nc_ohc=fp1dpAi5HQoAX93E5B_&_nc_ht=scontent.fsgn5-4.fna&oh=cab035faf2b136babfd69cfc9f9d5650&oe=5FD50834",
-        author: "hao",
-        rating: "rating",
-        numCustomer: "10",
-      },
-    ],
-    dropdown: ["hao", "pro"],
   });
 });
 

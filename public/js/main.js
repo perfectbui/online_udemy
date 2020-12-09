@@ -19,6 +19,9 @@ if (getCookie("headerAndPayload").length > 0) {
   }
   if (parseJwt(getCookie("headerAndPayload")).isAdmin) {
     document
+    .querySelector(".nav-item.category")
+    .classList.remove("hide");
+    document
       .querySelector(".nav-item.profile-admin")
       .classList.remove("hide");
       document
