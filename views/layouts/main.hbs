@@ -94,10 +94,9 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Category
                         </a>
-
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            {{#each this.dropdown}}
-                            <a class="dropdown-item" href="{{this}}/alo">{{this}}</a>
+                            {{#each this.category}}
+                            <a class="dropdown-item" href="/course/category/{{this.name}}">{{this.name}}</a>
                             {{/each}}
                         </div>
                     </div>

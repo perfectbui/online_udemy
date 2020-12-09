@@ -1,7 +1,12 @@
 <form class="form-upload-course">
   <h2>Upload Course</h2>
   <input type="text" placeholder="Name" id="name-course" />
-  <input type="text" placeholder="Field" id="field-course" />
+  {{!-- <input type="text" placeholder="Field" id="field-course" /> --}}
+  <select style="margin-top:10px;padding:5px;color:#00000096;" class="form-control" id="category-course">
+    {{#each this.category}}
+    <option>{{this.name}}</option>
+    {{/each}}
+  </select>
   <input type="text" placeholder="Main Content" id="main-content" />
   <input type="file" placeholder="Image" id="image-course" />
   <input type="number" placeholder="Price" id="price-course" />

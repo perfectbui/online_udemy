@@ -10,6 +10,7 @@ const mysql = require("mysql");
 const User1 = require("./models/User1");
 const { response } = require("express");
 const Course = require("./models/Course");
+const Category = require("./models/Category")
 
 require("dotenv").config();
 
@@ -76,8 +77,10 @@ app.use("/admin", require("./routes/admin"));
 
 app.get("/", async (req, res) => {
   const courses = await Course.find({}).populate("teacher").lean();
+  const category = await Category.find({}).lean();
   res.render("home", {
-    courses: courses,
+    courses,
+    category
   });
 });
 

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Course = require("../models/Course");
+const Category = require("../models/Category")
 const { authenticate } = require("../middlewares/auth");
 
 router.get("/course/:id", authenticate, async (req, res) => {
@@ -38,8 +39,10 @@ router.post("/course", authenticate, async (req, res) => {
     existedCourse.lastUpdated = Date.now();
     existedCourse.isDone = isDone;
     await existedCourse.save();
+    const category = await Category.find({}).lean();
     res.status(200).json({
       course: existedCourse,
+      category
     });
   } catch (err) {
     res.status(400).json({

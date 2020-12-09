@@ -5,8 +5,12 @@ const upload = require("../libs/multer");
 const cloudinary = require("../libs/cloudinary");
 const Course = require("../models/Course");
 const User = require("../models/User");
+const  Category = require("../models/Category")
 
-router.get("/course", (req, res) => res.render("upload/course"));
+router.get("/course", async (req, res) => {
+  const category = await Category.find({}).lean();
+  res.render("upload/course",{category});
+});
 
 router.post(
   "/image",
@@ -39,7 +43,16 @@ router.post(
 router.post("/course", authenticate, async (req, res) => {
   try {
     const idUserPost = req.decoded._id;
-    const { mainContent, previewContent,detailContent, name, field, price, image,isDone } = req.body;
+    const {
+      mainContent,
+      previewContent,
+      detailContent,
+      name,
+      field,
+      price,
+      image,
+      isDone,
+    } = req.body;
     const newCourse = new Course({
       name,
       field,
@@ -118,13 +131,14 @@ router.post("/comment", authenticate, async (req, res) => {
     existedCourse.comments.push({
       user: idUser,
       content: contentComment,
-      rating: parseInt(rating,10),
+      rating: parseInt(rating, 10),
     });
-    let totalRating=0;
-    for(let i=0; i<existedCourse.comments.length;i++) {
-      totalRating=totalRating+parseInt(existedCourse.comments[i].rating, 10);
+    let totalRating = 0;
+    for (let i = 0; i < existedCourse.comments.length; i++) {
+      totalRating =
+        totalRating + parseInt(existedCourse.comments[i].rating, 10);
     }
-    totalRating=Math.floor(totalRating/existedCourse.comments.length);
+    totalRating = Math.floor(totalRating / existedCourse.comments.length);
     existedCourse.rating = totalRating;
     await existedCourse.save();
     res.status(200).json({

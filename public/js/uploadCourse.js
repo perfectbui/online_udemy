@@ -29,7 +29,8 @@ document
         .then((response) => {
           const image = response.data.imageUrl;
           const price = document.getElementById("price-course").value;
-          const field = document.getElementById("field-course").value;
+          // const field = document.getElementById("field-course").value;
+          const field = document.getElementById("category-course").value;
           const name = document.getElementById("name-course").value;
           const mainContent = document.getElementById("main-content").value;
           const detailContent = tinyMCE.get("editor").getContent();
