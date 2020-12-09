@@ -1,5 +1,6 @@
-// document.querySelector(".nav-link.active").classList.remove("active");
-// document.querySelector(".nav-link.update-course").classList.add("active");
+document.querySelector(".nav-link.active").classList.remove("active");
+document.querySelector(".nav-link.profile-teacher").classList.add("active");
+
 
 document
   .querySelector(".btn-update-course")

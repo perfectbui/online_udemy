@@ -7,7 +7,8 @@ router.get("/course/:id", authenticate, async (req, res) => {
   try {
     const idCourse = req.params.id;
     const existedCourse = await Course.findById(idCourse).lean();
-    res.render("update/course", { course: existedCourse });
+    const category = await Category.find({}).lean();
+    res.render("update/course", { course: existedCourse,category });
   } catch (err) {
     res.status(400).json({
       message: err,
@@ -39,10 +40,8 @@ router.post("/course", authenticate, async (req, res) => {
     existedCourse.lastUpdated = Date.now();
     existedCourse.isDone = isDone;
     await existedCourse.save();
-    const category = await Category.find({}).lean();
     res.status(200).json({
       course: existedCourse,
-      category
     });
   } catch (err) {
     res.status(400).json({
