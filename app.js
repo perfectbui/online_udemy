@@ -80,7 +80,26 @@ app.use("/",require("./routes/home"));
 // app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`));
 
 
+app.get("/:page", async (req, res) => {
+  let perPage = 1;
+  let page = req.params.page || 1; 
+  const courses = await Course.find({}).populate("teacher").lean()
+            .skip((perPage * page) - perPage)
+            .limit(perPage);
+  const category = await Category.find({}).lean();
+  res.render("home", {
+    courses,
+    category
+  });
+});
+
 // app.get("/index",(req,res)=> res.sendFile(`${__dirname}/index.html`))
+
+
+//app.get("/news", require("./routes/news"))
+
+
+
 
 app.get("/index", (req, res) => res.render("haha"));
 
