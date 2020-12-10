@@ -83,13 +83,13 @@
         <div class="course-detail-container" style="display: flex;">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 {{!-- --------------- preview-div ----------------- --}}
-                
-                <div class="u-detail-course" >  
+
+                <div class="u-detail-course">
                     <h1>Description</h1>
-                     {{{this.course.detailContent}}}                  
-                </div>   
+                    {{{this.course.detailContent}}}
+                </div>
                 <div class="price-buy-course hidden-2">
-                     <a href={{this.course.image}} data-size="710x823">
+                    <a href={{this.course.image}} data-size="710x823">
                         <img src={{this.course.image}}
                             style="width: 100%;height:300px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
                     </a>
@@ -126,12 +126,12 @@
                     </div>
                 </div>
                 {{!-- ------------------------- content-of-course----------------- --}}
-                <div class="trailer" style="border-top:1px solid rgb(204, 204, 204)"> 
+                <div class="trailer" style="border-top:1px solid rgb(204, 204, 204)">
                     <h1>Preview</h1>
                     {{{this.course.previewContent}}}
                 </div>
-                
-                 <div class="review">
+
+                <div class="review">
                     {{#each this.course.comments}}
                     <div class="review-container">
                         <div class="review-icon">
@@ -145,74 +145,74 @@
                                 {{/times}}
                             </div>
                             <p>{{this.content}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <div class="review-container-2">
+                        <div class="form-group" style="width:100%">
+                            <label for="exampleFormControlTextarea1">Reviews</label>
+                            <textarea class="form-control" id="comment-content" rows="3" style="width:100%"></textarea>
+                        </div>
+                        <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button"
+                            style="width:100%;">Send</a>
                     </div>
                 </div>
-                    {{/each}}
-            <div class="review-container-2">
-                <div class="form-group" style="width:100%">
-                    <label for="exampleFormControlTextarea1">Reviews</label>
-                    <textarea class="form-control" id="comment-content" rows="3" style="width:100%"></textarea>
-                </div>
-                <a name="" id="btn-write-comment" class="btn btn-primary" href="#" role="button"
-                    style="width:100%;">Send</a>
-            </div>
-                 </div>
             </div>
             <div class="col-single-course" style="position:fixed">
-            <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"
-                style="position: absolute; top:145px;left:290px;"><i class="fa fa-heart"></i>
-            </button>
-            <a href={{this.course.image}} data-size="710x823">
-                <img src={{this.course.image}}
-                    style="width: 345px;height:195px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
-            </a>
-            {{!-- <p class="mb-2 text-muted text-uppercase small">Categories</p> --}}
-            <div class="price-of-course">
-                <strong>{{this.course.price}}$</strong>
-                {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
-            </div>
-            <h4 class="pt-1" style="margin-left:10px">{{this.course.mainContent}}</h4>
-            <div class="include-course">
-                <p>This course includes:
-                <p>
-            </div>
-            <div class="detail-includes">
-                <ul>
-                    <li><i class="fas fa-mobile"></i></li>
-                    <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
-                    <li><i class="far fa-file-alt"></i></li>
-                    <li><i class="fab fa-youtube"></i></li>
-                    <li><i class="fas fa-history"></i></li>
-                </ul>
-                <div class="detail-includes-col-2">
-                    <ul>
-                        <li>
-                            <p>Access on mobile</p>
-                        </li>
-                        <li>
-                            <p>Certificate of completion</p>
-                        </li>
-                        <li>
-                            <p>Excersices</p>
-                        </li>
-                        <li>
-                            <p>Videos</p>
-                        </li>
-                        <li>
-                            <p>Full lifetime access</p>
-                        </li>
-                    </ul>
+                <button type="button" id="btn-add-wishlist" class="btn btn-lg mr-1 mb-2"
+                    style="position: absolute; top:145px;left:290px;"><i class="fa fa-heart"></i>
+                </button>
+                <a href={{this.course.image}} data-size="710x823">
+                    <img src={{this.course.image}}
+                        style="width: 345px;height:195px;border-radius:5px;margin-left:2.5px;margin-top:2.5px">
+                </a>
+                {{!-- <p class="mb-2 text-muted text-uppercase small">Categories</p> --}}
+                <div class="price-of-course">
+                    <strong>{{this.course.price}}$</strong>
+                    {{!-- <span class="mr-1"><strong>Sale 0.5$</strong></span> --}}
                 </div>
+                <h4 class="pt-1" style="margin-left:10px">{{this.course.mainContent}}</h4>
+                <div class="include-course">
+                    <p>This course includes:
+                    <p>
+                </div>
+                <div class="detail-includes">
+                    <ul>
+                        <li><i class="fas fa-mobile"></i></li>
+                        <li><i class="fa fa-certificate" aria-hidden="true"></i></li>
+                        <li><i class="far fa-file-alt"></i></li>
+                        <li><i class="fab fa-youtube"></i></li>
+                        <li><i class="fas fa-history"></i></li>
+                    </ul>
+                    <div class="detail-includes-col-2">
+                        <ul>
+                            <li>
+                                <p>Access on mobile</p>
+                            </li>
+                            <li>
+                                <p>Certificate of completion</p>
+                            </li>
+                            <li>
+                                <p>Excersices</p>
+                            </li>
+                            <li>
+                                <p>Videos</p>
+                            </li>
+                            <li>
+                                <p>Full lifetime access</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now-normal">Buy now</button>
+
             </div>
-
-        <button type="button" class="btn btn-light btn-md mr-1 mb-2" id="btn-buy-now-normal">Buy now</button>
-
-    </div>
         </div>
-       
-        
+
+
     </div>
-    
+
 </div>
 
 </div>
@@ -221,25 +221,25 @@
 
 <div class="small-container">
     <div class="hr-div">
-        <H2>Best Seller</H2>
+        <H2>Related Courses</H2>
     </div>
     <div class="row-single-course-2">
-        <a href="">
+        {{#each this.relatedCourses}}
+        <a href="/course/{{this._id}}">
             <div class="col-single-course-4">
-                <img src={{this.course.image}}>
-
+                <img src={{this.image}}>
                 <div class="rating text-warning">
+                    {{#times this.rating}}
                     <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+                    {{/times}}
                 </div>
-                <p>Mini description</p>
-                <h3>Name of author</h3>
+                <p>{{this.mainContent}}</p>
+                <h3>{{this.teacher.userName}}</h3>
             </div>
         </a>
+        {{/each}}
     </div>
+
 
 </div>
 
@@ -249,22 +249,22 @@
 
 
 
-    <script type="module" src="/js/course.js">
-    </script>
-    <script>
-        jQuery(window).scroll(function () {
-            var threshold = 20;
+<script type="module" src="/js/course.js">
+</script>
+<script>
+    jQuery(window).scroll(function () {
+        var threshold = 20;
 
-            if (jQuery(window).scrollTop() >= jQuery('.small-container').offset().top - 500)
-                jQuery('.col-single-course').addClass('fixed');
-            else
-                jQuery('.col-single-course').removeClass('fixed');
-        });
-    </script>
-    <script>
-
-
+        if (jQuery(window).scrollTop() >= jQuery('.small-container').offset().top - 500)
+            jQuery('.col-single-course').addClass('fixed');
+        else
+            jQuery('.col-single-course').removeClass('fixed');
+    });
+</script>
+<script>
 
 
-    </script>
-    <!--Section: Block Content-->
+
+
+</script>
+<!--Section: Block Content-->

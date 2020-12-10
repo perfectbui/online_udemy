@@ -1,6 +1,8 @@
 #list-item {
     width:90%;
     margin: 20px auto;
+    padding:20px;
+    border-top: rgb(179, 178, 178) 2px solid;
 }
 
 .item-course {

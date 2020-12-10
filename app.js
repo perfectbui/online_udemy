@@ -4,6 +4,8 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const _handlebars = require('handlebars')
 const Axios = require("axios");
 const dateFormat = require("dateformat");
 const mysql = require("mysql");
@@ -44,6 +46,7 @@ app.engine(
   "hbs",
   exphbs({
     defaultLayout: "main.hbs",
+    handlebars: allowInsecurePrototypeAccess(_handlebars),
     extname: ".hbs",
     layoutsDir: __dirname + "/views/layouts/",
     partialsDir: __dirname + "/views/partials/",
@@ -67,6 +70,7 @@ app.use("/profile", require("./routes/profile"));
 app.use("/course", require("./routes/course"));
 app.use("/update", require("./routes/update"));
 app.use("/admin", require("./routes/admin"));
+app.use("/",require("./routes/home"));
 
 // app.use('/api/signin', require('./routes/login'));
 // app.use('/api/user', require('./routes/user'));
@@ -75,14 +79,6 @@ app.use("/admin", require("./routes/admin"));
 
 // app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`));
 
-app.get("/", async (req, res) => {
-  const courses = await Course.find({}).populate("teacher").lean();
-  const category = await Category.find({}).lean();
-  res.render("home", {
-    courses,
-    category
-  });
-});
 
 // app.get("/index",(req,res)=> res.sendFile(`${__dirname}/index.html`))
 

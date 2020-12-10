@@ -62,7 +62,13 @@
             headers: {
                 "X-Requested-with": "XMLHttpRequest",
             },
-        }).then(response => window.location.reload())
+        }).then(response => {
+            if(response.data.success) {
+                window.location.reload();
+            } else {
+                alert(response.data.message);
+            }
+        })
             .catch(error =>
                 alert("Delete category failed"))
     }))

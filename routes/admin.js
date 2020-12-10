@@ -25,8 +25,17 @@ router.post("/category/add", authenticate, async (req, res) => {
 router.delete("/category/delete", authenticate, async (req, res) => {
   try {
     const { idCategory } = req.body;
-    await Category.remove({ _id: idCategory });
-    res.send({ message: "Delete category success" });
+    const category = await Category.findById(idCategory);
+    const existedCourse = await Course.find({ field: category.name });
+    if (existedCourse.length > 0) {
+      res.send({
+        message: "There is the course in this category",
+        success: false,
+      });
+    } else {
+      await Category.remove({ _id: idCategory });
+      res.send({ message: "Delete category success", success: true });
+    }
   } catch (error) {
     res.status(400).send({ message: "Delete category failed" });
   }

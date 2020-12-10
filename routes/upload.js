@@ -105,7 +105,9 @@ router.post("/buyCourse", authenticate, async (req, res) => {
     const idUser = req.decoded._id;
     const { idCourse } = req.body;
     const existedCourse = await Course.findById(idCourse);
-    existedCourse.student.push(idUser);
+    console.log(existedCourse)
+    existedCourse.student.push({data:idUser,timeCreated:Date.now()});
+    console.log(existedCourse);
     existedCourse.save();
     const existedUser = await User.findById(idUser);
     existedUser.myCourses = existedUser.myCourses.filter(
