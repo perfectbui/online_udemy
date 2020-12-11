@@ -1,0 +1,54 @@
+<div>
+    <div style="margin:30px;display:flex;align-items:center;">
+        <label style="margin-right:5px;">Filter:</label>
+        <select class="form-control" id="filter-course" style="width:100px;">
+            <option></option>
+            <option value="rating" href="/search/rating">Rating</option>
+            <option value="price" href="/search/price">Price</option>
+        </select>
+        <label style="margin:0 5px;">Category:</label>
+        <select class="form-control" id="filter-course" style="width:150px;">
+            <option></option>
+            {{#each this.category }}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div>
+        <h2 style="margin-left: 50px;">Courses</h2>
+        <div class="d-flex flex-row flex-wrap" id="list-item">
+            {{#each this.courses}}
+            <a href="/course/{{this._id}}" style="text-decoration: none;">
+                <div class="d-flex flex-column flex-wrap mr-4 item-course">
+                    <div>Tên bài giảng:{{this.name}}</div>
+                    <div>Lĩnh vực:{{this.field}}</div>
+                    <img src="{{this.image}}" />
+                    <div>Tác giả:{{this.teacher.userName}}</div>
+                    <div>
+                        {{#times this.rating }}
+                        <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
+                        {{/times}}
+                    </div>
+                    <div>Số lượng người mua:{{this.student.length}}</div>
+                    <div>Giá:{{this.price}}</div>
+                    <div>Views: {{this.numViews}}<i style="margin-left: 2px;" class="fas fa-eye"></i></div>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<script>
+    var activities = document.getElementById("filter-course");
+    activities.addEventListener("change", function (event) {
+        event.preventDefault();
+        var options = activities.querySelectorAll("option");
+        if (activities.value == "rating") {
+            window.location.href = "/search/rating"
+        }
+        if (activities.value == "price") {
+            window.location.href = "/search/price"
+        }
+    });
+</script>

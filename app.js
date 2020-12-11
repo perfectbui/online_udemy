@@ -70,6 +70,7 @@ app.use("/profile", require("./routes/profile"));
 app.use("/course", require("./routes/course"));
 app.use("/update", require("./routes/update"));
 app.use("/admin", require("./routes/admin"));
+app.use("/search", require("./routes/search"));
 app.use("/",require("./routes/home"));
 
 // app.use('/api/signin', require('./routes/login'));
