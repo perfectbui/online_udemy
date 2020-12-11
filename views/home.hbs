@@ -54,27 +54,33 @@
     </div>
     <div>
         <h2 style="margin-left: 50px;">New Courses</h2>
-        <div class="d-flex flex-row flex-wrap" id="list-item">
+        <div class="d-flex flex-row flex-wrap owl-carousel owl-theme" id="list-item" style="display: flex;">
             {{#each this.newCourses}}
-            <a href="/course/{{this._id}}" style="text-decoration: none;">
-                <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <div>Tên bài giảng:{{this.name}}</div>
-                    <div>Lĩnh vực:{{this.field}}</div>
-                    <img src="{{this.image}}" />
-                    <div>Tác giả:{{this.teacher.userName}}</div>
-                    <div>
-                        {{#times this.rating }}
-                        <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
-                        {{/times}}
+            <div>
+
+                <a href="/course/{{this._id}}" style="text-decoration: none;">
+                    <div class="d-flex flex-column flex-wrap mr-4 item-course">
+                        <div>Tên bài giảng:{{this.name}}</div>
+                        <div>Lĩnh vực:{{this.field}}</div>
+                        <img src="{{this.image}}" />
+                        <div>Tác giả:{{this.teacher.userName}}</div>
+                        <div>
+                            {{#times this.rating }}
+                            <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
+                            {{/times}}
+                        </div>
+                        <div>Số lượng người mua:{{this.student.length}}</div>
+                        <div>Giá:{{this.price}}</div>
+                        <div>Views: {{this.numViews}}<i style="margin-left: 2px;" class="fas fa-eye"></i></div>
                     </div>
-                    <div>Số lượng người mua:{{this.student.length}}</div>
-                    <div>Giá:{{this.price}}</div>
-                    <div>Views: {{this.numViews}}<i style="margin-left: 2px;" class="fas fa-eye"></i></div>
-                </div>
-            </a>
+                </a>
+            </div>
             {{/each}}
+
+
         </div>
     </div>
+
     <div>
         <h2 style="margin-left: 50px;">Best Category</h2>
         <div style="margin-left:20px;border-top: rgb(179, 178, 178) 2px solid;width:80%;">
@@ -112,4 +118,29 @@
         }
     });
 
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"></script>
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 3,
+                nav: false
+            },
+            1000: {
+                items: 5,
+                nav: true,
+                loop: false
+            }
+        }
+    })
 </script>
