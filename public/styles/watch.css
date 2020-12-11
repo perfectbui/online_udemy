@@ -1,0 +1,19 @@
+.larger-container {
+    display: flex;
+}
+
+.course-video {
+    height: 600px;
+}
+
+@media (max-width:750px) {
+    .larger-container {
+        display: inline;
+    }
+    .course-video {
+        height: 100%;
+    }
+    .col-md-3 {
+        display: none;
+    }
+}
