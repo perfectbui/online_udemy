@@ -2,7 +2,7 @@
     <div style="margin:20px;">
         <span>Filter</span>
         <select class="form-control" style="width:120px;" id="filter">
-            <option value="rating" selected= "seleted">Rating</option>
+            <option value="rating" selected="seleted">Rating</option>
             <option value="price">Price</option>
         </select>
     </div>
@@ -31,7 +31,7 @@
     <div>
         <h2 style="margin-left: 50px;">Most Views Courses</h2>
         <div class="d-flex flex-row flex-wrap" id="list-item">
-            {{#each this.mostViewsCourses}}
+            {{#each this.mostViewCourses}}
             <a href="/course/{{this._id}}" style="text-decoration: none;">
                 <div class="d-flex flex-column flex-wrap mr-4 item-course">
                     <div>Tên bài giảng:{{this.name}}</div>
@@ -74,11 +74,11 @@
     </div>
     <div>
         <h2 style="margin-left: 50px;">Best Category</h2>
-        <ul>
+        <div style="margin-left:20px;border-top: rgb(179, 178, 178) 2px solid;width:80%;">
             {{#each this.bestCategory}}
-            <li>{{this.name}}</li>
+            <li style="font-weight:500;margin-left: 50px;margin-top:10px;list-style-type: circle;">{{this}}</li>
             {{/each}}
-        </ul>
+        </div>
     </div>
     <nav aria-label="...">
         <ul class="pagination center">

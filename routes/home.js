@@ -10,31 +10,33 @@ router.get("/", async (req, res) => {
     .sort({ timeCreated: -1 })
     .lean();
 
-  // let favoriteCourses;
-  // const favoriteCourses1 = await Course.find({})
-  //   .populate("teacher")
-  //   .populate("student.data")
-  //   .exec((err, docs) => {
-  //     favoriteCourses = docs.map((doc) => {
-  //       doc.student.filter(
-  //         (student) => Math.abs(student.timeCreated - Date.now()) > 100
-  //       );
-  //     });
-  //     console.log(
-  //       docs.map((doc) => {
-  //         doc.student.filter(
-  //           (student) => Math.abs(student.timeCreated - Date.now()) > 100
-  //         );
-  //       })
-  //     );
-  //   });
+    const category = await Category.find({}).lean();
 
-  // console.log(favoriteCourses);
-  const category = await Category.find({}).lean();
+  let favoriteCourses = await Course.find({})
+    .populate("teacher")
+    .populate("student.data");
+  favoriteCourses = favoriteCourses
+    .filter((favoriteCourse) =>
+      favoriteCourse.student.filter(
+        (student) => Math.abs(student.timeCreated - Date.now()) / 86400000 <= 7
+      ).length > 0
+        ? true
+        : false
+    )
+    .sort((a, b) => b.student.length - a.student.length)
+    .slice(0, 5);
+
+  let bestCategory =  favoriteCourses.map(course => course.field)
+  bestCategory=bestCategory.filter((category,index)=>bestCategory.indexOf(category) === index)
+
+  const mostViewCourses = await Course.find({}).sort({numViews:-1}).limit(10).populate("teacher");
+
   res.render("home", {
     newCourses,
     category,
-    // favoriteCourses,
+    mostViewCourses,
+    favoriteCourses,
+    bestCategory,
   });
 });
 

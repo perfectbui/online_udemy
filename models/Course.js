@@ -56,6 +56,10 @@ const CourseSchema = new schema({
       },
     },
   ],
+  numViews:{
+    type:Number,
+    default:0
+  },
   lastUpdated: {
     type: Date,
   },

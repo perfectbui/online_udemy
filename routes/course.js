@@ -9,8 +9,9 @@ router.get("/:id", async (req, res) => {
   const existedCourse = await Course.findById(idCourse)
     .populate("teacher")
     .populate("comments.user")
-    .populate("student.data")
-    .lean();
+    .populate("student.data");
+  existedCourse.numViews = existedCourse.numViews + 1;
+  await existedCourse.save();
   const result = await Course.aggregate([
     {
       $match: {
@@ -37,7 +38,6 @@ router.get("/:id", async (req, res) => {
     },
   ]);
   const relatedCourses = await Course.populate(result, { path: "teacher" });
-  console.log(relatedCourses);
   if (existedCourse) {
     res.render("course", { course: existedCourse, relatedCourses });
   } else {
