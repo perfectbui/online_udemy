@@ -6,13 +6,6 @@
             <option value="rating" href="/search/rating">Rating</option>
             <option value="price" href="/search/price">Price</option>
         </select>
-        <label style="margin:0 5px;">Category:</label>
-        <select class="form-control" id="filter-course" style="width:150px;">
-            <option></option>
-            {{#each this.category }}
-            <option value="{{this.name}}">{{this.name}}</option>
-            {{/each}}
-        </select>
     </div>
     <div>
         <h2 style="margin-left: 50px;">Courses</h2>
@@ -50,5 +43,7 @@
         if (activities.value == "price") {
             window.location.href = "/search/price"
         }
+
     });
+
 </script>
