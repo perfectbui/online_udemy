@@ -1,0 +1,25 @@
+<div class="larger-container">
+    <div class="col-md-3" style="padding-top: 10px;">
+        <div class="profile-sidebar">
+            {{#each this.course.video}}
+            <a href="/course/mycourse/{{this._idCourse}}/{{@index}}">
+                <div class="course-row">{{this.title}}</div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+    <div class="col-md-9" style="margin-top:10px;">
+        <div class="profile-content">
+            <div class="course-video">
+                <video id="player" playsinline controls data-poster="/icon/hot.png" style="width:100%;max-height:100%">
+                    <source src="/uploads/videos/{{this.pathName}}" type="video/mp4" />
+                    <!-- Captions are optional -->
+                    <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default />
+                </video>
+            </div>
+            <p>Tên khóa học: {{this.title}}</p>
+        </div>
+
+    </div>
+
+</div>
