@@ -1,4 +1,4 @@
-<div class="container">
+{{!-- <div class="container">
     <div class="row profile">
         {{> navbarTeacher}}
         <class class="col-md-9">
@@ -30,6 +30,42 @@
 <script>
     document.querySelector('.nav-link.active').classList.remove('active');
     document.querySelector('.nav-link.profile-teacher').classList.add('active');
+    document.querySelector(".navbar-profile.active").classList.remove("active")
+    document.querySelector(".navbar-profile.mycourse").classList.add("active")
+</script> --}}
+
+<div class="container">
+    <div class="row profile">
+        {{> navbarTeacher}}
+        <class class="col-md-9">
+            <div class="profile-content-course">
+                <h3 style="width:100%;height:100%">My courses</h3>
+                {{#each this.user.myOwnCourses}}
+                <div class="my-course-card">
+                    <a href="/update/course/{{this._id}}" id="#card" style="text-decoration: none;">
+                        <div class="course-card">
+                            <img width="230" height="150" src={{this.image}}>
+                            <div class="course-card-detail">
+                                <div class="my-course-name">{{this.name}}</div>
+                                <span>{{this.teacher.userName}}</span>
+                                <div class=" text-warning">
+                                    {{#times this.rating}}
+                                    <i class="fa fa-star"></i>
+                                    {{/times}}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+        </class>
+
+    </div>
+</div>
+</div>
+<script>
+    document.querySelector(".nav-link.active").classList.remove("active");
+    document.querySelector(".nav-link.profile-student").classList.add("active");
     document.querySelector(".navbar-profile.active").classList.remove("active")
     document.querySelector(".navbar-profile.mycourse").classList.add("active")
 </script>

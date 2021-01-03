@@ -5,9 +5,9 @@
             {{#each this.favoriteCourses}}
             <a href="/course/{{this._id}}" style="text-decoration: none; color:black; font-size:15px; padding-top:10px">
                 <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
-                    <div>Lĩnh vực: {{this.field}}</div>
                     <img src="{{this.image}}" />
+                    <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
+
                     <div class="author-name">Tác giả: {{this.teacher.userName}}</div>
                     <div>
                         {{#times this.rating }}
@@ -16,14 +16,18 @@
                     </div>
                     <div style="color: gray;">
                         <div>Số lượng người mua: {{this.student.length}}</div>
-                        <div><b>Giá: {{this.price}}</b></div>
-                        <div>Views: {{this.numViews}} <i style="margin-left: 2px;" class="fas fa-eye"></i></div>
+                        <span><b>$ {{this.price}}</b></span>
+                        <span style="margin-left:30px">{{this.numViews}} <i style="margin-left: 2px;"
+                                class="fas fa-eye"></i></span>
                     </div>
                     <div>
                         <img src="/icon/like.png" style="max-width:100%;max-height:30px;margin-left:85%">
 
                     </div>
-                    <label for=""> {{this.field}}</label>
+                    <div class="tag">
+                        <label for="">{{this.field}}</label>
+                    </div>
+                    {{!-- <label for=""> {{this.field}}</label> --}}
                 </div>
             </a>
             {{/each}}
@@ -35,7 +39,7 @@
             {{#each this.mostViewCourses}}
             <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
                 <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <div style="font-size:25px;color:cornflowerblue">Tên bài giảng:{{this.name}}</div>
+                    <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
                     <div>Lĩnh vực:{{this.field}}</div>
                     <img src="{{this.image}}" />
                     <div>Tác giả:{{this.teacher.userName}}</div>
@@ -64,8 +68,7 @@
 
             <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
                 <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <div style="font-size:25px;color:cornflowerblue">Tên bài giảng:{{this.name}}
-                    </div>
+                    <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
                     <div>Lĩnh vực:{{this.field}}</div>
                     <img src="{{this.image}}" />
                     <div>Tác giả:{{this.teacher.userName}}</div>
