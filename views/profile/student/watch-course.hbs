@@ -1,13 +1,36 @@
 <div class="larger-container">
-    {{> contentList}}
-    <div class="col-md-9">
+    <div class="col-md-3" style="padding-top: 10px;">
+        <div class="profile-sidebar">
+            <a href="#">
+                <div class="course-row">
+                    Bài 1: aaa
+                </div>
+            </a>
+            <a href="#">
+                <div class="course-row">
+                    Bài 1: aaa
+                </div>
+            </a>
+            <a href="#">
+                <div class="course-row">
+                    Bài 1: aaa
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-9" style="margin-top:10px;">
         <div class="profile-content">
             <div class="course-video">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/0SJE9dYdpps" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <video id="player" playsinline controls data-poster="/icon/hot.png" style="width:100%;max-height:100%">
+                    <source src="public/video/123.mp4" type="video/mp4" />
+                    <!-- Captions are optional -->
+                    <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default />
+                </video>
             </div>
+            <p>Tên khóa học</p>
+            <p>Mô tả</p>
         </div>
+
     </div>
 
 </div>

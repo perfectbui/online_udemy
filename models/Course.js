@@ -44,29 +44,22 @@ const CourseSchema = new schema({
       user: { type: schema.Types.ObjectId, ref: "User" },
       content: String,
       rating: String,
+    }],
+  student: [{
+    data: {
+      type: schema.Types.ObjectId,
+      ref: "User",
     },
-  ],
-  student: [
-    {
-      data: {
-        type: schema.Types.ObjectId,
-        ref: "User",
-      },
-      timeCreated: {
-        type: Date,
-      },
+    timeCreated: {
+      type: Date,
     },
-  ],
+  },],
   numViews: {
     type: Number,
-    default: 0
+    default: 0,
   },
   lastUpdated: {
     type: Date,
-  },
-  timeCreated: {
-    type: Date,
-    default: Date.now(),
   },
   isDone: {
     type: Boolean,

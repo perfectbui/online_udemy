@@ -5,145 +5,149 @@ Licensed under MIT
 ***/
 
 body {
-  background: #F1F3FA;
+    background: #F1F3FA;
 }
+
 
 /* Profile container */
+
 .profile {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
+
 /* Profile sidebar */
+
 .profile-sidebar {
-  padding: 20px 0 10px 0;
-  background: #fff;
+    padding: 20px 0 10px 0;
+    background: #fff;
 }
 
 .profile-userpic img {
-  float: none;
-  /* margin: 0 auto; */
-  width: 150px;
-  height: 150px;
-  border-radius: 50% !important;
+    float: none;
+    /* margin: 0 auto; */
+    width: 150px;
+    height: 150px;
+    border-radius: 50% !important;
 }
 
 .profile-usertitle {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .profile-usertitle-name {
-  color: #5a7391;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 7px;
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
 }
 
 .profile-usertitle-job {
-  text-transform: uppercase;
-  color: #5b9bd1;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .profile-userbuttons {
-  text-align: center;
-  margin-top: 10px;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .profile-userbuttons .btn {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 6px 15px;
-  margin-right: 5px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 15px;
+    margin-right: 5px;
 }
 
 .profile-userbuttons .btn:last-child {
-  margin-right: 0px;
+    margin-right: 0px;
 }
-    
+
 #menu {
-  margin-top: 30px;
-  
- 
-}
-#menu ul{
-  list-style-type: none;
-  text-align: left;
-}
- #menu ul li {
-  width: auto;
-  height: 50px;
-  
+    margin-top: 30px;
 }
 
+#menu ul {
+    list-style-type: none;
+    text-align: left;
+}
 
+#menu ul li {
+    width: auto;
+    height: 50px;
+}
 
 #menu ul li a {
-  color: #93a3b5;
-  font-size: 17px;
-  font-weight: 400;
-  width: 247.5px;
-  height: 50px;
-  text-decoration: none;
-  display: block;
-  
-}
-#menu ul li a div{
-  height: 30px;
-  padding-top: 10px;
-}
-#menu ul li a:hover {
-  background-color: #b2dbf0;
-  color: #5b9bd1;
-  border-left: 2px rgb(193, 193, 243);
-  width: 250px;
+    color: #93a3b5;
+    font-size: 17px;
+    font-weight: 400;
+    width: 247.5px;
+    height: 50px;
+    text-decoration: none;
+    display: block;
 }
 
-.profile-usermenu ul li.active {
-  
+#menu ul li a div {
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 5px;
 }
+
+#menu ul li a:hover {
+    background-color: #b2dbf0;
+    color: #5b9bd1;
+    border-left: 2px rgb(193, 193, 243);
+    width: 250px;
+}
+
+.profile-usermenu ul li.active {}
 
 #menu ul li.active a {
-  color: #5b9bd1;
-  border-left: 2px solid #5b9bd1;
-  
-} 
+    color: #5b9bd1;
+    border-left: 2px solid #5b9bd1;
+}
+
 
 /* Profile Content */
-.profile-content {
-  padding: 20px;
-  background: #fff;
-  min-height: 460px;
-}
-.profile-content btn-edit-cont{
-  align-items: flex-end;
-  
-}
- .row-content{
-  border-top: 1px solid #b2dbf0;
 
+.profile-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+}
+
+.profile-content btn-edit-cont {
+    align-items: flex-end;
+}
+
+.row-content {
+    border-top: 1px solid #b2dbf0;
     width: 750px;
     height: 50px;
     display: flex;
 }
-.col-content{
-  width: 200px;
-  
+
+.col-content {
+    width: 200px;
 }
-.col-content p{
+
+.col-content p {
     align-items: center;
     margin-top: 12px;
     color: gray;
 }
-.col-content input{
-  align-items: center;
-  margin-top: 12px;
-  color: gray;
+
+.col-content input {
+    align-items: center;
+    margin-top: 12px;
+    color: gray;
 }
 
-.card-footer{ 
-  float: right;
+.card-footer {
+    float: right;
 }
