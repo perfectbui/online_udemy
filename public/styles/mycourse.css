@@ -1,119 +1,127 @@
-
-
-.review-icon img{
+.review-icon img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    
 }
-.container-course{
+
+.container-course {
     width: 98%;
     margin-bottom: 30px;
     height: 800px;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
-    
 }
 
-.author-icon img{
+.author-icon img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-
 }
-.sm-container{
+
+.sm-container {
     width: 555px;
     height: 450px;
-    background-color:#C0C0C0;
+    background-color: #C0C0C0;
     border: black 2px;
     border-radius: 5px;
 }
 
-.author p{
+.author p {
     color: black;
     font-size: 15px;
     line-height: 10px;
 }
 
-.small-container{
-    
-    margin:auto;
+.small-container {
+    margin: auto;
     padding-left: 5px;
     padding-right: 5px;
 }
-.small-container h2{
+
+.small-container h2 {
     text-align: center;
     text-decoration: underline;
 }
-.row-2{
-   display: inline-flex;
-   justify-content: space-around;
-   width: 80%;
-   margin-left: 150px;
+
+.row-2 {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-left: 150px;
 }
-.row #tag-a-detail{
+
+.row #tag-a-detail {
     flex-basis: 25%;
     padding: 10px;
     min-width: 300px;
     margin-bottom: 50px;
     transition: transform 0.5s;
 }
-.col-1-courseDetail{
-    
+
+.col-1-courseDetail {
     width: 750px;
     margin-bottom: 30px;
     height: 300px;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
-.col-1-courseDetail ul li{
+
+.col-1-courseDetail ul li {
     font-size: 27px;
     margin-left: 30px;
     color: gray;
 }
-.col-3{
+
+.col-3 {
     flex-basis: 30%;
     width: 200px;
     margin-bottom: 30px;
     height: 300px;
 }
-.col-3 img{
+
+.col-3 img {
     width: 100%;
 }
-.testimonial{
+
+.testimonial {
     justify-content: space-between;
 }
-.testimonial .col-3{
+
+.testimonial .col-3 {
     text-align: center;
     padding: 40px 20px;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.5s;
+}
 
+.testimonial .col-3:hover {
+    transform: translateY(-10px)
 }
-.testimonial .col-3:hover{
-    transform:translateY(-10px)
-}
-.testimonial .col-3 img{
+
+.testimonial .col-3 img {
     width: 50px;
     margin-top: 20px;
     border-radius: 50%;
 }
-.fa.fa-quote-left{
+
+.fa.fa-quote-left {
     font-size: 34px;
     color: #ff523b;
 }
-.col-3 p{
+
+.col-3 p {
     font-size: 12px;
-    margin:12px 0;
+    margin: 12px 0;
     color: #777;
 }
 
-.testimonial .col-3 h3{
+.testimonial .col-3 h3 {
     font-weight: 600;
     color: #555;
     font-size: 16px;
 }
-.h2-align{
+
+.h2-align {
     text-decoration: underline;
     text-align: center;
 }
@@ -122,14 +130,14 @@
     padding: 20px;
     background: #fff;
     min-height: 600px;
-    
-  }
-.card-mycourse{
+}
+
+.card-mycourse {
     width: 250px;
     height: 260px;
-    
 }
-.course-card{
+
+.course-card {
     width: 231px;
     height: 250px;
     box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.1);
@@ -139,53 +147,60 @@
     margin-top: 10px;
 }
 
-.course-card-detail{
+.course-card-detail {
     margin-left: 5px;
     margin-top: 5px;
     color: gray;
-    
 }
-.course-card-detail p{
+
+.course-card-detail p {
     line-height: 10px;
 }
 
-.plyr__video-embed{
+.plyr__video-embed {
     display: flex;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
 }
-.plyr__video-embed #card{
+
+.plyr__video-embed #card {
     text-decoration: none;
     flex-basis: 25%;
-    
     margin-bottom: 50px;
     transition: transform 0.5s;
 }
 
-.course-card:hover{
+.course-card:hover {
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
-.my-course-name{
+
+.my-course-name {
     font-size: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #555;
 }
-.my-course-price{
+
+.my-course-price {
     display: flex;
     align-items: center;
     justify-content: end;
 }
-.sale-price span{
+
+.sale-price span {
     font-size: 25px;
     color: black;
     margin-left: 5px;
 }
-.origin-price span{
+
+.origin-price span {
     text-decoration: line-through;
 }
-.card-mycourse-wishlist{
+
+.card-mycourse-wishlist {
     width: 250px;
     height: 300px;
-    
 }
-.course-card-wishlist{
+
+.course-card-wishlist {
     width: 231px;
     height: 290px;
     box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.1);
@@ -194,26 +209,31 @@
     margin-left: 10px;
     margin-top: 10px;
 }
-.course-card-wishlist:hover{
+
+.course-card-wishlist:hover {
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
+
 .profile-content-course {
     padding: 20px;
     background: #fff;
     min-height: 500px;
     display: flex;
-    flex-wrap: wrap ;
-  }
-  .my-course-card{
-      width: 250px;
-      height: 290px;
-  }
-  .wishlist-card{
-      width: 250px;
-      height: 300px;
-      
-  }
-  /* .content-card{
+    flex-wrap: wrap;
+}
+
+.my-course-card {
+    width: 250px;
+    height: 290px;
+}
+
+.wishlist-card {
+    width: 250px;
+    height: 300px;
+}
+
+
+/* .content-card{
       max-width: 500px;
       display: flex;
       justify-content: center;

@@ -1,6 +1,6 @@
 <div style="display: flex;flex-direction:column;align-items:center">
     <h1 style="text-align: center;margin:10px;">Category</h1>
-    <table>
+    <table style="width: 90%;">
         <tr>
             <th>ID</th>
             <th>Category</th>
@@ -63,7 +63,7 @@
                 "X-Requested-with": "XMLHttpRequest",
             },
         }).then(response => {
-            if(response.data.success) {
+            if (response.data.success) {
                 window.location.reload();
             } else {
                 alert(response.data.message);
