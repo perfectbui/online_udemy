@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { authenticate } = require("../middlewares/auth");
 const upload = require("../libs/multer");
+const uploadv2 = require("../libs/multerv2")
 const cloudinary = require("../libs/cloudinary");
 const Course = require("../models/Course");
 const User = require("../models/User");
@@ -9,7 +10,7 @@ const  Category = require("../models/Category")
 
 router.get("/course", async (req, res) => {
   const category = await Category.find({}).lean();
-  res.render("upload/course",{category});
+  res.render("upload/course",{category,videoQuantity:10});
 });
 
 router.post(
@@ -41,9 +42,9 @@ router.post(
 );
 
 router.post(
-  "/videoFile",
+  "/video",
   authenticate,
-  upload.single("videoFile"),
+  uploadv2.single("videoFile"),
   async (req, res) => {
     try {
       // const result = await cloudinary.uploader.upload(req.file.path);
@@ -58,7 +59,7 @@ router.post(
       console.log(req.file.path)
 
       res.status(200).json({
-        videoUrl: req.file.path,
+        videoLocation: req.file.path,
       });
     } catch (error) {
       console.log("Error : ", error);
@@ -81,7 +82,10 @@ router.post("/course", authenticate, async (req, res) => {
       price,
       image,
       isDone,
+      video,
     } = req.body;
+    console.log("video")
+    console.log(video);
     const newCourse = new Course({
       name,
       field,
@@ -91,6 +95,7 @@ router.post("/course", authenticate, async (req, res) => {
       detailContent,
       previewContent,
       isDone,
+      video,
       timeCreated: Date.now(),
       lastUpdated: Date.now(),
       teacher: idUserPost,

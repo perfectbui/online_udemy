@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const _handlebars = require('handlebars')
 const Axios = require("axios");
 const dateFormat = require("dateformat");
@@ -37,7 +37,7 @@ mongoose
     useFindAndModify: false,
     useCreateIndex: true,
   })
-  .then(() => {})
+  .then(() => { })
   .catch((err) => console.log(err));
 
 app.use(express.static(__dirname + "/public"));
@@ -52,11 +52,23 @@ app.engine(
     partialsDir: __dirname + "/views/partials/",
     helpers: {
       times: function (n, block) {
-        var accum = "";
-        for (var i = 0; i < n; ++i) accum += block.fn(i);
+        var accum = '';
+        for(var i = 0; i < n; ++i) {
+            block.data.index = i;
+            block.data.first = i === 0;
+            block.data.last = i === (n - 1);
+            accum += block.fn(this);
+        }
         return accum;
-      },
-    },
+      }
+    }
+    // helpers: {
+    //   times: function (n, block) {
+    //     var accum = "";
+    //     for (var i = 0; i < n; ++i) accum += block.fn(i);
+    //     return accum;
+    //   },
+    // },
   })
 );
 
@@ -71,7 +83,7 @@ app.use("/course", require("./routes/course"));
 app.use("/update", require("./routes/update"));
 app.use("/admin", require("./routes/admin"));
 app.use("/search", require("./routes/search"));
-app.use("/",require("./routes/home"));
+app.use("/", require("./routes/home"));
 
 // app.use('/api/signin', require('./routes/login'));
 // app.use('/api/user', require('./routes/user'));

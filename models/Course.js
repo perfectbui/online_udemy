@@ -34,6 +34,7 @@ const CourseSchema = new schema({
     type: String,
     required: true,
   },
+  video: [{ location: String, title: String }],
   price: {
     type: Number,
     required: true,
@@ -56,9 +57,9 @@ const CourseSchema = new schema({
       },
     },
   ],
-  numViews:{
-    type:Number,
-    default:0
+  numViews: {
+    type: Number,
+    default: 0
   },
   lastUpdated: {
     type: Date,
@@ -72,6 +73,6 @@ const CourseSchema = new schema({
     default: false,
   },
 });
-CourseSchema.index({name: 'text'});
+CourseSchema.index({ name: 'text' });
 const Course = mongoose.model("Course", CourseSchema);
 module.exports = Course;

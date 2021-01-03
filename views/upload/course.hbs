@@ -10,6 +10,13 @@
   <input type="text" placeholder="Main Content" id="main-content" />
   <input type="file" placeholder="Image" id="image-course" />
   <input type="number" placeholder="Price" id="price-course" />
+  {{#times this.videoQuantity}}
+  <div class="hide" id="container-video-{{{@index}}}">
+    <input type="text" placeholder="Name video {{{@index}}}" id="name-video-course-{{{@index}}}" />
+    <input type="file" placeholder="Video" id="video-course-{{{@index}}}" />
+  </div>
+  {{/times}}
+  <button style="cursor: pointer; padding:10px;margin-top:5px;" class="add-video">THem video</button>
 </form>
 <div class="container mt-4 mb-4">
   <div class="row justify-content-md-center">
@@ -19,7 +26,7 @@
       <div class="form-group">
         <textarea id="editor"></textarea>
       </div>
-      {{!-- <button  class="btn btn-primary post-detail">Submit</button> --}}
+      {{!-- <button class="btn btn-primary post-detail">Submit</button> --}}
       {{!-- <button class="btn-upload-course">
         Upload Course
       </button> --}}
@@ -37,7 +44,7 @@
       <label for="input-done-course">Done</label>
       <input type="radio" id="input-done-course">
       <br />
-      {{!-- <button  class="btn btn-primary post-detail">Submit</button> --}}
+      {{!-- <button class="btn btn-primary post-detail">Submit</button> --}}
       <button class="btn-upload-course">
         Upload Course
       </button>
