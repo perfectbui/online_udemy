@@ -40,6 +40,35 @@ router.post(
   }
 );
 
+router.post(
+  "/videoFile",
+  authenticate,
+  upload.single("videoFile"),
+  async (req, res) => {
+    try {
+      // const result = await cloudinary.uploader.upload(req.file.path);
+      // let resultUrl = result.url;
+      // if (result.width > 550) {
+      //   const image = result.url.split(`/${process.env.CLOUD_NAME}/`)[1];
+      //   resultUrl = cloudinary.url(image, {
+      //     width: 550,
+      //     crop: "fill",
+      //   });
+      // }
+      console.log(req.file.path)
+
+      res.status(200).json({
+        videoUrl: req.file.path,
+      });
+    } catch (error) {
+      console.log("Error : ", error);
+      res.status(500).json({
+        message: error,
+      });
+    }
+  }
+);
+
 router.post("/course", authenticate, async (req, res) => {
   try {
     const idUserPost = req.decoded._id;

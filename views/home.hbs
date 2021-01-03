@@ -47,7 +47,7 @@
     </div>
     <div>
         <h2 style="margin-left: 50px;">New Courses</h2>
-        <div class="d-flex flex-row flex-wrap owl-carousel owl-theme" id="list-item" style="display: flex;">
+        <div class="d-flex flex-row flex-wrap " id="list-item" style="display: flex;">
             {{#each this.newCourses}}
             <div>
 
@@ -82,44 +82,6 @@
             {{/each}}
         </div>
     </div>
-    <nav aria-label="..." >
-        <ul class="pagination center" id="pageContainer">
-            <li id="btnFirst" class="page-item">
-                <a class="page-link" href="/1" >First</a>
-            </li>
-            <li class="page-item" id="btnBefore"><a class="page-link" href="#" ></a></li>
-            <li class="page-item active">
-                <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item" id="btnAfter"><a class="page-link" href="#"></a></li>
-            <li class="page-item" id="btnLast">
-                <a class="page-link" href="#">Last</a>
-            </li>
-        </ul>
-    </nav>
-    <script>
-        var currentPage = "{{ page }}";
-        var currentIndex = document.getElementById("btnCurrentPage");
-        currentIndex.appendChild(document.createTextNode(currentPage));
-        currentIndex.setAttribute("href", currentPage);
-        if(currentPage == 1) {
-            document.getElementById("btnFirst").setAttribute("class", "page-item disabled");
-            document.getElementById("btnBefore").remove();
-        } else {
-            document.getElementById("btnBefore").childNodes[0].setAttribute("href", parseInt(currentPage)-1);
-            document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
-        }
-
-        var numPage = "{{numpage}}";
-        if(currentPage >= numPage) {
-            document.getElementById("btnAfter").remove();
-            document.getElementById("btnLast").setAttribute("class", "page-item disabled");
-        } else {
-            document.getElementById("btnLast").childNodes[1].setAttribute("href", parseInt(numPage));
-            document.getElementById("btnAfter").childNodes[0].setAttribute("href", parseInt(currentPage)+1);
-            document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
-        }
-      </script>
 </div>
 <script>
     document.querySelector(".nav-link.active").classList.remove("active");
@@ -138,25 +100,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous"></script>
-<script>
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true
-            },
-            600: {
-                items: 3,
-                nav: false
-            },
-            1000: {
-                items: 5,
-                nav: true,
-                loop: false
-            }
-        }
-    })
-</script>

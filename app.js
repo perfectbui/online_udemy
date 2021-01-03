@@ -80,21 +80,21 @@ app.use("/",require("./routes/home"));
 
 // app.get("/",(req,res)=>res.sendFile(`${__dirname}/index.html`));
 
-app.get("/:page", async (req, res) => {
-  let perPage = 10;
-  let page = parseInt(req.params.page) || 1; 
-  const allcourses = await Course.find({}).populate("teacher").lean();
-  const courses = await Course.find({}).populate("teacher").lean()
-            .skip((perPage * page) - perPage)
-            .limit(perPage);
-  const category = await Category.find({}).lean();
-  res.render("home", {
-    courses,
-    category,
-    page : page,
-    numpage: parseInt(allcourses.length)
-  });
-});
+// app.get("/:page", async (req, res) => {
+//   let perPage = 10;
+//   let page = parseInt(req.params.page) || 1; 
+//   const allcourses = await Course.find({}).populate("teacher").lean();
+//   const courses = await Course.find({}).populate("teacher").lean()
+//             .skip((perPage * page) - perPage)
+//             .limit(perPage);
+//   const category = await Category.find({}).lean();
+//   res.render("home", {
+//     courses,
+//     category,
+//     page : page,
+//     numpage: parseInt(allcourses.length)
+//   });
+// });
 
 // app.get("/index",(req,res)=> res.sendFile(`${__dirname}/index.html`))
 
