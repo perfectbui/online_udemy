@@ -1,6 +1,7 @@
 <div>
     <div>
         <h2 style="margin-left: 50px;margin-top:20px">Favorite Courses</h2>
+
         <div class="d-flex flex-row flex-wrap" id="list-item">
             {{#each this.favoriteCourses}}
             <a href="/course/{{this._id}}" style="text-decoration: none; color:black; font-size:15px; padding-top:10px">
@@ -25,13 +26,28 @@
 
                     </div>
                     <div class="tag">
-                        <label for="">{{this.field}}</label>
+                        <label style="color: #374151;" for="">{{this.field}}</label>
                     </div>
                     {{!-- <label for=""> {{this.field}}</label> --}}
                 </div>
             </a>
             {{/each}}
         </div>
+            <nav aria-label="...">
+        <ul class="pagination center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
     </div>
     <div>
         <h2 style="margin-left: 50px;">Most Views Courses</h2>
@@ -40,9 +56,9 @@
             <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
                 <div class="d-flex flex-column flex-wrap mr-4 item-course">
                     <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
-                    <div>Lĩnh vực:{{this.field}}</div>
+                    <div style="color: #374151;" >Lĩnh vực:{{this.field}}</div>
                     <img src="{{this.image}}" />
-                    <div>Tác giả:{{this.teacher.userName}}</div>
+                    <div style="color: #374151;">Tác giả:{{this.teacher.userName}}</div>
                     <div>
                         {{#times this.rating }}
                         <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
@@ -60,6 +76,21 @@
             </a>
             {{/each}}
         </div>
+            <nav aria-label="...">
+        <ul class="pagination center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
     </div>
     <div>
         <h2 style="margin-left: 50px;">New Courses</h2>
@@ -69,9 +100,9 @@
             <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
                 <div class="d-flex flex-column flex-wrap mr-4 item-course">
                     <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
-                    <div>Lĩnh vực:{{this.field}}</div>
+                    <div style="color: #374151;">Lĩnh vực:{{this.field}}</div>
                     <img src="{{this.image}}" />
-                    <div>Tác giả:{{this.teacher.userName}}</div>
+                    <div style="color: #374151;">Tác giả:{{this.teacher.userName}}</div>
                     <div>
                         {{#times this.rating }}
                         <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
@@ -92,6 +123,21 @@
 
 
         </div>
+            <nav aria-label="...">
+        <ul class="pagination center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
     </div>
 
     <div>
@@ -101,6 +147,21 @@
             <li style="font-weight:500;margin-left: 50px;margin-top:10px;list-style-type: circle;">{{this}}</li>
             {{/each}}
         </div>
+            <nav aria-label="...">
+        <ul class="pagination center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
     </div>
 </div>
 <script>
@@ -123,3 +184,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous"></script>
+
+<script >
+    var category = ;
+</script>
