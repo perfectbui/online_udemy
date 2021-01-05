@@ -33,21 +33,43 @@
             </a>
             {{/each}}
         </div>
-            <nav aria-label="...">
-        <ul class="pagination center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
+        <nav aria-label="..." >
+        <ul class="pagination center" id="pageFavContainer">
+            <li id="btnFavFirst" class="page-item">
+                <a class="page-link" href="/1" >First</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item" id="btnFavBefore"><a class="page-link" href="#" ></a></li>
             <li class="page-item active">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                <a class="page-link" href="#" id="btnFavCurrentPage"><span class="sr-only">(current)</span></a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+            <li class="page-item" id="btnFavAfter"><a class="page-link" href="#"></a></li>
+            <li class="page-item" id="btnFavLast">
+                <a class="page-link" href="#">Last</a>
             </li>
         </ul>
     </nav>
+    <script>
+        var currentPage = "{{ currentFavPage }}";
+        var currentIndex = document.getElementById("btnFavCurrentPage");
+        currentIndex.appendChild(document.createTextNode(currentPage));
+        currentIndex.setAttribute("href", currentPage);
+        if(currentPage == 1) {
+            document.getElementById("btnFavFirst").setAttribute("class", "page-item disabled");
+            document.getElementById("btnFavBefore").remove();
+        } else {
+            document.getElementById("btnFavBefore").childNodes[0].setAttribute("href", parseInt(currentPage)-1);
+            document.getElementById("btnFavBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
+        }
+        var numPage = "{{favPageTotal}}";
+        if(currentPage >= numPage) {
+            document.getElementById("btnFavAfter").remove();
+            document.getElementById("btnFavLast").setAttribute("class", "page-item disabled");
+        } else {
+            document.getElementById("btnFavLast").childNodes[1].setAttribute("href", parseInt(numPage));
+            document.getElementById("btnFavAfter").childNodes[0].setAttribute("href", parseInt(currentPage)+1);
+            document.getElementById("btnFavAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
+        }
+      </script>
     </div>
     <div>
         <h2 style="margin-left: 50px;">Most Views Courses</h2>
@@ -76,21 +98,73 @@
             </a>
             {{/each}}
         </div>
-            <nav aria-label="...">
-        <ul class="pagination center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
+        <nav aria-label="..." >
+        <ul class="pagination center" id="pageContainer">
+            <li id="btnFirst" class="page-item">
+                <a class="page-link" href="#" >First</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item" id="btnBefore"><a class="page-link" href="#" ></a></li>
             <li class="page-item active">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+            <li class="page-item" id="btnAfter"><a class="page-link" href="#"></a></li>
+            <li class="page-item" id="btnLast">
+                <a class="page-link" href="#">Last</a>
             </li>
         </ul>
     </nav>
+    <script>
+        var currentPage = "{{ currentMostViewPage }}";
+        var currentNewCoursesPage = "{{ currentNewCoursesPage }}";
+        var currentFavPage = "{{ currentFavPage }}";
+
+        var currentIndex = document.getElementById("btnCurrentPage");
+
+        var href = 'mostviewpage=1';
+
+        if(currentFavPage > 1) {
+            href = 'favpage=' + currentFavPage + '&' + href;
+        }
+        if(currentNewCoursesPage > 1) {
+            href = href + '&' + 'newcoursespage=' + currentNewCoursesPage;
+        }
+        href = '?' + href;
+
+        String.prototype.splice = function(idx, rem, str) {
+            return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+        };
+
+        var pageIndexLocation = href.indexOf('mostviewpage=') + 13;
+
+        currentIndex.appendChild(document.createTextNode(currentPage));
+        var current = href;
+        current = current.splice(pageIndexLocation, 1, currentPage);
+        currentIndex.setAttribute("href", current);
+
+        if(currentPage == 1) {
+            document.getElementById("btnFirst").setAttribute("class", "page-item disabled");
+            document.getElementById("btnBefore").remove();
+        } else {
+            var first = href.splice(pageIndexLocation, 1, '1');
+            document.getElementById("btnFirst").childNodes[1].setAttribute("href", first);
+
+            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage)-1);
+            document.getElementById("btnBefore").childNodes[0].setAttribute("href", beforePage);
+            document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
+        }
+        var numPage = "{{mostViewPageTotal}}";
+        if(currentPage >= numPage) {
+            document.getElementById("btnAfter").remove();
+            document.getElementById("btnLast").setAttribute("class", "page-item disabled");
+        } else {
+            var last = href.splice(pageIndexLocation, 1, parseInt(numPage));
+            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage)+1);
+
+            document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
+            document.getElementById("btnAfter").childNodes[0].setAttribute("href", after);
+            document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
+        }
+      </script>
     </div>
     <div>
         <h2 style="margin-left: 50px;">New Courses</h2>
@@ -123,21 +197,43 @@
 
 
         </div>
-            <nav aria-label="...">
-        <ul class="pagination center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            <nav aria-label="..." >
+        <ul class="pagination center" id="pageNewContainer">
+            <li id="btnNewFirst" class="page-item">
+                <a class="page-link" href="/1" >First</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item" id="btnNewBefore"><a class="page-link" href="#" ></a></li>
             <li class="page-item active">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                <a class="page-link" href="#" id="btnNewCurrentPage"><span class="sr-only">(current)</span></a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+            <li class="page-item" id="btnNewAfter"><a class="page-link" href="#"></a></li>
+            <li class="page-item" id="btnNewLast">
+                <a class="page-link" href="#">Last</a>
             </li>
         </ul>
     </nav>
+    <script>
+        var currentPage = "{{ currentNewCoursesPage }}";
+        var currentIndex = document.getElementById("btnNewCurrentPage");
+        currentIndex.appendChild(document.createTextNode(currentPage));
+        currentIndex.setAttribute("href", currentPage);
+        if(currentPage == 1) {
+            document.getElementById("btnNewFirst").setAttribute("class", "page-item disabled");
+            document.getElementById("btnNewBefore").remove();
+        } else {
+            document.getElementById("btnNewBefore").childNodes[0].setAttribute("href", parseInt(currentPage)-1);
+            document.getElementById("btnNewBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
+        }
+        var numPage = "{{newCoursesPageTotal}}";
+        if(currentPage >= numPage) {
+            document.getElementById("btnNewAfter").remove();
+            document.getElementById("btnNewLast").setAttribute("class", "page-item disabled");
+        } else {
+            document.getElementById("btnNewLast").childNodes[1].setAttribute("href", parseInt(numPage));
+            document.getElementById("btnNewAfter").childNodes[0].setAttribute("href", parseInt(currentPage)+1);
+            document.getElementById("btnNewAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
+        }
+      </script>
     </div>
 
     <div>
@@ -147,21 +243,6 @@
             <li style="font-weight:500;margin-left: 50px;margin-top:10px;list-style-type: circle;">{{this}}</li>
             {{/each}}
         </div>
-            <nav aria-label="...">
-        <ul class="pagination center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
     </div>
 </div>
 <script>

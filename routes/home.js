@@ -4,7 +4,7 @@ const Category = require("../models/Category");
 const User = require("../models/User");
 
 router.get("/", async (req, res) => {
-  const newCourses = await Course.find({})
+  const allNewCourses = await Course.find({})
     .limit(10)
     .populate("teacher")
     .sort({ timeCreated: -1 })
@@ -12,10 +12,10 @@ router.get("/", async (req, res) => {
 
     const category = await Category.find({}).lean();
 
-  let favoriteCourses = await Course.find({})
+  let allFavoriteCourses = await Course.find({})
     .populate("teacher")
     .populate("student.data");
-  favoriteCourses = favoriteCourses
+    allFavoriteCourses = allFavoriteCourses
     .filter((favoriteCourse) =>
       favoriteCourse.student.filter(
         (student) => Math.abs(student.timeCreated - Date.now()) / 86400000 <= 7
@@ -26,17 +26,41 @@ router.get("/", async (req, res) => {
     .sort((a, b) => b.student.length - a.student.length)
     .slice(0, 5);
 
-  let bestCategory =  favoriteCourses.map(course => course.field)
+  let bestCategory =  allFavoriteCourses.map(course => course.field)
   bestCategory=bestCategory.filter((category,index)=>bestCategory.indexOf(category) === index)
 
-  const mostViewCourses = await Course.find({}).sort({numViews:-1}).limit(10).populate("teacher");
+  const allMostViewCourses = await Course.find({}).sort({numViews:-1}).limit(10).populate("teacher");
 
+  var perPage = 3;
+
+  var favpage = parseInt(req.query.favpage) || 1;
+  var favstart = (favpage -1) * perPage;
+  var favend = favpage* perPage;
+
+  var mostviewpage = parseInt(req.query.mostviewpage) || 1;
+  var mostviewstart = (mostviewpage -1) * perPage;
+  var mostviewend = mostviewpage* perPage;
+
+  var newCoursesPage = parseInt(req.query.newcoursespage) || 1;
+  var newCoursesStart = (newCoursesPage -1) * perPage;
+  var newCoursesEnd = newCoursesPage* perPage;
+
+  let favoriteCourses =  allFavoriteCourses.slice(favstart, favend);
+  let mostViewCourses =  allMostViewCourses.slice(mostviewstart, mostviewend);
+  let newCourses =  allNewCourses.slice(newCoursesStart, newCoursesEnd);
+ 
   res.render("home", {
     newCourses,
     category,
     mostViewCourses,
     favoriteCourses,
     bestCategory,
+    favPageTotal: allFavoriteCourses.length / perPage,
+    currentFavPage: favpage,
+    mostViewPageTotal: allMostViewCourses.length / perPage,
+    currentMostViewPage: mostviewpage,
+    newCoursesPageTotal: allNewCourses.length / perPage,
+    currentNewCoursesPage: newCoursesPage
   });
 });
 
