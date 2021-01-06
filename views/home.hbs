@@ -50,14 +50,40 @@
     </nav>
     <script>
         var currentPage = "{{ currentFavPage }}";
+        var currentNewCoursesPage = "{{ currentNewCoursesPage }}";
+        var currentMostCoursesPage = "{{ currentMostViewPage }}";
+
+        var href = 'favpage=1';
+
+        if(currentMostCoursesPage > 1) {
+            href = href + '&' + 'mostviewpage=' + currentMostCoursesPage;
+        }
+        if(currentNewCoursesPage > 1) {
+            href = href + '&' + 'newcoursespage=' + currentNewCoursesPage;
+        }
+        href = '?' + href;
+
+        String.prototype.splice = function(idx, rem, str) {
+            return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+        };
+
+        var pageIndexLocation = href.indexOf('favpage=') + 'favpage='.length;
+
         var currentIndex = document.getElementById("btnFavCurrentPage");
         currentIndex.appendChild(document.createTextNode(currentPage));
-        currentIndex.setAttribute("href", currentPage);
+        var current = href;
+        current = current.splice(pageIndexLocation, 1, currentPage);
+        currentIndex.setAttribute("href", current);
+
         if(currentPage == 1) {
             document.getElementById("btnFavFirst").setAttribute("class", "page-item disabled");
             document.getElementById("btnFavBefore").remove();
         } else {
-            document.getElementById("btnFavBefore").childNodes[0].setAttribute("href", parseInt(currentPage)-1);
+            var first = href.splice(pageIndexLocation, 1, '1');
+            document.getElementById("btnFavFirst").childNodes[1].setAttribute("href", first);
+
+            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage)-1);
+            document.getElementById("btnFavBefore").childNodes[0].setAttribute("href", beforePage);
             document.getElementById("btnFavBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
         }
         var numPage = "{{favPageTotal}}";
@@ -65,8 +91,11 @@
             document.getElementById("btnFavAfter").remove();
             document.getElementById("btnFavLast").setAttribute("class", "page-item disabled");
         } else {
-            document.getElementById("btnFavLast").childNodes[1].setAttribute("href", parseInt(numPage));
-            document.getElementById("btnFavAfter").childNodes[0].setAttribute("href", parseInt(currentPage)+1);
+            var last = href.splice(pageIndexLocation, 1, parseInt(numPage) + 1);
+            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage)+1);
+
+            document.getElementById("btnFavLast").childNodes[1].setAttribute("href", last);
+            document.getElementById("btnFavAfter").childNodes[0].setAttribute("href", after);
             document.getElementById("btnFavAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
         }
       </script>
@@ -157,7 +186,7 @@
             document.getElementById("btnAfter").remove();
             document.getElementById("btnLast").setAttribute("class", "page-item disabled");
         } else {
-            var last = href.splice(pageIndexLocation, 1, parseInt(numPage));
+            var last = href.splice(pageIndexLocation, 1, parseInt(numPage) + 1);
             var after = href.splice(pageIndexLocation, 1, parseInt(currentPage)+1);
 
             document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
@@ -214,14 +243,40 @@
     </nav>
     <script>
         var currentPage = "{{ currentNewCoursesPage }}";
+        var currentMostCoursesPage = "{{ currentMostViewPage }}";
+        var currentFavPage = "{{ currentFavPage }}";
+
+        var href = 'newcoursespage=1';
+
+        if(currentMostCoursesPage > 1) {
+            href = 'mostviewpage=' + currentMostCoursesPage + '&' + href;
+        }
+        if(currentFavPage > 1) {
+            href = 'newcoursespage=' + currentFavPage + '&' + href;
+        }
+        href = '?' + href;
+
+        String.prototype.splice = function(idx, rem, str) {
+            return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+        };
+
+        var pageIndexLocation = href.indexOf('newcoursespage=') + 15;
+
         var currentIndex = document.getElementById("btnNewCurrentPage");
         currentIndex.appendChild(document.createTextNode(currentPage));
-        currentIndex.setAttribute("href", currentPage);
+        
+        var current = href;
+        current = current.splice(pageIndexLocation, 1, currentPage);
+        currentIndex.setAttribute("href", current);
+
         if(currentPage == 1) {
             document.getElementById("btnNewFirst").setAttribute("class", "page-item disabled");
             document.getElementById("btnNewBefore").remove();
         } else {
-            document.getElementById("btnNewBefore").childNodes[0].setAttribute("href", parseInt(currentPage)-1);
+            var first = href.splice(pageIndexLocation, 1, '1');
+            document.getElementById("btnNewFirst").childNodes[1].setAttribute("href", first);
+            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage)-1);
+            document.getElementById("btnNewBefore").childNodes[0].setAttribute("href", beforePage);
             document.getElementById("btnNewBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
         }
         var numPage = "{{newCoursesPageTotal}}";
@@ -229,8 +284,11 @@
             document.getElementById("btnNewAfter").remove();
             document.getElementById("btnNewLast").setAttribute("class", "page-item disabled");
         } else {
-            document.getElementById("btnNewLast").childNodes[1].setAttribute("href", parseInt(numPage));
-            document.getElementById("btnNewAfter").childNodes[0].setAttribute("href", parseInt(currentPage)+1);
+            var last = href.splice(pageIndexLocation, 1, parseInt(numPage) + 1);
+            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage)+1);
+
+            document.getElementById("btnNewLast").childNodes[1].setAttribute("href", last);
+            document.getElementById("btnNewAfter").childNodes[0].setAttribute("href", after);
             document.getElementById("btnNewAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
         }
       </script>
