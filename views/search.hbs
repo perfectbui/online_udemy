@@ -28,7 +28,64 @@
                 </div>
             </a>
             {{/each}}
+            
         </div>
+        <nav aria-label="..." >
+        <ul class="pagination center" id="pageContainer">
+            <li id="btnFirst" class="page-item">
+                <a class="page-link" href="#" >First</a>
+            </li>
+            <li class="page-item" id="btnBefore"><a class="page-link" href="#" ></a></li>
+            <li class="page-item active">
+                <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item" id="btnAfter"><a class="page-link" href="#"></a></li>
+            <li class="page-item" id="btnLast">
+                <a class="page-link" href="#">Last</a>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        var currentPage = "{{ currentPage }}";
+        var currentIndex = document.getElementById("btnCurrentPage");
+
+        var href = window.location.href;
+        
+        if(!href.includes('?page=')){
+            href = href + '?page=';
+        } else {
+            var queryIndex = href.indexOf('?page=');
+            href = href.substr(0, queryIndex + 6);
+        }
+
+        currentIndex.appendChild(document.createTextNode(currentPage));
+        var current = href + currentPage;
+        currentIndex.setAttribute("href", current);
+
+        if(currentPage == 1) {
+            document.getElementById("btnFirst").setAttribute("class", "page-item disabled");
+            document.getElementById("btnBefore").remove();
+        } else {
+            var first = href + 1;
+            document.getElementById("btnFirst").childNodes[1].setAttribute("href", first);
+
+            var beforePage = href + (parseInt(currentPage)-1);
+            document.getElementById("btnBefore").childNodes[0].setAttribute("href", beforePage);
+            document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
+        }
+        var numPage = "{{totalPage}}";
+        if(currentPage >= numPage) {
+            document.getElementById("btnAfter").remove();
+            document.getElementById("btnLast").setAttribute("class", "page-item disabled");
+        } else {
+            var last = href + (parseInt(numPage) + 1);
+            var after = href + (parseInt(currentPage)+1);
+
+            document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
+            document.getElementById("btnAfter").childNodes[0].setAttribute("href", after);
+            document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
+        }
+      </script>
     </div>
 </div>
 
