@@ -1,5 +1,5 @@
 <div>
-    <div style="margin:30px;display:flex;align-items:center;">
+    <div style="margin:15px 100px 15px ;110px;display:flex;align-items:center;width:150px">
         <label style="margin-right:5px;">Filter:</label>
         <select class="form-control" id="filter-course" style="width:100px;">
             <option></option>
@@ -8,84 +8,95 @@
         </select>
     </div>
     <div>
-        <h2 style="margin-left: 50px;">Courses</h2>
+        <h2 style="margin-left: 110px;border-left:5px solid #3498db">&ensp;Courses</h2>
+
         <div class="d-flex flex-row flex-wrap" id="list-item">
             {{#each this.courses}}
-            <a href="/course/{{this._id}}" style="text-decoration: none;">
-                <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <div>Tên bài giảng:{{this.name}}</div>
-                    <div>Lĩnh vực:{{this.field}}</div>
-                    <img src="{{this.image}}" />
-                    <div class="author-name">Tác giả:{{this.teacher.userName}}</div>
-                    <div>
-                        {{#times this.rating }}
-                        <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
-                        {{/times}}
+
+            <a href="/course/{{this._id}}" style="text-decoration: none; color:black; font-size:15px; padding-top:10px">
+                <div class="product-card">
+
+                    <div class="product-tumb">
+                        <img src="{{this.image}}">
                     </div>
-                    <div>Số lượng người mua:{{this.student.length}}</div>
-                    <div>Giá:{{this.price}}</div>
-                    <div>Views: {{this.numViews}}<i style="margin-left: 2px;" class="fas fa-eye"></i></div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{this.field}}</span>
+                        <h4><a href="">{{this.name}}</a></h4>
+                        <p>{{this.teacher.userName}}</p>
+                        <div>
+                            {{#times this.rating }}
+                            <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
+                            {{/times}}
+                        </div>
+                        <div>Sold {{this.student.length}}</div>
+                        <div class="product-bottom-details">
+                            <div class="product-price">${{this.price}}</div>
+                            <span style="margin-left:80px">{{this.numViews}} <i style="margin-left: 2px;"
+                                    class="fas fa-eye"></i></span>
+                        </div>
+                    </div>
                 </div>
+
             </a>
             {{/each}}
-            
+
         </div>
-        <nav aria-label="..." >
-        <ul class="pagination center" id="pageContainer">
-            <li id="btnFirst" class="page-item">
-                <a class="page-link" href="#" >First</a>
-            </li>
-            <li class="page-item" id="btnBefore"><a class="page-link" href="#" ></a></li>
-            <li class="page-item active">
-                <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item" id="btnAfter"><a class="page-link" href="#"></a></li>
-            <li class="page-item" id="btnLast">
-                <a class="page-link" href="#">Last</a>
-            </li>
-        </ul>
-    </nav>
-    <script>
-        var currentPage = "{{ currentPage }}";
-        var currentIndex = document.getElementById("btnCurrentPage");
+        <nav aria-label="...">
+            <ul class="pagination center" id="pageContainer">
+                <li id="btnFirst" class="page-item">
+                    <a class="page-link" href="#">First</a>
+                </li>
+                <li class="page-item" id="btnBefore"><a class="page-link" href="#"></a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item" id="btnAfter"><a class="page-link" href="#"></a></li>
+                <li class="page-item" id="btnLast">
+                    <a class="page-link" href="#">Last</a>
+                </li>
+            </ul>
+        </nav>
+        <script>
+            var currentPage = "{{ currentPage }}";
+            var currentIndex = document.getElementById("btnCurrentPage");
 
-        var href = window.location.href;
-        
-        if(!href.includes('?page=')){
-            href = href + '?page=';
-        } else {
-            var queryIndex = href.indexOf('?page=');
-            href = href.substr(0, queryIndex + 6);
-        }
+            var href = window.location.href;
 
-        currentIndex.appendChild(document.createTextNode(currentPage));
-        var current = href + currentPage;
-        currentIndex.setAttribute("href", current);
+            if (!href.includes('?page=')) {
+                href = href + '?page=';
+            } else {
+                var queryIndex = href.indexOf('?page=');
+                href = href.substr(0, queryIndex + 6);
+            }
 
-        if(currentPage == 1) {
-            document.getElementById("btnFirst").setAttribute("class", "page-item disabled");
-            document.getElementById("btnBefore").remove();
-        } else {
-            var first = href + 1;
-            document.getElementById("btnFirst").childNodes[1].setAttribute("href", first);
+            currentIndex.appendChild(document.createTextNode(currentPage));
+            var current = href + currentPage;
+            currentIndex.setAttribute("href", current);
 
-            var beforePage = href + (parseInt(currentPage)-1);
-            document.getElementById("btnBefore").childNodes[0].setAttribute("href", beforePage);
-            document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
-        }
-        var numPage = "{{totalPage}}";
-        if(currentPage >= numPage) {
-            document.getElementById("btnAfter").remove();
-            document.getElementById("btnLast").setAttribute("class", "page-item disabled");
-        } else {
-            var last = href + (parseInt(numPage) + 1);
-            var after = href + (parseInt(currentPage)+1);
+            if (currentPage == 1) {
+                document.getElementById("btnFirst").setAttribute("class", "page-item disabled");
+                document.getElementById("btnBefore").remove();
+            } else {
+                var first = href + 1;
+                document.getElementById("btnFirst").childNodes[1].setAttribute("href", first);
 
-            document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
-            document.getElementById("btnAfter").childNodes[0].setAttribute("href", after);
-            document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
-        }
-      </script>
+                var beforePage = href + (parseInt(currentPage) - 1);
+                document.getElementById("btnBefore").childNodes[0].setAttribute("href", beforePage);
+                document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) - 1));
+            }
+            var numPage = "{{totalPage}}";
+            if (currentPage >= numPage) {
+                document.getElementById("btnAfter").remove();
+                document.getElementById("btnLast").setAttribute("class", "page-item disabled");
+            } else {
+                var last = href + (parseInt(numPage) + 1);
+                var after = href + (parseInt(currentPage) + 1);
+
+                document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
+                document.getElementById("btnAfter").childNodes[0].setAttribute("href", after);
+                document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) + 1));
+            }
+        </script>
     </div>
 </div>
 

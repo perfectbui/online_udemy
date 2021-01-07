@@ -191,9 +191,7 @@
     margin-left: 5px;
 }
 
-.origin-price span {
-    text-decoration: line-through;
-}
+.origin-price span {}
 
 .card-mycourse-wishlist {
     width: 250px;

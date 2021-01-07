@@ -8,8 +8,8 @@
     </div>
     <div class="d-flex flex-row flex-wrap" id="list-item">
         {{#each this.courses}}
-        <a href="/course/{{this._id}}" style="text-decoration: none;">
-            <div class="d-flex flex-column flex-wrap mr-4 item-course">
+        < href="/course/{{this._id}}" style="text-decoration: none;">
+            {{!-- <div class="d-flex flex-column flex-wrap mr-4 item-course">
                 <div>Tên bài giảng:{{this.name}}</div>
                 <div>Lĩnh vực:{{this.field}}</div>
                 <img src="{{this.image}}" />
@@ -21,9 +21,38 @@
                 </div>
                 <div>Số lượng người mua:{{this.student.length}}</div>
                 <div>Giá:{{this.price}}</div>
+            </div> --}}
+
+            <div class="product-card">
+                <div class="badge">
+                    <div>
+                        <img src="/icon/like.png" style="max-width:100%;max-height:30px;">
+
+                    </div>
+                </div>
+                <div class="product-tumb">
+                    <img src="{{this.image}}">
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">{{this.field}}</span>
+                    <h4><a href="">{{this.name}}</a></h4>
+                    <p>{{this.teacher.userName}}</p>
+                    <div>
+                        {{#times this.rating }}
+                        <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
+                        {{/times}}
+                    </div>
+                    <div>Sold {{this.student.length}}</div>
+                    <div class="product-bottom-details">
+                        <div class="product-price">${{this.price}}</div>
+                        <span style="margin-left:80px">{{this.numViews}} <i style="margin-left: 2px;"
+                                class="fas fa-eye"></i></span>
+                    </div>
+                </div>
             </div>
-        </a>
-        {{/each}}
+
+            </a>
+            {{/each}}
     </div>
 </div>
 
