@@ -1,44 +1,52 @@
+<div class="banner">
+    <img src="/icon/E.png">
+</div>
 <div>
-    <div>
-        <h2 style="margin-left: 50px;margin-top:20px">Favorite Courses</h2>
+    <div style="color:#353b48;">
 
-        <div class="d-flex flex-row flex-wrap" id="list-item">
-            {{#each this.favoriteCourses}}
-            <a href="/course/{{this._id}}" style="text-decoration: none; color:black; font-size:15px; padding-top:10px">
-                <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <img src="{{this.image}}" />
-                    <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
+        <h2 style="margin-left: 110px;margin-top:20px;border-left:5px solid #e74c3c">&ensp; Favorite Courses</h2>
 
-                    <div class="author-name">Tác giả: {{this.teacher.userName}}</div>
+    </div>
+
+    <div class="d-flex flex-row flex-wrap" id="list-item">
+        {{#each this.favoriteCourses}}
+        <a href="/course/{{this._id}}" style="text-decoration: none; color:black; font-size:15px; padding-top:10px">
+            <div class="product-card">
+                <div class="badge">
+                    <div>
+                        <img src="/icon/like.png" style="max-width:100%;max-height:30px;">
+
+                    </div>
+                </div>
+                <div class="product-tumb">
+                    <img src="{{this.image}}">
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">{{this.field}}</span>
+                    <h4><a href="">{{this.name}}</a></h4>
+                    <p>{{this.teacher.userName}}</p>
                     <div>
                         {{#times this.rating }}
                         <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
                         {{/times}}
                     </div>
-                    <div style="color: gray;">
-                        <div>Số lượng người mua: {{this.student.length}}</div>
-                        <span><b>$ {{this.price}}</b></span>
-                        <span style="margin-left:30px">{{this.numViews}} <i style="margin-left: 2px;"
+                    <div>Sold {{this.student.length}}</div>
+                    <div class="product-bottom-details">
+                        <div class="product-price">${{this.price}}</div>
+                        <span style="margin-left:80px">{{this.numViews}} <i style="margin-left: 2px;"
                                 class="fas fa-eye"></i></span>
                     </div>
-                    <div>
-                        <img src="/icon/like.png" style="max-width:100%;max-height:30px;margin-left:85%">
-
-                    </div>
-                    <div class="tag">
-                        <label style="color: #374151;" for="">{{this.field}}</label>
-                    </div>
-                    {{!-- <label for=""> {{this.field}}</label> --}}
                 </div>
-            </a>
-            {{/each}}
-        </div>
-        <nav aria-label="..." >
+            </div>
+        </a>
+        {{/each}}
+    </div>
+    <nav aria-label="...">
         <ul class="pagination center" id="pageFavContainer">
             <li id="btnFavFirst" class="page-item">
-                <a class="page-link" href="/1" >First</a>
+                <a class="page-link" href="/1">First</a>
             </li>
-            <li class="page-item" id="btnFavBefore"><a class="page-link" href="#" ></a></li>
+            <li class="page-item" id="btnFavBefore"><a class="page-link" href="#"></a></li>
             <li class="page-item active">
                 <a class="page-link" href="#" id="btnFavCurrentPage"><span class="sr-only">(current)</span></a>
             </li>
@@ -55,15 +63,15 @@
 
         var href = 'favpage=1';
 
-        if(currentMostCoursesPage > 1) {
+        if (currentMostCoursesPage > 1) {
             href = href + '&' + 'mostviewpage=' + currentMostCoursesPage;
         }
-        if(currentNewCoursesPage > 1) {
+        if (currentNewCoursesPage > 1) {
             href = href + '&' + 'newcoursespage=' + currentNewCoursesPage;
         }
         href = '?' + href;
 
-        String.prototype.splice = function(idx, rem, str) {
+        String.prototype.splice = function (idx, rem, str) {
             return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
         };
 
@@ -75,64 +83,72 @@
         current = current.splice(pageIndexLocation, 1, currentPage);
         currentIndex.setAttribute("href", current);
 
-        if(currentPage == 1) {
+        if (currentPage == 1) {
             document.getElementById("btnFavFirst").setAttribute("class", "page-item disabled");
             document.getElementById("btnFavBefore").remove();
         } else {
             var first = href.splice(pageIndexLocation, 1, '1');
             document.getElementById("btnFavFirst").childNodes[1].setAttribute("href", first);
 
-            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage)-1);
+            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage) - 1);
             document.getElementById("btnFavBefore").childNodes[0].setAttribute("href", beforePage);
-            document.getElementById("btnFavBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
+            document.getElementById("btnFavBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) - 1));
         }
         var numPage = "{{favPageTotal}}";
-        if(currentPage >= numPage) {
+        if (currentPage >= numPage) {
             document.getElementById("btnFavAfter").remove();
             document.getElementById("btnFavLast").setAttribute("class", "page-item disabled");
         } else {
             var last = href.splice(pageIndexLocation, 1, parseInt(numPage) + 1);
-            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage)+1);
+            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage) + 1);
 
             document.getElementById("btnFavLast").childNodes[1].setAttribute("href", last);
             document.getElementById("btnFavAfter").childNodes[0].setAttribute("href", after);
-            document.getElementById("btnFavAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
+            document.getElementById("btnFavAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) + 1));
         }
-      </script>
-    </div>
-    <div>
-        <h2 style="margin-left: 50px;">Most Views Courses</h2>
-        <div class="d-flex flex-row flex-wrap" id="list-item">
-            {{#each this.mostViewCourses}}
-            <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
-                <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
-                    <div style="color: #374151;" >Lĩnh vực:{{this.field}}</div>
-                    <img src="{{this.image}}" />
-                    <div style="color: #374151;">Tác giả:{{this.teacher.userName}}</div>
+    </script>
+</div>
+<div>
+    <h2 style="margin-left: 110px;border-left:5px solid #e67e22">&ensp;Most Views Courses</h2>
+    <div class="d-flex flex-row flex-wrap" id="list-item">
+        {{#each this.mostViewCourses}}
+        <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
+            <div class="product-card">
+                <div class="badge">
+                    <div>
+                        <img src="/icon/hot.png" style="max-width:100%;max-height:30px;">
+
+                    </div>
+                </div>
+                <div class="product-tumb">
+                    <img src="{{this.image}}">
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">{{this.field}}</span>
+                    <h4><a href="">{{this.name}}</a></h4>
+                    <p>{{this.teacher.userName}}</p>
                     <div>
                         {{#times this.rating }}
                         <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
                         {{/times}}
                     </div>
-                    <div style="color: gray;">
-                        <div>Số lượng người mua: {{this.student.length}}</div>
-                        <div>Giá: {{this.price}}</div>
-                        <div>Views: {{this.numViews}} <i style="margin-left: 2px;" class="fas fa-eye"></i></div>
-                    </div>
-                    <div>
-                        <img src="/icon/hot.png" style="max-width:100%;max-height:30px;margin-left:85%">
+                    <div>Sold {{this.student.length}}</div>
+                    <div class="product-bottom-details">
+                        <div class="product-price">${{this.price}}</div>
+                        <span style="margin-left:80px">{{this.numViews}} <i style="margin-left: 2px;"
+                                class="fas fa-eye"></i></span>
                     </div>
                 </div>
-            </a>
-            {{/each}}
-        </div>
-        <nav aria-label="..." >
+            </div>
+        </a>
+        {{/each}}
+    </div>
+    <nav aria-label="...">
         <ul class="pagination center" id="pageContainer">
             <li id="btnFirst" class="page-item">
-                <a class="page-link" href="#" >First</a>
+                <a class="page-link" href="#">First</a>
             </li>
-            <li class="page-item" id="btnBefore"><a class="page-link" href="#" ></a></li>
+            <li class="page-item" id="btnBefore"><a class="page-link" href="#"></a></li>
             <li class="page-item active">
                 <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
             </li>
@@ -151,15 +167,15 @@
 
         var href = 'mostviewpage=1';
 
-        if(currentFavPage > 1) {
+        if (currentFavPage > 1) {
             href = 'favpage=' + currentFavPage + '&' + href;
         }
-        if(currentNewCoursesPage > 1) {
+        if (currentNewCoursesPage > 1) {
             href = href + '&' + 'newcoursespage=' + currentNewCoursesPage;
         }
         href = '?' + href;
 
-        String.prototype.splice = function(idx, rem, str) {
+        String.prototype.splice = function (idx, rem, str) {
             return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
         };
 
@@ -170,68 +186,75 @@
         current = current.splice(pageIndexLocation, 1, currentPage);
         currentIndex.setAttribute("href", current);
 
-        if(currentPage == 1) {
+        if (currentPage == 1) {
             document.getElementById("btnFirst").setAttribute("class", "page-item disabled");
             document.getElementById("btnBefore").remove();
         } else {
             var first = href.splice(pageIndexLocation, 1, '1');
             document.getElementById("btnFirst").childNodes[1].setAttribute("href", first);
 
-            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage)-1);
+            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage) - 1);
             document.getElementById("btnBefore").childNodes[0].setAttribute("href", beforePage);
-            document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
+            document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) - 1));
         }
         var numPage = "{{mostViewPageTotal}}";
-        if(currentPage >= numPage) {
+        if (currentPage >= numPage) {
             document.getElementById("btnAfter").remove();
             document.getElementById("btnLast").setAttribute("class", "page-item disabled");
         } else {
             var last = href.splice(pageIndexLocation, 1, parseInt(numPage) + 1);
-            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage)+1);
+            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage) + 1);
 
             document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
             document.getElementById("btnAfter").childNodes[0].setAttribute("href", after);
-            document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
+            document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) + 1));
         }
-      </script>
-    </div>
-    <div>
-        <h2 style="margin-left: 50px;">New Courses</h2>
-        <div class="d-flex flex-row flex-wrap " id="list-item" style="display: flex;">
-            {{#each this.newCourses}}
+    </script>
+</div>
+<div>
+    <h2 style="margin-left: 110px;border-left:5px solid #3498db">&ensp;New Courses</h2>
+    <div class="d-flex flex-row flex-wrap " id="list-item" style="display: flex;">
+        {{#each this.newCourses}}
+        <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
+            <div class="product-card">
+                <div class="badge">
+                    <div>
+                        <img src="/icon/new.png" style="max-width:100%;max-height:30px;">
 
-            <a href="/course/{{this._id}}" style="text-decoration: none;color:black; font-size:15px;">
-                <div class="d-flex flex-column flex-wrap mr-4 item-course">
-                    <div style="font-size:25px;color:#374151"><b>{{this.name}}</b></div>
-                    <div style="color: #374151;">Lĩnh vực:{{this.field}}</div>
-                    <img src="{{this.image}}" />
-                    <div style="color: #374151;">Tác giả:{{this.teacher.userName}}</div>
+                    </div>
+                </div>
+                <div class="product-tumb">
+                    <img src="{{this.image}}">
+                </div>
+                <div class="product-details">
+                    <span class="product-catagory">{{this.field}}</span>
+                    <h4><a href="">{{this.name}}</a></h4>
+                    <p>{{this.teacher.userName}}</p>
                     <div>
                         {{#times this.rating }}
                         <i class="fa fa-star" style="color:rgba(248, 211, 0, 0.849)"></i>
                         {{/times}}
                     </div>
-                    <div style="color: gray;">
-                        <div>Số lượng người mua: {{this.student.length}}</div>
-                        <div>Giá: {{this.price}}</div>
-                        <div>Views: {{this.numViews}} <i style="margin-left: 2px;" class="fas fa-eye"></i></div>
-                    </div>
-                    <div>
-                        <img src="/icon/new.png" style="max-width:100%;max-height:30px;margin-left:85%">
+                    <div>Sold {{this.student.length}}</div>
+                    <div class="product-bottom-details">
+                        <div class="product-price">${{this.price}}</div>
+                        <span style="margin-left:80px">{{this.numViews}} <i style="margin-left: 2px;"
+                                class="fas fa-eye"></i></span>
                     </div>
                 </div>
-            </a>
+            </div>
+        </a>
 
-            {{/each}}
+        {{/each}}
 
 
-        </div>
-            <nav aria-label="..." >
+    </div>
+    <nav aria-label="...">
         <ul class="pagination center" id="pageNewContainer">
             <li id="btnNewFirst" class="page-item">
-                <a class="page-link" href="/1" >First</a>
+                <a class="page-link" href="/1">First</a>
             </li>
-            <li class="page-item" id="btnNewBefore"><a class="page-link" href="#" ></a></li>
+            <li class="page-item" id="btnNewBefore"><a class="page-link" href="#"></a></li>
             <li class="page-item active">
                 <a class="page-link" href="#" id="btnNewCurrentPage"><span class="sr-only">(current)</span></a>
             </li>
@@ -248,15 +271,15 @@
 
         var href = 'newcoursespage=1';
 
-        if(currentMostCoursesPage > 1) {
+        if (currentMostCoursesPage > 1) {
             href = 'mostviewpage=' + currentMostCoursesPage + '&' + href;
         }
-        if(currentFavPage > 1) {
+        if (currentFavPage > 1) {
             href = 'newcoursespage=' + currentFavPage + '&' + href;
         }
         href = '?' + href;
 
-        String.prototype.splice = function(idx, rem, str) {
+        String.prototype.splice = function (idx, rem, str) {
             return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
         };
 
@@ -264,44 +287,44 @@
 
         var currentIndex = document.getElementById("btnNewCurrentPage");
         currentIndex.appendChild(document.createTextNode(currentPage));
-        
+
         var current = href;
         current = current.splice(pageIndexLocation, 1, currentPage);
         currentIndex.setAttribute("href", current);
 
-        if(currentPage == 1) {
+        if (currentPage == 1) {
             document.getElementById("btnNewFirst").setAttribute("class", "page-item disabled");
             document.getElementById("btnNewBefore").remove();
         } else {
             var first = href.splice(pageIndexLocation, 1, '1');
             document.getElementById("btnNewFirst").childNodes[1].setAttribute("href", first);
-            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage)-1);
+            var beforePage = href.splice(pageIndexLocation, 1, parseInt(currentPage) - 1);
             document.getElementById("btnNewBefore").childNodes[0].setAttribute("href", beforePage);
-            document.getElementById("btnNewBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
+            document.getElementById("btnNewBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) - 1));
         }
         var numPage = "{{newCoursesPageTotal}}";
-        if(currentPage >= numPage) {
+        if (currentPage >= numPage) {
             document.getElementById("btnNewAfter").remove();
             document.getElementById("btnNewLast").setAttribute("class", "page-item disabled");
         } else {
             var last = href.splice(pageIndexLocation, 1, parseInt(numPage) + 1);
-            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage)+1);
+            var after = href.splice(pageIndexLocation, 1, parseInt(currentPage) + 1);
 
             document.getElementById("btnNewLast").childNodes[1].setAttribute("href", last);
             document.getElementById("btnNewAfter").childNodes[0].setAttribute("href", after);
-            document.getElementById("btnNewAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)+1));
+            document.getElementById("btnNewAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) + 1));
         }
-      </script>
-    </div>
+    </script>
+</div>
 
-    <div>
-        <h2 style="margin-left: 50px;">Best Category</h2>
-        <div style="margin-left:20px;border-top: rgb(179, 178, 178) 2px solid;width:80%;">
-            {{#each this.bestCategory}}
-            <li style="font-weight:500;margin-left: 50px;margin-top:10px;list-style-type: circle;">{{this}}</li>
-            {{/each}}
-        </div>
+<div>
+    <h2 style="margin-left: 50px;">Best Category</h2>
+    <div style="margin-left:20px;border-top: rgb(179, 178, 178) 2px solid;width:80%;">
+        {{#each this.bestCategory}}
+        <li style="font-weight:500;margin-left: 50px;margin-top:10px;list-style-type: circle;">{{this}}</li>
+        {{/each}}
     </div>
+</div>
 </div>
 <script>
     document.querySelector(".nav-link.active").classList.remove("active");
@@ -324,6 +347,6 @@
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous"></script>
 
-<script >
+<script>
     var category = ;
 </script>
