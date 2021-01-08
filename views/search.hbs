@@ -89,30 +89,19 @@
             document.getElementById("btnBefore").childNodes[0].setAttribute("href", beforePage);
             document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage)-1));
         }
+       
         var numPage = "{{totalPage}}";
-        if(currentPage >= numPage) {
+        if (currentPage >= numPage) {
             document.getElementById("btnAfter").remove();
             document.getElementById("btnLast").setAttribute("class", "page-item disabled");
         } else {
             var last = href.splice(href.indexOf('page=')+ 5, 1, parseInt(numPage));
             var after = href.splice(href.indexOf('page=')+ 5, 1, parseInt(currentPage) + 1);
 
-                var beforePage = href + (parseInt(currentPage) - 1);
-                document.getElementById("btnBefore").childNodes[0].setAttribute("href", beforePage);
-                document.getElementById("btnBefore").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) - 1));
-            }
-            var numPage = "{{totalPage}}";
-            if (currentPage >= numPage) {
-                document.getElementById("btnAfter").remove();
-                document.getElementById("btnLast").setAttribute("class", "page-item disabled");
-            } else {
-                var last = href + (parseInt(numPage) + 1);
-                var after = href + (parseInt(currentPage) + 1);
-
-                document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
-                document.getElementById("btnAfter").childNodes[0].setAttribute("href", after);
-                document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) + 1));
-            }
+            document.getElementById("btnLast").childNodes[1].setAttribute("href", last);
+            document.getElementById("btnAfter").childNodes[0].setAttribute("href", after);
+            document.getElementById("btnAfter").childNodes[0].appendChild(document.createTextNode(parseInt(currentPage) + 1));
+        }
         </script>
     </div>
 </div>
@@ -158,10 +147,8 @@
                 var queryIndex = currentHref.indexOf('sort=') + 5;
                 currentHref = currentHref.splice(queryIndex, currentHref.length - queryIndex, 'price');
             }
-
             window.location.href = currentHref;
         }
-
     });
 
 </script>
