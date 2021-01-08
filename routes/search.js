@@ -21,41 +21,48 @@ router.get("/keyword/:content", async (req, res) => {
   res.render("search", { courses, category,currentPage, totalPage });
 });
 
-router.get("/price", async (req, res) => {
-  const category = await Category.find({}).lean();
-  const allCourses = await Course.find({}).sort({ price: 1 }).populate("teacher");
+// router.get("/price", async (req, res) => {
+//   const category = await Category.find({}).lean();
+//   const allCourses = await Course.find({}).sort({ price: 1 }).populate("teacher");
 
-  var perPage = 8;
-  var currentPage = parseInt(req.query.page) || 1;
-  var totalPage = allCourses.length / perPage;
+//   var perPage = 8;
+//   var currentPage = parseInt(req.query.page) || 1;
+//   var totalPage = allCourses.length / perPage;
 
-  var start = (currentPage -1) * perPage;
-  var end = currentPage* perPage;
+//   var start = (currentPage -1) * perPage;
+//   var end = currentPage* perPage;
 
-  let courses =  allCourses.slice(start, end);
+//   let courses =  allCourses.slice(start, end);
 
-  res.render("search", { courses, category,currentPage, totalPage });
-});
+//   res.render("search", { courses, category,currentPage, totalPage });
+// });
 
-router.get("/rating", async (req, res) => {
-  const category = await Category.find({}).lean();
-  const allCourses = await Course.find({}).sort({ rating: 1 }).populate("teacher");
+// router.get("/rating", async (req, res) => {
+//   const category = await Category.find({}).lean();
+//   const allCourses = await Course.find({}).sort({ rating: 1 }).populate("teacher");
 
-  var perPage = 8;
-  var currentPage = parseInt(req.query.page) || 1;
-  var totalPage = allCourses.length / perPage;
+//   var perPage = 8;
+//   var currentPage = parseInt(req.query.page) || 1;
+//   var totalPage = allCourses.length / perPage;
 
-  var start = (currentPage -1) * perPage;
-  var end = currentPage* perPage;
+//   var start = (currentPage -1) * perPage;
+//   var end = currentPage* perPage;
 
-  let courses =  allCourses.slice(start, end);
+//   let courses =  allCourses.slice(start, end);
 
-  res.render("search", { courses, category,currentPage, totalPage });
-});
+//   res.render("search", { courses, category,currentPage, totalPage });
+// });
 
 router.get("/category/:name", async (req, res) => {
   const name = req.params.name;
-  const allExistedCourse = await Course.find({ field: name }).lean();
+  let allExistedCourse;
+
+  if(req.query.sort != null) {
+    allExistedCourse = await Course.find({ field: name }).sort(req.query.sort).lean();
+  } else {
+    allExistedCourse = await Course.find({ field: name }).lean();
+  }
+
   const category = await Category.find({}).lean();
 
   var perPage = 8;
