@@ -21,7 +21,7 @@
                 </div>
                 <div class="product-details">
                     <span class="product-catagory">{{this.field}}</span>
-                    <h4><a href="">{{this.name}}</a></h4>
+                    <h4><a href="/course/{{this._id}}">{{this.name}}</a></h4>
                     <p>{{this.teacher.userName}}</p>
                     <div>
                         {{#times this.rating }}
@@ -123,7 +123,7 @@
                 </div>
                 <div class="product-details">
                     <span class="product-catagory">{{this.field}}</span>
-                    <h4><a href="">{{this.name}}</a></h4>
+                    <h4><a href="/course/{{this._id}}">{{this.name}}</a></h4>
                     <p>{{this.teacher.userName}}</p>
                     <div>
                         {{#times this.rating }}
@@ -226,7 +226,7 @@
                 </div>
                 <div class="product-details">
                     <span class="product-catagory">{{this.field}}</span>
-                    <h4><a href="">{{this.name}}</a></h4>
+                    <h4><a href="/course/{{this._id}}">{{this.name}}</a></h4>
                     <p>{{this.teacher.userName}}</p>
                     <div>
                         {{#times this.rating }}
@@ -247,21 +247,25 @@
 
 
     </div>
-    <nav aria-label="...">
-        <ul class="pagination center" id="pageNewContainer">
-            <li id="btnNewFirst" class="page-item">
-                <a class="page-link" href="/1">First</a>
-            </li>
-            <li class="page-item" id="btnNewBefore"><a class="page-link" href="#"></a></li>
-            <li class="page-item active">
-                <a class="page-link" href="#" id="btnNewCurrentPage"><span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item" id="btnNewAfter"><a class="page-link" href="#"></a></li>
-            <li class="page-item" id="btnNewLast">
-                <a class="page-link" href="#">Last</a>
-            </li>
-        </ul>
-    </nav>
+    <center>
+        <nav aria-label="...">
+
+            <ul class="pagination center" id="pageNewContainer">
+                <li id="btnNewFirst" class="page-item">
+                    <a class="page-link" href="/1">First</a>
+                </li>
+                <li class="page-item" id="btnNewBefore"><a class="page-link" href="#"></a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#" id="btnNewCurrentPage"><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item" id="btnNewAfter"><a class="page-link" href="#"></a></li>
+                <li class="page-item" id="btnNewLast">
+                    <a class="page-link" href="#">Last</a>
+                </li>
+            </ul>
+
+        </nav>
+    </center>
     <script>
         var currentPage = "{{ currentNewCoursesPage }}";
         var currentMostCoursesPage = "{{ currentMostViewPage }}";
