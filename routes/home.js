@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
 
   const allMostViewCourses = await Course.find({}).sort({numViews:-1}).limit(10).populate("teacher");
 
-  var perPage = 3;
+  var perPage = 4;
 
   var favpage = parseInt(req.query.favpage) || 1;
   var favstart = (favpage -1) * perPage;
