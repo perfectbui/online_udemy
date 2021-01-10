@@ -61,6 +61,18 @@ a {
     transition: transform 0.5s;
 }
 
+@media only screen and (max-width: 1800px) {
+    .aaa {
+        margin-left: 110px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .aaa {
+        margin-left: 50px;
+    }
+}
+
 .badge {
     position: absolute;
     left: 0;
