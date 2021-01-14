@@ -45,7 +45,7 @@ mongoose
 app.use(express.static(__dirname + "/public"));
 
 app.engine(
-    ".hbs",
+    "hbs",
     exphbs({
         defaultLayout: "main.hbs",
         handlebars: allowInsecurePrototypeAccess(_handlebars),
@@ -116,7 +116,12 @@ app.use("/", require("./routes/home"));
 
 app.get("/index", (req, res) => res.render("haha"));
 
-app.listen(3000, (req, res) => console.log(`Server started at localhost:3000`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${PORT}`);
+});
+
+// app.listen(3000, (req, res) => console.log(`Server started at localhost:3000`));
 
 // const mysqlConnection = mysql.createConnection({
 //   host:'localhost',
