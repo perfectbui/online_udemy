@@ -4,15 +4,17 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
-const _handlebars = require('handlebars')
+const {
+    allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
+const _handlebars = require("handlebars");
 const Axios = require("axios");
 const dateFormat = require("dateformat");
 const mysql = require("mysql");
 const User1 = require("./models/User1");
 const { response } = require("express");
 const Course = require("./models/Course");
-const Category = require("./models/Category")
+const Category = require("./models/Category");
 
 require("dotenv").config();
 
@@ -25,51 +27,51 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
+    bodyParser.urlencoded({
+        extended: true,
+    })
 );
 
 mongoose
-  .connect(process.env.MongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  })
-  .then(() => { })
-  .catch((err) => console.log(err));
+    .connect(process.env.MongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+    })
+    .then(() => {})
+    .catch(err => console.log(err));
 
 app.use(express.static(__dirname + "/public"));
 
 app.engine(
-  "hbs",
-  exphbs({
-    defaultLayout: "main.hbs",
-    handlebars: allowInsecurePrototypeAccess(_handlebars),
-    extname: ".hbs",
-    layoutsDir: __dirname + "/views/layouts/",
-    partialsDir: __dirname + "/views/partials/",
-    helpers: {
-      times: function (n, block) {
-        var accum = '';
-        for(var i = 0; i < n; ++i) {
-            block.data.index = i;
-            block.data.first = i === 0;
-            block.data.last = i === (n - 1);
-            accum += block.fn(this);
-        }
-        return accum;
-      }
-    }
-    // helpers: {
-    //   times: function (n, block) {
-    //     var accum = "";
-    //     for (var i = 0; i < n; ++i) accum += block.fn(i);
-    //     return accum;
-    //   },
-    // },
-  })
+    ".hbs",
+    exphbs({
+        defaultLayout: "main.hbs",
+        handlebars: allowInsecurePrototypeAccess(_handlebars),
+        extname: ".hbs",
+        layoutsDir: __dirname + "/views/layouts/",
+        partialsDir: __dirname + "/views/partials/",
+        helpers: {
+            times: function(n, block) {
+                var accum = "";
+                for (var i = 0; i < n; ++i) {
+                    block.data.index = i;
+                    block.data.first = i === 0;
+                    block.data.last = i === n - 1;
+                    accum += block.fn(this);
+                }
+                return accum;
+            },
+        },
+        // helpers: {
+        //   times: function (n, block) {
+        //     var accum = "";
+        //     for (var i = 0; i < n; ++i) accum += block.fn(i);
+        //     return accum;
+        //   },
+        // },
+    })
 );
 
 app.set("view engine", "hbs");
@@ -94,7 +96,7 @@ app.use("/", require("./routes/home"));
 
 // app.get("/:page", async (req, res) => {
 //   let perPage = 10;
-//   let page = parseInt(req.params.page) || 1; 
+//   let page = parseInt(req.params.page) || 1;
 //   const allcourses = await Course.find({}).populate("teacher").lean();
 //   const courses = await Course.find({}).populate("teacher").lean()
 //             .skip((perPage * page) - perPage)
@@ -110,11 +112,7 @@ app.use("/", require("./routes/home"));
 
 // app.get("/index",(req,res)=> res.sendFile(`${__dirname}/index.html`))
 
-
 //app.get("/news", require("./routes/news"))
-
-
-
 
 app.get("/index", (req, res) => res.render("haha"));
 
