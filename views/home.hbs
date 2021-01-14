@@ -39,21 +39,24 @@
         </a>
         {{/each}}
     </div>
-    <nav aria-label="...">
-        <ul class="pagination center" id="pageFavContainer">
-            <li id="btnFavFirst" class="page-item">
-                <a class="page-link" href="/1">First</a>
-            </li>
-            <li class="page-item" id="btnFavBefore"><a class="page-link" href="#"></a></li>
-            <li class="page-item active">
-                <a class="page-link" href="#" id="btnFavCurrentPage"><span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item" id="btnFavAfter"><a class="page-link" href="#"></a></li>
-            <li class="page-item" id="btnFavLast">
-                <a class="page-link" href="#">Last</a>
-            </li>
-        </ul>
-    </nav>
+    <div style="display: flex;justify-content:center">
+        <nav aria-label="...">
+            <ul class="pagination" id="pageFavContainer">
+                <li id="btnFavFirst" class="page-item">
+                    <a class="page-link" href="/1">First</a>
+                </li>
+                <li class="page-item" id="btnFavBefore"><a class="page-link" href="#"></a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#" id="btnFavCurrentPage"><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item" id="btnFavAfter"><a class="page-link" href="#"></a></li>
+                <li class="page-item" id="btnFavLast">
+                    <a class="page-link" href="#">Last</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
     <script>
         var currentPage = "{{ currentFavPage }}";
         var currentNewCoursesPage = "{{ currentNewCoursesPage }}";
@@ -141,21 +144,23 @@
         </a>
         {{/each}}
     </div>
-    <nav aria-label="...">
-        <ul class="pagination center" id="pageContainer">
-            <li id="btnFirst" class="page-item">
-                <a class="page-link" href="#">First</a>
-            </li>
-            <li class="page-item" id="btnBefore"><a class="page-link" href="#"></a></li>
-            <li class="page-item active">
-                <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item" id="btnAfter"><a class="page-link" href="#"></a></li>
-            <li class="page-item" id="btnLast">
-                <a class="page-link" href="#">Last</a>
-            </li>
-        </ul>
-    </nav>
+    <div style="display: flex;justify-content:center">
+        <nav aria-label="...">
+            <ul class="pagination" id="pageContainer">
+                <li id="btnFirst" class="page-item">
+                    <a class="page-link" href="#">First</a>
+                </li>
+                <li class="page-item" id="btnBefore"><a class="page-link" href="#"></a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#" id="btnCurrentPage"><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item" id="btnAfter"><a class="page-link" href="#"></a></li>
+                <li class="page-item" id="btnLast">
+                    <a class="page-link" href="#">Last</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <script>
         var currentPage = "{{ currentMostViewPage }}";
         var currentNewCoursesPage = "{{ currentNewCoursesPage }}";
@@ -247,10 +252,10 @@
 
 
     </div>
-    <center>
+    <div style="display: flex;justify-content:center">
         <nav aria-label="...">
 
-            <ul class="pagination center" id="pageNewContainer">
+            <ul class="pagination" id="pageNewContainer">
                 <li id="btnNewFirst" class="page-item">
                     <a class="page-link" href="/1">First</a>
                 </li>
@@ -265,7 +270,7 @@
             </ul>
 
         </nav>
-    </center>
+    </div>
     <script>
         var currentPage = "{{ currentNewCoursesPage }}";
         var currentMostCoursesPage = "{{ currentMostViewPage }}";
